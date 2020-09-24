@@ -36,6 +36,7 @@ Custom functions are far more modular, and do not have any dependancies. They ca
 
 ### Prerequisites
 - Phantom 4.9
+- RBA based Notables
 
 ### Mapping Assets
 When downloading external playbooks, Phantom requires that you map your assets to the assets used within a Playbook. This process is easy thanks to the "auto-resolve" functionality of each Playbook. 
@@ -45,3 +46,7 @@ You will have to navigate to each downloaded Playbook (Playbooks > Repo Label > 
 ### Playbook App Integrations
 - Custom Phantom Helper App (hosted at shelbertITW/phantom-rba/apps/)
 - VirusTotal
+
+### Getting alerts into Phantom
+- Recommended approach is to use the Saved Search Export in the Phantom App for Splunk: https://splunkbase.splunk.com/app/3411/
+- A quick an easy method is to use the Splunk app on Phantom 'on poll' method. Here is a sample search: `` `notable` | search search_name=RBA* | fields _time, event_hash, event_id, host, info_min_time, info_max_time, risk_object, risk_object_type, risk_ScoreSum, rule_description, rule_id, rule_name, search_name, source, splunk_server ``
