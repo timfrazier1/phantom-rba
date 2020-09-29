@@ -65,13 +65,6 @@ def fetch_risk_rules(action=None, success=None, container=None, results=None, ha
 
     return
 
-def set_container_low(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('set_container_low() called')
-
-    phantom.set_severity(container=container, severity="Low")
-
-    return
-
 def decision_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug('decision_2() called')
 
@@ -84,7 +77,7 @@ def decision_2(action=None, success=None, container=None, results=None, handle=N
 
     # call connected blocks if condition 1 matched
     if matched:
-        update_artifact_sev_low(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
+        update_artifact_low(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
         return
 
     # check for 'elif' condition 2
@@ -92,40 +85,40 @@ def decision_2(action=None, success=None, container=None, results=None, handle=N
         container=container,
         conditions=[
             ["artifact:*.cef. risk_ScoreSum", ">=", 200],
-            ["artifact:*.cef.risk_ScoreSum", "<", 250],
+            ["artifact:*.cef.risk_ScoreSum", "<", 500],
         ],
         logical_operator='and')
 
     # call connected blocks if condition 2 matched
     if matched:
-        update_artifact_sev_med(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
+        update_artifact_med(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
         return
 
     # check for 'elif' condition 3
     matched = phantom.decision(
         container=container,
         conditions=[
-            ["artifact:*.cef.risk_ScoreSum", ">=", 250],
-        ])
+            ["artifact:*.cef.risk_ScoreSum", ">=", 500],
+            ["artifact:*.cef.risk_ScoreSum", "<", 750],
+        ],
+        logical_operator='and')
 
     # call connected blocks if condition 3 matched
     if matched:
-        update_artifact_sev_high(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
+        update_artifact_high(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
         return
 
-    return
+    # check for 'elif' condition 4
+    matched = phantom.decision(
+        container=container,
+        conditions=[
+            ["artifact:*.cef.risk_ScoreSum", ">=", 750],
+        ])
 
-def set_container_high(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('set_container_high() called')
-
-    phantom.set_severity(container=container, severity="High")
-
-    return
-
-def set_container_med(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('set_container_med() called')
-
-    phantom.set_severity(container=container, severity="Medium")
+    # call connected blocks if condition 4 matched
+    if matched:
+        update_artifact_crit(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
+        return
 
     return
 
@@ -134,75 +127,6 @@ def playbook_rba_master_rba_master_RBA_Investigate_1(action=None, success=None, 
     
     # call playbook "rba-master/RBA Investigate", returns the playbook_run_id
     playbook_run_id = phantom.playbook(playbook="rba-master/RBA Investigate", container=container)
-
-    return
-
-def update_artifact_sev_high(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('update_artifact_sev_high() called')
-
-    # collect data for 'update_artifact_sev_high' call
-    container_data = phantom.collect2(container=container, datapath=['artifact:*.id', 'artifact:*.id'])
-
-    parameters = []
-    
-    # build parameters list for 'update_artifact_sev_high' call
-    for container_item in container_data:
-        if container_item[0]:
-            parameters.append({
-                'data': "{\"label\":\"splunk\",\"severity\":\"high\"}",
-                'overwrite': True,
-                'artifact_id': container_item[0],
-                # context (artifact id) is added to associate results with the artifact
-                'context': {'artifact_id': container_item[1]},
-            })
-
-    phantom.act(action="update artifact fields", parameters=parameters, assets=['phantom_helper'], callback=set_container_high, name="update_artifact_sev_high")
-
-    return
-
-def update_artifact_sev_low(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('update_artifact_sev_low() called')
-
-    # collect data for 'update_artifact_sev_low' call
-    container_data = phantom.collect2(container=container, datapath=['artifact:*.id', 'artifact:*.id'])
-
-    parameters = []
-    
-    # build parameters list for 'update_artifact_sev_low' call
-    for container_item in container_data:
-        if container_item[0]:
-            parameters.append({
-                'data': "{\"label\":\"splunk\",\"severity\":\"low\"}",
-                'overwrite': True,
-                'artifact_id': container_item[0],
-                # context (artifact id) is added to associate results with the artifact
-                'context': {'artifact_id': container_item[1]},
-            })
-
-    phantom.act(action="update artifact fields", parameters=parameters, assets=['phantom_helper'], callback=set_container_low, name="update_artifact_sev_low")
-
-    return
-
-def update_artifact_sev_med(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('update_artifact_sev_med() called')
-
-    # collect data for 'update_artifact_sev_med' call
-    container_data = phantom.collect2(container=container, datapath=['artifact:*.id', 'artifact:*.id'])
-
-    parameters = []
-    
-    # build parameters list for 'update_artifact_sev_med' call
-    for container_item in container_data:
-        if container_item[0]:
-            parameters.append({
-                'data': "{\"label\":\"splunk\",\"severity\":\"medium\"}",
-                'overwrite': True,
-                'artifact_id': container_item[0],
-                # context (artifact id) is added to associate results with the artifact
-                'context': {'artifact_id': container_item[1]},
-            })
-
-    phantom.act(action="update artifact fields", parameters=parameters, assets=['phantom_helper'], callback=set_container_med, name="update_artifact_sev_med")
 
     return
 
@@ -369,6 +293,146 @@ def custom_function_1(action=None, success=None, container=None, results=None, h
     ################################################################################
     ## Custom Code End
     ################################################################################
+
+    return
+
+def update_artifact_high(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('update_artifact_high() called')
+    
+    filtered_artifacts_data_0 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.id'])
+    literal_values_0 = [
+        [
+            "{\"severity\": \"high\"}",
+            "True",
+        ],
+    ]
+
+    parameters = []
+
+    for item0 in filtered_artifacts_data_0:
+        for item1 in literal_values_0:
+            parameters.append({
+                'artifact_id': item0[0],
+                'data': item1[0],
+                'overwrite': item1[1],
+            })
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################    
+
+    # call custom function "rba-master/update_artifact", returns the custom_function_run_id
+    phantom.custom_function(custom_function='rba-master/update_artifact', parameters=parameters, name='update_artifact_high')
+
+    return
+
+def update_artifact_med(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('update_artifact_med() called')
+    
+    filtered_artifacts_data_0 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.id'])
+    literal_values_0 = [
+        [
+            "{\"severity\": \"medium\"}",
+            "True",
+        ],
+    ]
+
+    parameters = []
+
+    for item0 in filtered_artifacts_data_0:
+        for item1 in literal_values_0:
+            parameters.append({
+                'artifact_id': item0[0],
+                'data': item1[0],
+                'overwrite': item1[1],
+            })
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################    
+
+    # call custom function "rba-master/update_artifact", returns the custom_function_run_id
+    phantom.custom_function(custom_function='rba-master/update_artifact', parameters=parameters, name='update_artifact_med')
+
+    return
+
+def update_artifact_low(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('update_artifact_low() called')
+    
+    filtered_artifacts_data_0 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.id'])
+    literal_values_0 = [
+        [
+            "{\"severity\": \"low\"}",
+            "True",
+        ],
+    ]
+
+    parameters = []
+
+    for item0 in filtered_artifacts_data_0:
+        for item1 in literal_values_0:
+            parameters.append({
+                'artifact_id': item0[0],
+                'data': item1[0],
+                'overwrite': item1[1],
+            })
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################    
+
+    # call custom function "rba-master/update_artifact", returns the custom_function_run_id
+    phantom.custom_function(custom_function='rba-master/update_artifact', parameters=parameters, name='update_artifact_low')
+
+    return
+
+def update_artifact_crit(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('update_artifact_crit() called')
+    
+    filtered_artifacts_data_0 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.id'])
+    literal_values_0 = [
+        [
+            "{\"severity\": \"high\"}",
+            "True",
+        ],
+    ]
+
+    parameters = []
+
+    for item0 in filtered_artifacts_data_0:
+        for item1 in literal_values_0:
+            parameters.append({
+                'artifact_id': item0[0],
+                'data': item1[0],
+                'overwrite': item1[1],
+            })
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################    
+
+    # call custom function "rba-master/update_artifact", returns the custom_function_run_id
+    phantom.custom_function(custom_function='rba-master/update_artifact', parameters=parameters, name='update_artifact_crit')
 
     return
 
