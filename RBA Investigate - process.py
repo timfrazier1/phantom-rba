@@ -299,7 +299,6 @@ def add_artifact_1(action=None, success=None, container=None, results=None, hand
     formatted_data_1 = phantom.get_format_data(name='format_4__as_list')
 
     parameters = []
-    phantom.debug(formatted_data_1)
     
     # build parameters list for 'add_artifact_1' call
     for formatted_part_1 in formatted_data_1:
@@ -312,7 +311,7 @@ def add_artifact_1(action=None, success=None, container=None, results=None, hand
                     'contains': "",
                     'cef_value': "",
                     'container_id': "",
-                    'cef_dictionary': json.loads(formatted_part_1),
+                    'cef_dictionary': formatted_part_1,
                     'run_automation': "true",
                     'source_data_identifier': filtered_custom_function_results_item_1[0],
                 })
@@ -324,9 +323,7 @@ def add_artifact_1(action=None, success=None, container=None, results=None, hand
 def format_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug('format_4() called')
     
-    template = """%%
-{{'threat_object': '{0}', 'threat_object_type': 'ip'}}
-%%"""
+    template = """{{\"threat_object\": \"{0}\", \"threat_object_type\": \"ip\"}}"""
 
     # parameter list for template variable replacement
     parameters = [
