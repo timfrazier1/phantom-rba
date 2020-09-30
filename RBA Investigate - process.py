@@ -323,7 +323,7 @@ def add_artifact_1(action=None, success=None, container=None, results=None, hand
 def format_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug('format_4() called')
     
-    template = """{{\"threat_object\": \"{0}\", \"threat_object_type\": \"ip\"}}"""
+    template = """{{'threat_object': '{0}', 'threat_object_type': 'ip'}}"""
 
     # parameter list for template variable replacement
     parameters = [
