@@ -299,6 +299,8 @@ def add_artifact_1(action=None, success=None, container=None, results=None, hand
     formatted_data_1 = phantom.get_format_data(name='format_4__as_list')
 
     parameters = []
+
+    phantom.debug(formatted_data_1)
     
     # build parameters list for 'add_artifact_1' call
     for formatted_part_1 in formatted_data_1:
