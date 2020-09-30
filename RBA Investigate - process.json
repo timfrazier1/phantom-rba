@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "55d7765ae1fcc9e0f1e96f74bd21dfe901b64f6a",
+            "hash": "71bce5b2531793ab3e6f7a4b8b5f16e18d1f1a9b",
             "joint": {
                 "cells": [
                     {
@@ -199,7 +199,7 @@
                         "callback_start": 1,
                         "callsback": false,
                         "connected_to_start": true,
-                        "connection_name": "add artifact, ip reputation, update_artifact",
+                        "connection_name": "add artifact, ip reputation, update_artifact, add_artifact_with_tags",
                         "connection_type": "action",
                         "custom_callback": "",
                         "custom_code": "",
@@ -217,12 +217,12 @@
                         "join_code": "# read-only block view not available",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 352,
-                        "line_start": 339,
+                        "line_end": 406,
+                        "line_start": 393,
                         "name": "",
                         "notes": "",
                         "number": 0,
-                        "order": 16,
+                        "order": 17,
                         "outPorts": [],
                         "ports": {
                             "groups": {
@@ -277,7 +277,7 @@
                             }
                         },
                         "position": {
-                            "x": 1760,
+                            "x": 1800,
                             "y": 100
                         },
                         "previous_function": "",
@@ -3962,7 +3962,7 @@
                                 "opacity": 1
                             }
                         },
-                        "block_code": "def format_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('format_4() called')\n    \n    template = \"\"\"{{\\\"threat_object\\\": \\\"{0}\\\", \\\"threat_object_type\\\": \\\"ip\\\"}}\"\"\"\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_4\")\n\n    add_artifact_1(container=container)\n\n    return",
+                        "block_code": "def format_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('format_4() called')\n    \n    template = \"\"\"{{\\\"threat_object\\\": \\\"{0}\\\", \\\"threat_object_type\\\": \\\"ip\\\"}}\"\"\"\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_4\")\n\n    add_artifact_1(container=container)\n    cf_rba_master_add_artifact_with_tags_1(container=container)\n\n    return",
                         "callback_code": "",
                         "callback_start": 1,
                         "callsback": false,
@@ -3986,7 +3986,7 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 339,
+                        "line_end": 340,
                         "line_start": 323,
                         "message": "Configuring now",
                         "name": "format",
@@ -4632,8 +4632,8 @@
                             }
                         },
                         "position": {
-                            "x": 1500,
-                            "y": -60
+                            "x": 1540,
+                            "y": -140
                         },
                         "previous_function": "",
                         "previous_name": "add_artifact_1",
@@ -4652,6 +4652,457 @@
                         "type": "coa.Action",
                         "warn": false,
                         "z": 358
+                    },
+                    {
+                        "attrs": {
+                            ".connection": {
+                                "stroke": "#818D99",
+                                "stroke-width": 2
+                            },
+                            ".marker-target": {
+                                "d": "M 10 0 L 0 5 L 10 10 z",
+                                "fill": "#818D99",
+                                "stroke": "#818D99"
+                            }
+                        },
+                        "connector": {
+                            "args": {
+                                "radius": 5
+                            },
+                            "name": "rounded"
+                        },
+                        "endDirections": [
+                            "left"
+                        ],
+                        "id": "263f1925-e43e-4d53-b02e-c123cfa86896",
+                        "router": {
+                            "name": "metro"
+                        },
+                        "source": {
+                            "id": "11c23bef-2b0d-4811-8c45-d559a5aef3ce",
+                            "selector": "> g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "startDirections": [
+                            "right"
+                        ],
+                        "target": {
+                            "id": "4cba0c65-9cef-4599-878a-b0a71026775f",
+                            "selector": ".port-body[type=\"input\"]"
+                        },
+                        "type": "link",
+                        "z": 359
+                    },
+                    {
+                        ".scmName/text": "rba-master",
+                        "active": false,
+                        "active_keys": {},
+                        "active_values": {},
+                        "angle": 0,
+                        "attrs": {
+                            ".background": {
+                                "fill": "#000000",
+                                "stroke": "#5C6773"
+                            },
+                            ".color-band": {
+                                "fill": "#3C444D"
+                            },
+                            ".customFunction": {
+                                "text": "add_artifact_with_tags"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "ref-x": 5,
+                                "ref-y": 105,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".scmName": {
+                                "text": "rba-master"
+                            },
+                            ".title": {
+                                "text": "custom function"
+                            },
+                            ".title-info": {
+                                "text": ""
+                            },
+                            "g.branch image": {
+                                "opacity": 1
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            }
+                        },
+                        "block_code": "def cf_rba_master_add_artifact_with_tags_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('cf_rba_master_add_artifact_with_tags_1() called')\n    \n    container_property_0 = [\n        [\n            container.get(\"id\"),\n        ],\n    ]\n    formatted_data_0 = [\n        [\n            phantom.get_format_data(name=\"format_4\"),\n        ],\n    ]\n    literal_values_0 = [\n        [\n            \"low\",\n            \"risk_rule\",\n            \"Extracted IPv4 address\",\n            \"True\",\n            \"{\\\"threat_object\\\": [\\\"ip\\\"]}\",\n        ],\n    ]\n\n    parameters = []\n\n    for item0 in formatted_data_0:\n        for item1 in literal_values_0:\n            for item2 in container_property_0:\n                parameters.append({\n                    'cef': item0[0],\n                    'tags': None,\n                    'severity': item1[0],\n                    'container_id': item2[0],\n                    'label': item1[1],\n                    'name': item1[2],\n                    'run_automation': item1[3],\n                    'field_mapping': item1[4],\n                })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"rba-master/add_artifact_with_tags\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='rba-master/add_artifact_with_tags', parameters=parameters, name='cf_rba_master_add_artifact_with_tags_1')\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": true,
+                        "cef-0": "format_4:formatted_data",
+                        "cfDisplayPath": "rba-master/add_artifact_with_tags",
+                        "cfInputs": {
+                            "cef": {
+                                "collectionType": "formatted_data",
+                                "dataPath": "format_4:formatted_data",
+                                "paramName": "item0[0]",
+                                "type": "item"
+                            },
+                            "container_id": {
+                                "collectionType": "container_property",
+                                "dataPath": "container:id",
+                                "paramName": "item2[0]",
+                                "type": "item"
+                            },
+                            "field_mapping": {
+                                "collectionType": "literal_values",
+                                "dataPath": "{\"threat_object\": [\"ip\"]}",
+                                "paramName": "item1[4]",
+                                "type": "item"
+                            },
+                            "label": {
+                                "collectionType": "literal_values",
+                                "dataPath": "risk_rule",
+                                "paramName": "item1[1]",
+                                "type": "item"
+                            },
+                            "name": {
+                                "collectionType": "literal_values",
+                                "dataPath": "Extracted IPv4 address",
+                                "paramName": "item1[2]",
+                                "type": "item"
+                            },
+                            "run_automation": {
+                                "collectionType": "literal_values",
+                                "dataPath": "True",
+                                "paramName": "item1[3]",
+                                "type": "item"
+                            },
+                            "severity": {
+                                "collectionType": "literal_values",
+                                "dataPath": "low",
+                                "paramName": "item1[0]",
+                                "type": "item"
+                            },
+                            "tags": {
+                                "dataPath": "",
+                                "type": "item"
+                            }
+                        },
+                        "color": "",
+                        "connected_to_start": true,
+                        "connection_name": "regex_extract_ipv4",
+                        "connection_type": "action",
+                        "container_id-3": "container:id",
+                        "currentVersion": true,
+                        "customCodeEndLineOffset": 7,
+                        "customCodeStartLine": 41,
+                        "customFunction": "rba-master/add_artifact_with_tags",
+                        "customFunctionId": null,
+                        "custom_callback": "",
+                        "custom_code": "",
+                        "custom_join": "",
+                        "custom_name": "",
+                        "delay": 0,
+                        "description": "",
+                        "draftMode": false,
+                        "existingCF": true,
+                        "field_mapping-7": "{\"threat_object\": [\"ip\"]}",
+                        "functionBlock": "custom function",
+                        "has_custom": false,
+                        "has_custom_block": false,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "4cba0c65-9cef-4599-878a-b0a71026775f",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "label-4": "risk_rule",
+                        "line_end": 393,
+                        "line_start": 340,
+                        "message": "Configuring now",
+                        "name": "add_artifact_with_tags",
+                        "name-5": "Extracted IPv4 address",
+                        "notes": "",
+                        "number": 1,
+                        "order": 16,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 1520,
+                            "y": -20
+                        },
+                        "previous_function": "",
+                        "previous_name": "cf_rba_master_add_artifact_with_tags_1",
+                        "run_automation-6": "True",
+                        "selectedCustomFunction": {
+                            "description": "Adds an artifact and updates that artifact with provided tags",
+                            "draftMode": false,
+                            "id": 24,
+                            "inputs": [
+                                {
+                                    "_pretty_custom_function": "add_artifact_with_tags",
+                                    "contains_type": [
+                                        "*"
+                                    ],
+                                    "custom_function": 24,
+                                    "description": "",
+                                    "id": 76,
+                                    "input_type": "item",
+                                    "name": "cef",
+                                    "placeholder": "artifact.cef"
+                                },
+                                {
+                                    "_pretty_custom_function": "add_artifact_with_tags",
+                                    "contains_type": [
+                                        "*"
+                                    ],
+                                    "custom_function": 24,
+                                    "description": "",
+                                    "id": 77,
+                                    "input_type": "item",
+                                    "name": "tags",
+                                    "placeholder": "artifact.tags"
+                                },
+                                {
+                                    "_pretty_custom_function": "add_artifact_with_tags",
+                                    "contains_type": [
+                                        "*"
+                                    ],
+                                    "custom_function": 24,
+                                    "description": "",
+                                    "id": 78,
+                                    "input_type": "item",
+                                    "name": "severity",
+                                    "placeholder": "\"informational\""
+                                },
+                                {
+                                    "_pretty_custom_function": "add_artifact_with_tags",
+                                    "contains_type": [
+                                        "phantom container id"
+                                    ],
+                                    "custom_function": 24,
+                                    "description": "",
+                                    "id": 79,
+                                    "input_type": "item",
+                                    "name": "container_id",
+                                    "placeholder": ""
+                                },
+                                {
+                                    "_pretty_custom_function": "add_artifact_with_tags",
+                                    "contains_type": [
+                                        "*"
+                                    ],
+                                    "custom_function": 24,
+                                    "description": "",
+                                    "id": 80,
+                                    "input_type": "item",
+                                    "name": "label",
+                                    "placeholder": ""
+                                },
+                                {
+                                    "_pretty_custom_function": "add_artifact_with_tags",
+                                    "contains_type": [
+                                        "*"
+                                    ],
+                                    "custom_function": 24,
+                                    "description": "",
+                                    "id": 81,
+                                    "input_type": "item",
+                                    "name": "name",
+                                    "placeholder": "artifact.name"
+                                },
+                                {
+                                    "_pretty_custom_function": "add_artifact_with_tags",
+                                    "contains_type": [
+                                        "*"
+                                    ],
+                                    "custom_function": 24,
+                                    "description": "Defaults to False",
+                                    "id": 82,
+                                    "input_type": "item",
+                                    "name": "run_automation",
+                                    "placeholder": "True or False"
+                                },
+                                {
+                                    "_pretty_custom_function": "add_artifact_with_tags",
+                                    "contains_type": [
+                                        "*"
+                                    ],
+                                    "custom_function": 24,
+                                    "description": "valid field_mapping json",
+                                    "id": 83,
+                                    "input_type": "item",
+                                    "name": "field_mapping",
+                                    "placeholder": "{\"my_cef_field\": [\"hash\"]}"
+                                }
+                            ],
+                            "name": "add_artifact_with_tags",
+                            "outputs": [
+                                {
+                                    "_pretty_custom_function": "add_artifact_with_tags",
+                                    "contains_type": [],
+                                    "custom_function": 24,
+                                    "data_path": "id",
+                                    "description": "",
+                                    "id": 45
+                                }
+                            ],
+                            "playbooks": {
+                                "draft_playbooks": [],
+                                "draft_version_id": null,
+                                "playbooks": [
+                                    {
+                                        "active": false,
+                                        "display_path": "rba-master/RBA Prep 2.0 - demo",
+                                        "draft_mode": false,
+                                        "id": 97,
+                                        "name": "RBA Prep 2.0 - demo",
+                                        "viewable": true
+                                    },
+                                    {
+                                        "active": true,
+                                        "display_path": "rba-master/RBA Prep 2.0",
+                                        "draft_mode": false,
+                                        "id": 103,
+                                        "name": "RBA Prep 2.0",
+                                        "viewable": true
+                                    }
+                                ]
+                            },
+                            "scmId": 4,
+                            "scmName": "rba-master"
+                        },
+                        "severity-2": "low",
+                        "show_number": false,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "repo",
+                        "status": "",
+                        "title": "custom function",
+                        "type": "coa.CustomFunctionBlock",
+                        "userGeneratedCode": "    # Write your custom code here...",
+                        "warn": false,
+                        "z": 361
+                    },
+                    {
+                        "attrs": {
+                            ".connection": {
+                                "stroke": "#818D99",
+                                "stroke-width": 2
+                            },
+                            ".marker-target": {
+                                "d": "M 10 0 L 0 5 L 10 10 z",
+                                "fill": "#818D99",
+                                "stroke": "#818D99"
+                            }
+                        },
+                        "connector": {
+                            "args": {
+                                "radius": 5
+                            },
+                            "name": "rounded"
+                        },
+                        "endDirections": [
+                            "left"
+                        ],
+                        "id": "3fa678ba-58e9-4c1c-94bf-9e58dd9397a3",
+                        "router": {
+                            "name": "metro"
+                        },
+                        "source": {
+                            "id": "4cba0c65-9cef-4599-878a-b0a71026775f",
+                            "selector": "> g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "startDirections": [
+                            "right"
+                        ],
+                        "target": {
+                            "id": "7fd957ea-035d-40c0-a58b-2dbc6ff1dbfb",
+                            "selector": "> g:nth-child(1) > g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "type": "link",
+                        "z": 362
                     }
                 ]
             },
@@ -4661,7 +5112,7 @@
         "schema": 4,
         "version": "4.9.34514"
     },
-    "create_time": "2020-09-30T20:40:52.563779+00:00",
+    "create_time": "2020-09-30T20:44:39.846321+00:00",
     "draft_mode": false,
     "labels": [
         "*"

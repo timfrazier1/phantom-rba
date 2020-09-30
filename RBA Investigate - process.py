@@ -333,6 +333,60 @@ def format_4(action=None, success=None, container=None, results=None, handle=Non
     phantom.format(container=container, template=template, parameters=parameters, name="format_4")
 
     add_artifact_1(container=container)
+    cf_rba_master_add_artifact_with_tags_1(container=container)
+
+    return
+
+def cf_rba_master_add_artifact_with_tags_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('cf_rba_master_add_artifact_with_tags_1() called')
+    
+    container_property_0 = [
+        [
+            container.get("id"),
+        ],
+    ]
+    formatted_data_0 = [
+        [
+            phantom.get_format_data(name="format_4"),
+        ],
+    ]
+    literal_values_0 = [
+        [
+            "low",
+            "risk_rule",
+            "Extracted IPv4 address",
+            "True",
+            "{\"threat_object\": [\"ip\"]}",
+        ],
+    ]
+
+    parameters = []
+
+    for item0 in formatted_data_0:
+        for item1 in literal_values_0:
+            for item2 in container_property_0:
+                parameters.append({
+                    'cef': item0[0],
+                    'tags': None,
+                    'severity': item1[0],
+                    'container_id': item2[0],
+                    'label': item1[1],
+                    'name': item1[2],
+                    'run_automation': item1[3],
+                    'field_mapping': item1[4],
+                })
+    ################################################################################
+    ## Custom Code Start
+    ################################################################################
+
+    # Write your custom code here...
+
+    ################################################################################
+    ## Custom Code End
+    ################################################################################    
+
+    # call custom function "rba-master/add_artifact_with_tags", returns the custom_function_run_id
+    phantom.custom_function(custom_function='rba-master/add_artifact_with_tags', parameters=parameters, name='cf_rba_master_add_artifact_with_tags_1')
 
     return
 
