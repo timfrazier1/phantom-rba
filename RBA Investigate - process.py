@@ -91,8 +91,8 @@ def cf_rba_master_regex_extract_powershell_b64_1(action=None, success=None, cont
 
     for item0 in container_data_0:
         parameters.append({
-            'input_string': item0[0],
             'artifact_id': item0[1],
+            'input_string': item0[0],
         })
     ################################################################################
     ## Custom Code Start
@@ -121,14 +121,14 @@ def pin_1(action=None, success=None, container=None, results=None, handle=None, 
 def cf_rba_master_decode_base64_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug('cf_rba_master_decode_base64_1() called')
     
-    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_regex_extract_powershell_b64_1:custom_function_result.data.extracted_string', 'cf_rba_master_regex_extract_powershell_b64_1:custom_function_result.data.artifact_id'], action_results=results )
+    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_regex_extract_powershell_b64_1:custom_function_result.data.artifact_id', 'cf_rba_master_regex_extract_powershell_b64_1:custom_function_result.data.extracted_string'], action_results=results )
 
     parameters = []
 
     for item0 in custom_function_result_0:
         parameters.append({
-            'input_string': item0[0],
-            'artifact_id': item0[1],
+            'artifact_id': item0[0],
+            'input_string': item0[1],
         })
     ################################################################################
     ## Custom Code Start
@@ -232,12 +232,12 @@ def cf_rba_master_update_artifact_1(action=None, success=None, container=None, r
 
     parameters = []
 
-    for item0 in filtered_custom_function_results_data_0:
-        for item1 in formatted_data_0:
+    for item0 in formatted_data_0:
+        for item1 in filtered_custom_function_results_data_0:
             parameters.append({
-                'artifact_id': item0[0],
-                'data': item1[0],
+                'data': item0[0],
                 'overwrite': None,
+                'artifact_id': item1[0],
             })
     ################################################################################
     ## Custom Code Start
@@ -325,7 +325,7 @@ def format_4(action=None, success=None, container=None, results=None, handle=Non
     phantom.debug('format_4() called')
     
     template = """%%
-{{\"threat_object\": \"{0}\", \"threat_object_type\": \"ip\"}}
+{{'threat_object': '{0}', 'threat_object_type': 'ip'}}
 %%"""
 
     # parameter list for template variable replacement
