@@ -125,8 +125,8 @@ def cf_rba_master_dynamic_prompt_pairing_1(action=None, success=None, container=
     
     legacy_custom_function_result_0 = [
         [
-            json.loads(phantom.get_run_data(key="get_run_data:responses")),
             json.loads(phantom.get_run_data(key="get_run_data:output")),
+            json.loads(phantom.get_run_data(key="get_run_data:responses")),
         ],
     ]
 
@@ -134,8 +134,8 @@ def cf_rba_master_dynamic_prompt_pairing_1(action=None, success=None, container=
 
     for item0 in legacy_custom_function_result_0:
         parameters.append({
-            'response': item0[0],
-            'input_json': item0[1],
+            'input_json': item0[0],
+            'response': item0[1],
         })
     ################################################################################
     ## Custom Code Start
