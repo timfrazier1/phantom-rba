@@ -78,20 +78,21 @@ def subnet_filter(action=None, success=None, container=None, results=None, handl
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
         ip_reputation_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+        format_4(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
 def cf_rba_master_regex_extract_powershell_b64_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug('cf_rba_master_regex_extract_powershell_b64_1() called')
     
-    container_data_0 = phantom.collect2(container=container, datapath=['artifact:*.cef.threat_object', 'artifact:*.id'])
+    container_data_0 = phantom.collect2(container=container, datapath=['artifact:*.cef.cmdline', 'artifact:*.id'])
 
     parameters = []
 
     for item0 in container_data_0:
         parameters.append({
-            'artifact_id': item0[1],
             'input_string': item0[0],
+            'artifact_id': item0[1],
         })
     ################################################################################
     ## Custom Code Start
@@ -120,14 +121,14 @@ def pin_1(action=None, success=None, container=None, results=None, handle=None, 
 def cf_rba_master_decode_base64_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug('cf_rba_master_decode_base64_1() called')
     
-    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_regex_extract_powershell_b64_1:custom_function_result.data.artifact_id', 'cf_rba_master_regex_extract_powershell_b64_1:custom_function_result.data.extracted_string'], action_results=results )
+    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_regex_extract_powershell_b64_1:custom_function_result.data.extracted_string', 'cf_rba_master_regex_extract_powershell_b64_1:custom_function_result.data.artifact_id'], action_results=results )
 
     parameters = []
 
     for item0 in custom_function_result_0:
         parameters.append({
-            'artifact_id': item0[0],
-            'input_string': item0[1],
+            'input_string': item0[0],
+            'artifact_id': item0[1],
         })
     ################################################################################
     ## Custom Code Start
@@ -285,6 +286,56 @@ def filter_4(action=None, success=None, container=None, results=None, handle=Non
     if matched_artifacts_1 or matched_results_1:
         cf_rba_master_decode_base64_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
         format_3(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+
+    return
+
+def add_artifact_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('add_artifact_1() called')
+        
+    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+    
+    # collect data for 'add_artifact_1' call
+    filtered_custom_function_results_data_1 = phantom.collect2(container=container, datapath=['filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4'])
+    formatted_data_1 = phantom.get_format_data(name='format_4__as_list')
+
+    parameters = []
+    phantom.debug(formatted_data_1)
+    
+    # build parameters list for 'add_artifact_1' call
+    for formatted_part_1 in formatted_data_1:
+        for filtered_custom_function_results_item_1 in filtered_custom_function_results_data_1:
+            if filtered_custom_function_results_item_1[0]:
+                parameters.append({
+                    'name': "Extracted IPv4 artifact",
+                    'label': "risk_rule",
+                    'cef_name': "",
+                    'contains': "",
+                    'cef_value': "",
+                    'container_id': "",
+                    'cef_dictionary': json.loads(formatted_part_1),
+                    'run_automation': "true",
+                    'source_data_identifier': filtered_custom_function_results_item_1[0],
+                })
+
+    phantom.act(action="add artifact", parameters=parameters, assets=['helper'], name="add_artifact_1")
+
+    return
+
+def format_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('format_4() called')
+    
+    template = """%%
+{{\"threat_object\": \"{0}\", \"threat_object_type\": \"ip\"}}
+%%"""
+
+    # parameter list for template variable replacement
+    parameters = [
+        "filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4",
+    ]
+
+    phantom.format(container=container, template=template, parameters=parameters, name="format_4")
+
+    add_artifact_1(container=container)
 
     return
 
