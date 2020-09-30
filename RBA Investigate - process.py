@@ -300,6 +300,7 @@ def add_artifact_1(action=None, success=None, container=None, results=None, hand
 
     parameters = []
     phantom.debug(formatted_data_1)
+    phantom.debug(json.loads(formatted_data_1))
     # build parameters list for 'add_artifact_1' call
     for filtered_custom_function_results_item_1 in filtered_custom_function_results_data_1:
         if filtered_custom_function_results_item_1[0]:
@@ -310,7 +311,7 @@ def add_artifact_1(action=None, success=None, container=None, results=None, hand
                 'contains': "",
                 'cef_value': "",
                 'container_id': "",
-                'cef_dictionary': formatted_data_1,
+                'cef_dictionary': json.loads(formatted_data_1),
                 'run_automation': "true",
                 'source_data_identifier': filtered_custom_function_results_item_1[0],
             })
