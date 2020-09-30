@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "from dateutil.parser import parse\nfrom django.utils.dateparse import parse_datetime\nimport re\nimport random",
             "description": "",
-            "hash": "6bf82c84f693502e263f173af095ee82ed55f557",
+            "hash": "cb23c584ff5ae1c587f5373e5c6c105a90a555fa",
             "joint": {
                 "cells": [
                     {
@@ -2113,168 +2113,6 @@
                         "z": 1462
                     },
                     {
-                        "active": false,
-                        "angle": 0,
-                        "attrs": {
-                            ".background": {
-                                "fill": "#000000",
-                                "stroke": "#637282",
-                                "transform": "rotate(45 30 70)"
-                            },
-                            ".inPorts>.port-0>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".number": {
-                                "text": 7
-                            },
-                            ".outPorts>.port-0": {
-                                "port": {
-                                    "id": "out-1",
-                                    "type": "out"
-                                },
-                                "ref-x": 83,
-                                "ref-y": 40
-                            },
-                            ".outPorts>.port-0>.port-body": {
-                                "port": {
-                                    "id": "out-1",
-                                    "type": "out"
-                                }
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 0
-                            },
-                            "g.notes": {
-                                "display": "block"
-                            },
-                            "g.notes image": {
-                                "opacity": 1
-                            }
-                        },
-                        "block_code": "def decision_7(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('decision_7() called')\n    \n    name_value = container.get('name', None)\n\n    # check for 'if' condition 1\n    matched = phantom.decision(\n        container=container,\n        conditions=[\n            [\"filtered-data:filter_1:condition_1:artifact:*.cef.risk_object\", \"==\", name_value],\n        ])\n\n    # call connected blocks if condition 1 matched\n    if matched:\n        format_2(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)\n        return\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 1,
-                        "callsback": false,
-                        "connected_to_start": true,
-                        "connection_name": "",
-                        "connection_type": "",
-                        "custom_callback": "",
-                        "custom_code": "",
-                        "custom_join": "",
-                        "custom_name": "",
-                        "description": "",
-                        "hasElse": false,
-                        "has_custom": false,
-                        "has_custom_block": false,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "2486076c-cc06-4cea-a7ce-28bebbaaba4f",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "join_code": "",
-                        "join_optional": [],
-                        "join_start": 1,
-                        "line_end": 265,
-                        "line_start": 246,
-                        "name": "decision",
-                        "notes": "",
-                        "number": 7,
-                        "order": 10,
-                        "outPorts": [
-                            "out-1"
-                        ],
-                        "outputs": [
-                            {
-                                "conditions": [
-                                    {
-                                        "comparison": "==",
-                                        "data_type": "",
-                                        "param": "filtered-data:filter_1:condition_1:artifact:*.cef.risk_object",
-                                        "value": "container:name"
-                                    }
-                                ],
-                                "display": "If",
-                                "logic": "and",
-                                "type": "if"
-                            }
-                        ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
-                        },
-                        "position": {
-                            "x": -240,
-                            "y": 100
-                        },
-                        "previous_function": "",
-                        "previous_name": "decision_7",
-                        "show_number": true,
-                        "size": {
-                            "height": 82,
-                            "width": 82
-                        },
-                        "state": "decision",
-                        "status": "",
-                        "type": "coa.Decision",
-                        "warn": "",
-                        "z": 1464
-                    },
-                    {
                         "attrs": {
                             ".connection": {
                                 "stroke": "#818D99",
@@ -3243,7 +3081,7 @@
                                 "display": "block"
                             }
                         },
-                        "block_code": "def update_artifact_low(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('update_artifact_low() called')\n    \n    filtered_artifacts_data_0 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.id'])\n    literal_values_0 = [\n        [\n            \"{\\\"severity\\\": \\\"low\\\"}\",\n            \"True\",\n        ],\n    ]\n\n    parameters = []\n\n    for item0 in filtered_artifacts_data_0:\n        for item1 in literal_values_0:\n            parameters.append({\n                'artifact_id': item0[0],\n                'data': item1[0],\n                'overwrite': item1[1],\n            })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"rba-master/update_artifact\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='rba-master/update_artifact', parameters=parameters, name='update_artifact_low')\n\n    return",
+                        "block_code": "def update_artifact_low(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('update_artifact_low() called')\n    \n    filtered_artifacts_data_0 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.id'])\n    literal_values_0 = [\n        [\n            \"{\\\"severity\\\": \\\"low\\\"}\",\n            \"True\",\n        ],\n    ]\n\n    parameters = []\n\n    for item0 in literal_values_0:\n        for item1 in filtered_artifacts_data_0:\n            parameters.append({\n                'data': item0[0],\n                'overwrite': item0[1],\n                'artifact_id': item1[0],\n            })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"rba-master/update_artifact\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='rba-master/update_artifact', parameters=parameters, name='update_artifact_low')\n\n    return",
                         "callback_code": "",
                         "callback_start": 1,
                         "callsback": true,
@@ -3252,19 +3090,19 @@
                             "artifact_id": {
                                 "collectionType": "filtered_artifacts_data",
                                 "dataPath": "filtered-data:filter_1:condition_1:artifact:*.id",
-                                "paramName": "item0[0]",
+                                "paramName": "item1[0]",
                                 "type": "item"
                             },
                             "data": {
                                 "collectionType": "literal_values",
                                 "dataPath": "{\"severity\": \"low\"}",
-                                "paramName": "item1[0]",
+                                "paramName": "item0[0]",
                                 "type": "item"
                             },
                             "overwrite": {
                                 "collectionType": "literal_values",
                                 "dataPath": "True",
-                                "paramName": "item1[1]",
+                                "paramName": "item0[1]",
                                 "type": "item"
                             }
                         },
@@ -3835,7 +3673,7 @@
                                 "display": "block"
                             }
                         },
-                        "block_code": "def update_artifact_high(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('update_artifact_high() called')\n    \n    filtered_artifacts_data_0 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.id'])\n    literal_values_0 = [\n        [\n            \"{\\\"severity\\\": \\\"high\\\"}\",\n            \"True\",\n        ],\n    ]\n\n    parameters = []\n\n    for item0 in filtered_artifacts_data_0:\n        for item1 in literal_values_0:\n            parameters.append({\n                'artifact_id': item0[0],\n                'data': item1[0],\n                'overwrite': item1[1],\n            })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"rba-master/update_artifact\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='rba-master/update_artifact', parameters=parameters, name='update_artifact_high')\n\n    return",
+                        "block_code": "def update_artifact_high(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('update_artifact_high() called')\n    \n    filtered_artifacts_data_0 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.id'])\n    literal_values_0 = [\n        [\n            \"{\\\"severity\\\": \\\"high\\\"}\",\n            \"True\",\n        ],\n    ]\n\n    parameters = []\n\n    for item0 in literal_values_0:\n        for item1 in filtered_artifacts_data_0:\n            parameters.append({\n                'data': item0[0],\n                'overwrite': item0[1],\n                'artifact_id': item1[0],\n            })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"rba-master/update_artifact\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='rba-master/update_artifact', parameters=parameters, name='update_artifact_high')\n\n    return",
                         "callback_code": "",
                         "callback_start": 1,
                         "callsback": true,
@@ -3844,19 +3682,19 @@
                             "artifact_id": {
                                 "collectionType": "filtered_artifacts_data",
                                 "dataPath": "filtered-data:filter_1:condition_1:artifact:*.id",
-                                "paramName": "item0[0]",
+                                "paramName": "item1[0]",
                                 "type": "item"
                             },
                             "data": {
                                 "collectionType": "literal_values",
                                 "dataPath": "{\"severity\": \"high\"}",
-                                "paramName": "item1[0]",
+                                "paramName": "item0[0]",
                                 "type": "item"
                             },
                             "overwrite": {
                                 "collectionType": "literal_values",
                                 "dataPath": "True",
-                                "paramName": "item1[1]",
+                                "paramName": "item0[1]",
                                 "type": "item"
                             }
                         },
@@ -4123,7 +3961,7 @@
                                 "display": "block"
                             }
                         },
-                        "block_code": "def update_artifact_med(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('update_artifact_med() called')\n    \n    filtered_artifacts_data_0 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.id'])\n    literal_values_0 = [\n        [\n            \"{\\\"severity\\\": \\\"medium\\\"}\",\n            \"True\",\n        ],\n    ]\n\n    parameters = []\n\n    for item0 in filtered_artifacts_data_0:\n        for item1 in literal_values_0:\n            parameters.append({\n                'artifact_id': item0[0],\n                'data': item1[0],\n                'overwrite': item1[1],\n            })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"rba-master/update_artifact\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='rba-master/update_artifact', parameters=parameters, name='update_artifact_med')\n\n    return",
+                        "block_code": "def update_artifact_med(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('update_artifact_med() called')\n    \n    filtered_artifacts_data_0 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.id'])\n    literal_values_0 = [\n        [\n            \"{\\\"severity\\\": \\\"medium\\\"}\",\n            \"True\",\n        ],\n    ]\n\n    parameters = []\n\n    for item0 in literal_values_0:\n        for item1 in filtered_artifacts_data_0:\n            parameters.append({\n                'data': item0[0],\n                'overwrite': item0[1],\n                'artifact_id': item1[0],\n            })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"rba-master/update_artifact\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='rba-master/update_artifact', parameters=parameters, name='update_artifact_med')\n\n    return",
                         "callback_code": "",
                         "callback_start": 1,
                         "callsback": true,
@@ -4132,19 +3970,19 @@
                             "artifact_id": {
                                 "collectionType": "filtered_artifacts_data",
                                 "dataPath": "filtered-data:filter_1:condition_1:artifact:*.id",
-                                "paramName": "item0[0]",
+                                "paramName": "item1[0]",
                                 "type": "item"
                             },
                             "data": {
                                 "collectionType": "literal_values",
                                 "dataPath": "{\"severity\": \"medium\"}",
-                                "paramName": "item1[0]",
+                                "paramName": "item0[0]",
                                 "type": "item"
                             },
                             "overwrite": {
                                 "collectionType": "literal_values",
                                 "dataPath": "True",
-                                "paramName": "item1[1]",
+                                "paramName": "item0[1]",
                                 "type": "item"
                             }
                         },
@@ -4411,7 +4249,7 @@
                                 "display": "block"
                             }
                         },
-                        "block_code": "def update_artifact_crit(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('update_artifact_crit() called')\n    \n    filtered_artifacts_data_0 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.id'])\n    literal_values_0 = [\n        [\n            \"{\\\"severity\\\": \\\"high\\\"}\",\n            \"True\",\n        ],\n    ]\n\n    parameters = []\n\n    for item0 in filtered_artifacts_data_0:\n        for item1 in literal_values_0:\n            parameters.append({\n                'artifact_id': item0[0],\n                'data': item1[0],\n                'overwrite': item1[1],\n            })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"rba-master/update_artifact\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='rba-master/update_artifact', parameters=parameters, name='update_artifact_crit')\n\n    return",
+                        "block_code": "def update_artifact_crit(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('update_artifact_crit() called')\n    \n    filtered_artifacts_data_0 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.id'])\n    literal_values_0 = [\n        [\n            \"{\\\"severity\\\": \\\"high\\\"}\",\n            \"True\",\n        ],\n    ]\n\n    parameters = []\n\n    for item0 in literal_values_0:\n        for item1 in filtered_artifacts_data_0:\n            parameters.append({\n                'data': item0[0],\n                'overwrite': item0[1],\n                'artifact_id': item1[0],\n            })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"rba-master/update_artifact\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='rba-master/update_artifact', parameters=parameters, name='update_artifact_crit')\n\n    return",
                         "callback_code": "",
                         "callback_start": 1,
                         "callsback": true,
@@ -4420,19 +4258,19 @@
                             "artifact_id": {
                                 "collectionType": "filtered_artifacts_data",
                                 "dataPath": "filtered-data:filter_1:condition_1:artifact:*.id",
-                                "paramName": "item0[0]",
+                                "paramName": "item1[0]",
                                 "type": "item"
                             },
                             "data": {
                                 "collectionType": "literal_values",
                                 "dataPath": "{\"severity\": \"high\"}",
-                                "paramName": "item1[0]",
+                                "paramName": "item0[0]",
                                 "type": "item"
                             },
                             "overwrite": {
                                 "collectionType": "literal_values",
                                 "dataPath": "True",
-                                "paramName": "item1[1]",
+                                "paramName": "item0[1]",
                                 "type": "item"
                             }
                         },
@@ -4632,6 +4470,168 @@
                         "userGeneratedCode": "    # Write your custom code here...",
                         "warn": false,
                         "z": 1497
+                    },
+                    {
+                        "active": false,
+                        "angle": 0,
+                        "attrs": {
+                            ".background": {
+                                "fill": "#000000",
+                                "stroke": "#637282",
+                                "transform": "rotate(45 30 70)"
+                            },
+                            ".inPorts>.port-0>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".number": {
+                                "text": 7
+                            },
+                            ".outPorts>.port-0": {
+                                "port": {
+                                    "id": "out-1",
+                                    "type": "out"
+                                },
+                                "ref-x": 83,
+                                "ref-y": 40
+                            },
+                            ".outPorts>.port-0>.port-body": {
+                                "port": {
+                                    "id": "out-1",
+                                    "type": "out"
+                                }
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            },
+                            "g.notes image": {
+                                "opacity": 1
+                            }
+                        },
+                        "block_code": "def decision_7(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('decision_7() called')\n    \n    name_value = container.get('name', None)\n\n    # check for 'if' condition 1\n    matched = phantom.decision(\n        container=container,\n        conditions=[\n            [\"filtered-data:filter_1:condition_1:artifact:*.cef.risk_object\", \"not in\", name_value],\n        ])\n\n    # call connected blocks if condition 1 matched\n    if matched:\n        format_2(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)\n        return\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": false,
+                        "connected_to_start": true,
+                        "connection_name": "",
+                        "connection_type": "",
+                        "custom_callback": "",
+                        "custom_code": "",
+                        "custom_join": "",
+                        "custom_name": "",
+                        "description": "",
+                        "hasElse": false,
+                        "has_custom": false,
+                        "has_custom_block": false,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "2486076c-cc06-4cea-a7ce-28bebbaaba4f",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "line_end": 265,
+                        "line_start": 246,
+                        "name": "decision",
+                        "notes": "",
+                        "number": 7,
+                        "order": 10,
+                        "outPorts": [
+                            "out-1"
+                        ],
+                        "outputs": [
+                            {
+                                "conditions": [
+                                    {
+                                        "comparison": "not in",
+                                        "data_type": "",
+                                        "param": "filtered-data:filter_1:condition_1:artifact:*.cef.risk_object",
+                                        "value": "container:name"
+                                    }
+                                ],
+                                "display": "If",
+                                "logic": "and",
+                                "type": "if"
+                            }
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": -240,
+                            "y": 100
+                        },
+                        "previous_function": "",
+                        "previous_name": "decision_7",
+                        "show_number": true,
+                        "size": {
+                            "height": 82,
+                            "width": 82
+                        },
+                        "state": "decision",
+                        "status": "",
+                        "type": "coa.Decision",
+                        "warn": "",
+                        "z": 1498
                     }
                 ]
             },
@@ -4641,7 +4641,7 @@
         "schema": 4,
         "version": "4.9.34514"
     },
-    "create_time": "2020-09-29T20:18:42.769010+00:00",
+    "create_time": "2020-09-30T14:00:04.307544+00:00",
     "draft_mode": false,
     "labels": [
         "events",

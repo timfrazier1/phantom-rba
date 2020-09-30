@@ -252,7 +252,7 @@ def decision_7(action=None, success=None, container=None, results=None, handle=N
     matched = phantom.decision(
         container=container,
         conditions=[
-            ["filtered-data:filter_1:condition_1:artifact:*.cef.risk_object", "==", name_value],
+            ["filtered-data:filter_1:condition_1:artifact:*.cef.risk_object", "not in", name_value],
         ])
 
     # call connected blocks if condition 1 matched
@@ -309,12 +309,12 @@ def update_artifact_high(action=None, success=None, container=None, results=None
 
     parameters = []
 
-    for item0 in filtered_artifacts_data_0:
-        for item1 in literal_values_0:
+    for item0 in literal_values_0:
+        for item1 in filtered_artifacts_data_0:
             parameters.append({
-                'artifact_id': item0[0],
-                'data': item1[0],
-                'overwrite': item1[1],
+                'data': item0[0],
+                'overwrite': item0[1],
+                'artifact_id': item1[0],
             })
     ################################################################################
     ## Custom Code Start
@@ -344,12 +344,12 @@ def update_artifact_med(action=None, success=None, container=None, results=None,
 
     parameters = []
 
-    for item0 in filtered_artifacts_data_0:
-        for item1 in literal_values_0:
+    for item0 in literal_values_0:
+        for item1 in filtered_artifacts_data_0:
             parameters.append({
-                'artifact_id': item0[0],
-                'data': item1[0],
-                'overwrite': item1[1],
+                'data': item0[0],
+                'overwrite': item0[1],
+                'artifact_id': item1[0],
             })
     ################################################################################
     ## Custom Code Start
@@ -379,12 +379,12 @@ def update_artifact_low(action=None, success=None, container=None, results=None,
 
     parameters = []
 
-    for item0 in filtered_artifacts_data_0:
-        for item1 in literal_values_0:
+    for item0 in literal_values_0:
+        for item1 in filtered_artifacts_data_0:
             parameters.append({
-                'artifact_id': item0[0],
-                'data': item1[0],
-                'overwrite': item1[1],
+                'data': item0[0],
+                'overwrite': item0[1],
+                'artifact_id': item1[0],
             })
     ################################################################################
     ## Custom Code Start
@@ -414,12 +414,12 @@ def update_artifact_crit(action=None, success=None, container=None, results=None
 
     parameters = []
 
-    for item0 in filtered_artifacts_data_0:
-        for item1 in literal_values_0:
+    for item0 in literal_values_0:
+        for item1 in filtered_artifacts_data_0:
             parameters.append({
-                'artifact_id': item0[0],
-                'data': item1[0],
-                'overwrite': item1[1],
+                'data': item0[0],
+                'overwrite': item0[1],
+                'artifact_id': item1[0],
             })
     ################################################################################
     ## Custom Code Start
