@@ -296,27 +296,24 @@ def add_artifact_1(action=None, success=None, container=None, results=None, hand
     
     # collect data for 'add_artifact_1' call
     filtered_custom_function_results_data_1 = phantom.collect2(container=container, datapath=['filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4'])
-    formatted_data_1 = phantom.get_format_data(name='format_4__as_list')
+    formatted_data_1 = phantom.get_format_data(name='format_4')
 
     parameters = []
-
     phantom.debug(formatted_data_1)
-    
     # build parameters list for 'add_artifact_1' call
-    for formatted_part_1 in formatted_data_1:
-        for filtered_custom_function_results_item_1 in filtered_custom_function_results_data_1:
-            if filtered_custom_function_results_item_1[0]:
-                parameters.append({
-                    'name': "Extracted IPv4 artifact",
-                    'label': "risk_rule",
-                    'cef_name': "",
-                    'contains': "",
-                    'cef_value': "",
-                    'container_id': "",
-                    'cef_dictionary': formatted_part_1,
-                    'run_automation': "true",
-                    'source_data_identifier': filtered_custom_function_results_item_1[0],
-                })
+    for filtered_custom_function_results_item_1 in filtered_custom_function_results_data_1:
+        if filtered_custom_function_results_item_1[0]:
+            parameters.append({
+                'name': "Extracted IPv4 artifact",
+                'label': "risk_rule",
+                'cef_name': "",
+                'contains': "",
+                'cef_value': "",
+                'container_id': "",
+                'cef_dictionary': formatted_data_1,
+                'run_automation': "true",
+                'source_data_identifier': filtered_custom_function_results_item_1[0],
+            })
 
     phantom.act(action="add artifact", parameters=parameters, assets=['helper'], name="add_artifact_1")
 
