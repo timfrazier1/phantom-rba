@@ -33,7 +33,7 @@ def decision_1(action=None, success=None, container=None, results=None, handle=N
 
     # call connected blocks if condition 1 matched
     if matched:
-        playbook_rba_master_RBA_Investigate_ip_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
+        playbook_rba_master_rba_master_RBA_Investigate_ip_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
         return
 
     # call connected blocks for 'else' condition 2
@@ -41,11 +41,11 @@ def decision_1(action=None, success=None, container=None, results=None, handle=N
 
     return
 
-def playbook_rba_master_RBA_Investigate_ip_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('playbook_rba_master_RBA_Investigate_ip_1() called')
+def playbook_rba_master_rba_master_RBA_Investigate_ip_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('playbook_rba_master_rba_master_RBA_Investigate_ip_1() called')
     
     # call playbook "rba-master/RBA Investigate - ip", returns the playbook_run_id
-    playbook_run_id = phantom.playbook(playbook="rba-master/RBA Investigate - ip", container=container, name="playbook_rba_master_RBA_Investigate_ip_1", callback=join_cf_community_noop_1)
+    playbook_run_id = phantom.playbook(playbook="rba-master/RBA Investigate - ip", container=container, name="playbook_rba_master_rba_master_RBA_Investigate_ip_1", callback=join_cf_community_noop_1)
 
     return
 
@@ -61,7 +61,7 @@ def decision_2(action=None, success=None, container=None, results=None, handle=N
 
     # call connected blocks if condition 1 matched
     if matched:
-        playbook_rba_master_RBA_Investigate_domain_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
+        playbook_rba_master_rba_master_RBA_Investigate_domain_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
         return
 
     # call connected blocks for 'else' condition 2
@@ -69,11 +69,11 @@ def decision_2(action=None, success=None, container=None, results=None, handle=N
 
     return
 
-def playbook_rba_master_RBA_Investigate_domain_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('playbook_rba_master_RBA_Investigate_domain_1() called')
+def playbook_rba_master_rba_master_RBA_Investigate_domain_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('playbook_rba_master_rba_master_RBA_Investigate_domain_1() called')
     
     # call playbook "rba-master/RBA Investigate - domain", returns the playbook_run_id
-    playbook_run_id = phantom.playbook(playbook="rba-master/RBA Investigate - domain", container=container, name="playbook_rba_master_RBA_Investigate_domain_1", callback=join_cf_community_noop_2)
+    playbook_run_id = phantom.playbook(playbook="rba-master/RBA Investigate - domain", container=container, name="playbook_rba_master_rba_master_RBA_Investigate_domain_1", callback=join_cf_community_noop_2)
 
     return
 
@@ -91,7 +91,7 @@ def decision_3(action=None, success=None, container=None, results=None, handle=N
 
     # call connected blocks if condition 1 matched
     if matched:
-        playbook_rba_master_RBA_Investigate_process_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
+        playbook_rba_master_rba_master_RBA_Investigate_process_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
         return
 
     # call connected blocks for 'else' condition 2
@@ -99,11 +99,11 @@ def decision_3(action=None, success=None, container=None, results=None, handle=N
 
     return
 
-def playbook_rba_master_RBA_Investigate_process_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('playbook_rba_master_RBA_Investigate_process_1() called')
+def playbook_rba_master_rba_master_RBA_Investigate_process_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('playbook_rba_master_rba_master_RBA_Investigate_process_1() called')
     
     # call playbook "rba-master/RBA Investigate - process", returns the playbook_run_id
-    playbook_run_id = phantom.playbook(playbook="rba-master/RBA Investigate - process", container=container, name="playbook_rba_master_RBA_Investigate_process_1", callback=join_cf_community_noop_3)
+    playbook_run_id = phantom.playbook(playbook="rba-master/RBA Investigate - process", container=container, name="playbook_rba_master_rba_master_RBA_Investigate_process_1", callback=join_cf_community_noop_3)
 
     return
 
@@ -199,14 +199,10 @@ def join_cf_community_noop_1(action=None, success=None, container=None, results=
     if phantom.get_run_data(key='join_cf_community_noop_1_called'):
         return
 
-    # check if all connected incoming playbooks, actions, or custom functions are done i.e. have succeeded or failed
-    if phantom.completed(playbook_names=['playbook_rba_master_RBA_Investigate_ip_1']):
-        
-        # save the state that the joined function has now been called
-        phantom.save_run_data(key='join_cf_community_noop_1_called', value='cf_community_noop_1')
-        
-        # call connected block "cf_community_noop_1"
-        cf_community_noop_1(container=container, handle=handle)
+    # no callbacks to check, call connected block "cf_community_noop_1"
+    phantom.save_run_data(key='join_cf_community_noop_1_called', value='cf_community_noop_1', auto=True)
+
+    cf_community_noop_1(container=container, handle=handle)
     
     return
 
@@ -237,14 +233,10 @@ def join_cf_community_noop_2(action=None, success=None, container=None, results=
     if phantom.get_run_data(key='join_cf_community_noop_2_called'):
         return
 
-    # check if all connected incoming playbooks, actions, or custom functions are done i.e. have succeeded or failed
-    if phantom.completed(playbook_names=['playbook_rba_master_RBA_Investigate_domain_1']):
-        
-        # save the state that the joined function has now been called
-        phantom.save_run_data(key='join_cf_community_noop_2_called', value='cf_community_noop_2')
-        
-        # call connected block "cf_community_noop_2"
-        cf_community_noop_2(container=container, handle=handle)
+    # no callbacks to check, call connected block "cf_community_noop_2"
+    phantom.save_run_data(key='join_cf_community_noop_2_called', value='cf_community_noop_2', auto=True)
+
+    cf_community_noop_2(container=container, handle=handle)
     
     return
 
@@ -275,14 +267,10 @@ def join_cf_community_noop_3(action=None, success=None, container=None, results=
     if phantom.get_run_data(key='join_cf_community_noop_3_called'):
         return
 
-    # check if all connected incoming playbooks, actions, or custom functions are done i.e. have succeeded or failed
-    if phantom.completed(playbook_names=['playbook_rba_master_RBA_Investigate_process_1']):
-        
-        # save the state that the joined function has now been called
-        phantom.save_run_data(key='join_cf_community_noop_3_called', value='cf_community_noop_3')
-        
-        # call connected block "cf_community_noop_3"
-        cf_community_noop_3(container=container, handle=handle)
+    # no callbacks to check, call connected block "cf_community_noop_3"
+    phantom.save_run_data(key='join_cf_community_noop_3_called', value='cf_community_noop_3', auto=True)
+
+    cf_community_noop_3(container=container, handle=handle)
     
     return
 
