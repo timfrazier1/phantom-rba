@@ -405,14 +405,14 @@ def cf_rba_master_add_artifact_with_tags_1(action=None, success=None, container=
 def cf_rba_master_regex_extract_powershell_b64_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug('cf_rba_master_regex_extract_powershell_b64_2() called')
     
-    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_decode_base64_1:custom_function_result.data.decoded_string', 'cf_rba_master_decode_base64_1:custom_function_result.data.artifact_id'], action_results=results )
+    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_decode_base64_1:custom_function_result.data.artifact_id', 'cf_rba_master_decode_base64_1:custom_function_result.data.decoded_string'], action_results=results )
 
     parameters = []
 
     for item0 in custom_function_result_0:
         parameters.append({
-            'input_string': item0[0],
-            'artifact_id': item0[1],
+            'artifact_id': item0[0],
+            'input_string': item0[1],
         })
     ################################################################################
     ## Custom Code Start

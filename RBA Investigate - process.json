@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "d13a343a846383ba96f5e3c891cf93a8d06f334e",
+            "hash": "5ac27ec2dbd921eee02823ef75bd476d47dae341",
             "joint": {
                 "cells": [
                     {
@@ -4145,7 +4145,7 @@
                         "callback_code": "# read-only block view not available",
                         "callback_start": 1,
                         "callsback": false,
-                        "connected_to_start": false,
+                        "connected_to_start": true,
                         "connection_name": "",
                         "connection_type": "",
                         "custom_callback": "",
@@ -4306,7 +4306,7 @@
                                 "display": "block"
                             }
                         },
-                        "block_code": "def cf_rba_master_regex_extract_powershell_b64_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('cf_rba_master_regex_extract_powershell_b64_2() called')\n    \n    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_decode_base64_1:custom_function_result.data.decoded_string', 'cf_rba_master_decode_base64_1:custom_function_result.data.artifact_id'], action_results=results )\n\n    parameters = []\n\n    for item0 in custom_function_result_0:\n        parameters.append({\n            'input_string': item0[0],\n            'artifact_id': item0[1],\n        })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"rba-master/regex_extract_powershell_b64\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='rba-master/regex_extract_powershell_b64', parameters=parameters, name='cf_rba_master_regex_extract_powershell_b64_2', callback=cf_community_regex_extract_ipv4_2)\n\n    return",
+                        "block_code": "def cf_rba_master_regex_extract_powershell_b64_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('cf_rba_master_regex_extract_powershell_b64_2() called')\n    \n    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_decode_base64_1:custom_function_result.data.artifact_id', 'cf_rba_master_decode_base64_1:custom_function_result.data.decoded_string'], action_results=results )\n\n    parameters = []\n\n    for item0 in custom_function_result_0:\n        parameters.append({\n            'artifact_id': item0[0],\n            'input_string': item0[1],\n        })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"rba-master/regex_extract_powershell_b64\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='rba-master/regex_extract_powershell_b64', parameters=parameters, name='cf_rba_master_regex_extract_powershell_b64_2', callback=cf_community_regex_extract_ipv4_2)\n\n    return",
                         "callback_code": "",
                         "callback_start": 1,
                         "callsback": true,
@@ -4315,13 +4315,13 @@
                             "artifact_id": {
                                 "collectionType": "custom_function_result",
                                 "dataPath": "cf_rba_master_decode_base64_1:custom_function_result.data.artifact_id",
-                                "paramName": "item0[1]",
+                                "paramName": "item0[0]",
                                 "type": "item"
                             },
                             "input_string": {
                                 "collectionType": "custom_function_result",
                                 "dataPath": "cf_rba_master_decode_base64_1:custom_function_result.data.decoded_string",
-                                "paramName": "item0[0]",
+                                "paramName": "item0[1]",
                                 "type": "item"
                             }
                         },
@@ -4947,7 +4947,7 @@
                         "state": "filter",
                         "status": "",
                         "type": "coa.Filter",
-                        "warn": "",
+                        "warn": false,
                         "z": 400
                     },
                     {
@@ -5547,7 +5547,7 @@
                         "status": "",
                         "title": "Investigate",
                         "type": "coa.Action",
-                        "warn": "",
+                        "warn": false,
                         "z": 401
                     },
                     {
@@ -5730,7 +5730,7 @@
         "schema": 4,
         "version": "4.9.35731"
     },
-    "create_time": "2020-10-02T18:58:26.278590+00:00",
+    "create_time": "2020-10-02T19:36:53.491354+00:00",
     "draft_mode": false,
     "labels": [
         "*"
