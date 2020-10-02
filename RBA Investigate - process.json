@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "bfbdb36b36e11ed14f44daff1db73658fd0dec8c",
+            "hash": "785a115c3fa82fc4ff5d34d0fb7e43fc784c9a82",
             "joint": {
                 "cells": [
                     {
@@ -55,7 +55,7 @@
                         "callback_start": 1,
                         "callsback": false,
                         "connected_to_start": true,
-                        "connection_name": "add artifact, ip reputation, update_artifact, add_artifact_with_tags",
+                        "connection_name": "ip reputation, update_artifact, add_artifact_with_tags",
                         "connection_type": "action",
                         "custom_callback": "",
                         "custom_code": "",
@@ -73,12 +73,12 @@
                         "join_code": "# read-only block view not available",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 460,
-                        "line_start": 447,
+                        "line_end": 428,
+                        "line_start": 415,
                         "name": "",
                         "notes": "",
                         "number": 0,
-                        "order": 19,
+                        "order": 18,
                         "outPorts": [],
                         "ports": {
                             "groups": {
@@ -801,84 +801,6 @@
                         },
                         "type": "link",
                         "z": 328
-                    },
-                    {
-                        "attrs": {
-                            ".connection": {
-                                "stroke": "#818D99",
-                                "stroke-width": 2
-                            },
-                            ".marker-target": {
-                                "d": "M 10 0 L 0 5 L 10 10 z",
-                                "fill": "#818D99",
-                                "stroke": "#818D99"
-                            }
-                        },
-                        "connector": {
-                            "args": {
-                                "radius": 5
-                            },
-                            "name": "rounded"
-                        },
-                        "endDirections": [
-                            "left"
-                        ],
-                        "id": "b256761b-f829-468d-ad7d-ddfbb212baff",
-                        "router": {
-                            "name": "metro"
-                        },
-                        "source": {
-                            "id": "11c23bef-2b0d-4811-8c45-d559a5aef3ce",
-                            "selector": "> g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
-                        },
-                        "startDirections": [
-                            "right"
-                        ],
-                        "target": {
-                            "id": "86415d81-c1ca-4206-ab90-06fa02cf413d",
-                            "selector": "> g:nth-child(1) > g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
-                        },
-                        "type": "link",
-                        "z": 331
-                    },
-                    {
-                        "attrs": {
-                            ".connection": {
-                                "stroke": "#818D99",
-                                "stroke-width": 2
-                            },
-                            ".marker-target": {
-                                "d": "M 10 0 L 0 5 L 10 10 z",
-                                "fill": "#818D99",
-                                "stroke": "#818D99"
-                            }
-                        },
-                        "connector": {
-                            "args": {
-                                "radius": 5
-                            },
-                            "name": "rounded"
-                        },
-                        "endDirections": [
-                            "left"
-                        ],
-                        "id": "7065b70c-0216-4e5d-b0db-c995b1f7852e",
-                        "router": {
-                            "name": "metro"
-                        },
-                        "source": {
-                            "id": "86415d81-c1ca-4206-ab90-06fa02cf413d",
-                            "selector": "> g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
-                        },
-                        "startDirections": [
-                            "right"
-                        ],
-                        "target": {
-                            "id": "7fd957ea-035d-40c0-a58b-2dbc6ff1dbfb",
-                            "selector": "> g:nth-child(1) > g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
-                        },
-                        "type": "link",
-                        "z": 333
                     },
                     {
                         "attrs": {
@@ -2121,585 +2043,6 @@
                         "z": 345
                     },
                     {
-                        "action": "add artifact",
-                        "action_type": "generic",
-                        "active": false,
-                        "active_keys": {},
-                        "active_values": {
-                            "cef_dictionary": "format_4:formatted_data",
-                            "cef_name": "",
-                            "cef_value": "",
-                            "container_id": "",
-                            "contains": "",
-                            "label": "risk_rule",
-                            "name": "Extracted IPv4 artifact",
-                            "run_automation": true,
-                            "source_data_identifier": "filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4"
-                        },
-                        "angle": 0,
-                        "app": "Phantom",
-                        "appid": "deb82aa9-22cc-4675-9cf1-534b8d006eb7",
-                        "approver": "",
-                        "assets": [
-                            {
-                                "action": "add artifact",
-                                "actions": [
-                                    "no op",
-                                    "set current phase",
-                                    "update task",
-                                    "modify indicator tag",
-                                    "get indicator",
-                                    "update list",
-                                    "get action result",
-                                    "create container",
-                                    "import container",
-                                    "export container",
-                                    "deflate item",
-                                    "add artifact",
-                                    "find listitem",
-                                    "add listitem",
-                                    "find artifacts",
-                                    "update artifact tags",
-                                    "add workbook",
-                                    "add note",
-                                    "update artifact",
-                                    "update artifact fields",
-                                    "get user",
-                                    "list playbooks",
-                                    "test connectivity"
-                                ],
-                                "active": true,
-                                "app_name": "Phantom",
-                                "app_version": "2.1.42",
-                                "appid": "deb82aa9-22cc-4675-9cf1-534b8d006eb7",
-                                "asset_name": "helper",
-                                "config_type": "asset",
-                                "count": 0,
-                                "fields": {
-                                    "cef_dictionary": "format_4:formatted_data",
-                                    "cef_name": "",
-                                    "cef_value": "",
-                                    "container_id": "",
-                                    "contains": "",
-                                    "label": "risk_rule",
-                                    "name": "Extracted IPv4 artifact",
-                                    "run_automation": true,
-                                    "source_data_identifier": "filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4"
-                                },
-                                "has_app": true,
-                                "id": 9,
-                                "loaded": false,
-                                "missing": false,
-                                "name": "helper",
-                                "output": [
-                                    {
-                                        "data_path": "action_result.status",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.cef_dictionary",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.cef_name",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "contains": [
-                                            "*"
-                                        ],
-                                        "data_path": "action_result.parameter.cef_value",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "contains": [
-                                            "phantom container id"
-                                        ],
-                                        "data_path": "action_result.parameter.container_id",
-                                        "data_type": "numeric"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.contains",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.label",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.name",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.run_automation",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.parameter.source_data_identifier",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.data.*.existing_artifact_id",
-                                        "data_type": "numeric"
-                                    },
-                                    {
-                                        "data_path": "action_result.data.*.failed",
-                                        "data_type": "boolean"
-                                    },
-                                    {
-                                        "data_path": "action_result.data.*.id",
-                                        "data_type": "numeric"
-                                    },
-                                    {
-                                        "data_path": "action_result.data.*.success",
-                                        "data_type": "boolean"
-                                    },
-                                    {
-                                        "data_path": "action_result.summary.artifact id",
-                                        "data_type": "numeric"
-                                    },
-                                    {
-                                        "data_path": "action_result.summary.container id",
-                                        "data_type": "numeric"
-                                    },
-                                    {
-                                        "contains": [
-                                            "url"
-                                        ],
-                                        "data_path": "action_result.summary.server",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "action_result.message",
-                                        "data_type": "string"
-                                    },
-                                    {
-                                        "data_path": "summary.total_objects",
-                                        "data_type": "numeric"
-                                    },
-                                    {
-                                        "data_path": "summary.total_objects_successful",
-                                        "data_type": "numeric"
-                                    }
-                                ],
-                                "parameters": {
-                                    "cef_dictionary": {
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "CEF JSON",
-                                        "key": "cef_dictionary",
-                                        "order": 6,
-                                        "required": false
-                                    },
-                                    "cef_name": {
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "CEF Name",
-                                        "key": "cef_name",
-                                        "order": 4,
-                                        "required": false,
-                                        "value_list": [
-                                            "",
-                                            "act",
-                                            "app",
-                                            "applicationProtocol",
-                                            "baseEventCount",
-                                            "bytesIn",
-                                            "bytesOut",
-                                            "cat",
-                                            "cn1",
-                                            "cn1Label",
-                                            "cn2",
-                                            "cn2Label",
-                                            "cn3",
-                                            "cn3Label",
-                                            "cnt",
-                                            "cs1",
-                                            "cs1Label",
-                                            "cs2",
-                                            "cs2Label",
-                                            "cs3",
-                                            "cs3Label",
-                                            "cs4",
-                                            "cs4Label",
-                                            "cs5",
-                                            "cs5Label",
-                                            "cs6",
-                                            "cs6Label",
-                                            "destinationAddress",
-                                            "destinationDnsDomain",
-                                            "destinationHostName",
-                                            "destinationMacAddress",
-                                            "destinationNtDomain",
-                                            "destinationPort",
-                                            "destinationProcessName",
-                                            "destinationServiceName",
-                                            "destinationTranslatedAddress",
-                                            "destinationTranslatedPort",
-                                            "destinationUserId",
-                                            "destinationUserName",
-                                            "destinationUserPrivileges",
-                                            "deviceAction",
-                                            "deviceAddress",
-                                            "deviceCustomDate1",
-                                            "deviceCustomDate1Label",
-                                            "deviceCustomDate2",
-                                            "deviceCustomDate2Label",
-                                            "deviceCustomNumber1",
-                                            "deviceCustomNumber1Label",
-                                            "deviceCustomNumber2",
-                                            "deviceCustomNumber2Label",
-                                            "deviceCustomNumber3",
-                                            "deviceCustomNumber3Label",
-                                            "deviceCustomString1",
-                                            "deviceCustomString1Label",
-                                            "deviceCustomString2",
-                                            "deviceCustomString2Label",
-                                            "deviceCustomString3",
-                                            "deviceCustomString3Label",
-                                            "deviceCustomString4",
-                                            "deviceCustomString4Label",
-                                            "deviceCustomString5",
-                                            "deviceCustomString5Label",
-                                            "deviceCustomString6",
-                                            "deviceCustomString6Label",
-                                            "deviceDirection",
-                                            "deviceDnsDomain",
-                                            "deviceEventCategory",
-                                            "deviceExternalId",
-                                            "deviceFacility",
-                                            "deviceHostname",
-                                            "deviceInboundInterface",
-                                            "deviceMacAddress",
-                                            "deviceOutboundInterface",
-                                            "deviceProcessName",
-                                            "deviceTranslatedAddress",
-                                            "dhost",
-                                            "dmac",
-                                            "dntdom",
-                                            "dpriv",
-                                            "dproc",
-                                            "dpt",
-                                            "dst",
-                                            "duid",
-                                            "duser",
-                                            "dvc",
-                                            "dvchost",
-                                            "end",
-                                            "endTime",
-                                            "eventOutcome",
-                                            "externalId",
-                                            "fileCreateTime",
-                                            "fileHash",
-                                            "fileHashMd5",
-                                            "fileHashSha1",
-                                            "fileHashSha256",
-                                            "fileHashSha512",
-                                            "fileId",
-                                            "fileModificationTime",
-                                            "fileName",
-                                            "filePath",
-                                            "filePermission",
-                                            "fileSize",
-                                            "fileType",
-                                            "fname",
-                                            "fsize",
-                                            "in",
-                                            "message",
-                                            "msg",
-                                            "oldfileCreateTime",
-                                            "oldfileHash",
-                                            "oldfileId",
-                                            "oldfileModificationTime",
-                                            "oldfileName",
-                                            "oldfilePath",
-                                            "oldfilePermission",
-                                            "oldfileType",
-                                            "oldfsize",
-                                            "out",
-                                            "outcome",
-                                            "proto",
-                                            "receiptTime",
-                                            "request",
-                                            "requestClientApplication",
-                                            "requestCookies",
-                                            "requestMethod",
-                                            "requestURL",
-                                            "rt",
-                                            "shost",
-                                            "smac",
-                                            "sntdom",
-                                            "sourceAddress",
-                                            "sourceDnsDomain",
-                                            "sourceHostName",
-                                            "sourceMacAddress",
-                                            "sourceNtDomain",
-                                            "sourcePort",
-                                            "sourceServiceName",
-                                            "sourceTranslatedAddress",
-                                            "sourceTranslatedPort",
-                                            "sourceUserId",
-                                            "sourceUserName",
-                                            "sourceUserPrivileges",
-                                            "spriv",
-                                            "spt",
-                                            "src",
-                                            "start",
-                                            "startTime",
-                                            "suid",
-                                            "suser",
-                                            "transportProtocol"
-                                        ]
-                                    },
-                                    "cef_value": {
-                                        "contains": [
-                                            "*"
-                                        ],
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "Value",
-                                        "key": "cef_value",
-                                        "order": 5,
-                                        "primary": true,
-                                        "required": false
-                                    },
-                                    "container_id": {
-                                        "contains": [
-                                            "phantom container id"
-                                        ],
-                                        "data_type": "numeric",
-                                        "default": null,
-                                        "description": "Numeric container ID for the new artifact",
-                                        "key": "container_id",
-                                        "order": 1,
-                                        "required": false
-                                    },
-                                    "contains": {
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "Data type for each CEF field",
-                                        "key": "contains",
-                                        "order": 7,
-                                        "required": false
-                                    },
-                                    "label": {
-                                        "data_type": "string",
-                                        "default": "event",
-                                        "description": "Artifact label (default: event)",
-                                        "key": "label",
-                                        "order": 2,
-                                        "required": false
-                                    },
-                                    "name": {
-                                        "data_type": "string",
-                                        "default": "User created artifact",
-                                        "description": "Name of the new artifact",
-                                        "key": "name",
-                                        "order": 0,
-                                        "required": false
-                                    },
-                                    "run_automation": {
-                                        "data_type": "boolean",
-                                        "default": true,
-                                        "description": "Run automation on newly created artifact(s)",
-                                        "key": "run_automation",
-                                        "order": 8,
-                                        "required": false
-                                    },
-                                    "source_data_identifier": {
-                                        "data_type": "string",
-                                        "default": null,
-                                        "description": "Source Data Idenitifier",
-                                        "key": "source_data_identifier",
-                                        "order": 3,
-                                        "required": true
-                                    }
-                                },
-                                "product_name": "Phantom",
-                                "product_vendor": "Phantom",
-                                "targets": "9",
-                                "type": "information"
-                            }
-                        ],
-                        "attrs": {
-                            ".action": {
-                                "text": "add artifact"
-                            },
-                            ".background": {
-                                "fill": "#000000",
-                                "stroke": "#5C6773"
-                            },
-                            ".color-band": {
-                                "fill": "#3C444D"
-                            },
-                            ".inPorts>.port-in": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".inPorts>.port-in>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".message": {
-                                "opacity": 0,
-                                "ref-x": 5,
-                                "ref-y": 105,
-                                "text": "Configuring now"
-                            },
-                            ".outPorts>.port-out": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".outPorts>.port-out>.port-body": {
-                                "port": {
-                                    "id": "out",
-                                    "type": "out"
-                                }
-                            },
-                            ".title": {
-                                "text": "Generic"
-                            },
-                            "g.approver image": {
-                                "opacity": 1
-                            },
-                            "g.code image": {
-                                "opacity": 1,
-                                "xlink:href": "/inc/coa/img/block_icon_code_dark_on.svg"
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 0
-                            },
-                            "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
-                            },
-                            "g.icon image": {
-                                "xlink:href": "/inc/coa/img/block_icon_generic.svg"
-                            },
-                            "g.notes": {
-                                "display": "block"
-                            },
-                            "g.notes image": {
-                                "opacity": 1
-                            },
-                            "g.timer image": {
-                                "opacity": 1
-                            }
-                        },
-                        "block_code": "def add_artifact_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('add_artifact_1() called')\n        \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'add_artifact_1' call\n    filtered_custom_function_results_data_1 = phantom.collect2(container=container, datapath=['filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4'])\n    formatted_data_1 = phantom.get_format_data(name='format_4__as_list')\n\n    parameters = []\n    \n    # build parameters list for 'add_artifact_1' call\n    for formatted_part_1 in formatted_data_1:\n        for filtered_custom_function_results_item_1 in filtered_custom_function_results_data_1:\n            if filtered_custom_function_results_item_1[0]:\n                parameters.append({\n                    'name': \"Extracted IPv4 artifact\",\n                    'label': \"risk_rule\",\n                    'cef_name': \"\",\n                    'contains': \"\",\n                    'cef_value': \"\",\n                    'container_id': \"\",\n                    'cef_dictionary': formatted_part_1,\n                    'run_automation': \"true\",\n                    'source_data_identifier': filtered_custom_function_results_item_1[0],\n                })\n\n    phantom.act(action=\"add artifact\", parameters=parameters, assets=['helper'], name=\"add_artifact_1\")\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 1,
-                        "callsback": true,
-                        "color": "",
-                        "connected_to_start": true,
-                        "connection_name": "regex_extract_ipv4",
-                        "connection_type": "action",
-                        "custom_callback": "",
-                        "custom_code": "def add_artifact_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('add_artifact_1() called')\n        \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'add_artifact_1' call\n    filtered_custom_function_results_data_1 = phantom.collect2(container=container, datapath=['filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4'])\n    formatted_data_1 = phantom.get_format_data(name='format_4')\n\n    parameters = []\n    phantom.debug(formatted_data_1)\n    phantom.debug(json.loads(formatted_data_1))\n    # build parameters list for 'add_artifact_1' call\n    for filtered_custom_function_results_item_1 in filtered_custom_function_results_data_1:\n        if filtered_custom_function_results_item_1[0]:\n            parameters.append({\n                'name': \"Extracted IPv4 artifact\",\n                'label': \"risk_rule\",\n                'cef_name': \"\",\n                'contains': \"\",\n                'cef_value': \"\",\n                'container_id': \"\",\n                'cef_dictionary': json.loads(formatted_data_1),\n                'run_automation': \"true\",\n                'source_data_identifier': filtered_custom_function_results_item_1[0],\n            })\n\n    phantom.act(action=\"add artifact\", parameters=parameters, assets=['helper'], name=\"add_artifact_1\")\n\n    return",
-                        "custom_join": "",
-                        "custom_name": "",
-                        "delay": 0,
-                        "description": "",
-                        "has_custom": true,
-                        "has_custom_block": true,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "86415d81-c1ca-4206-ab90-06fa02cf413d",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "join_code": "",
-                        "join_optional": [],
-                        "join_start": 1,
-                        "line_end": 323,
-                        "line_start": 292,
-                        "message": "Configuring now",
-                        "name": "add artifact",
-                        "notes": "",
-                        "number": 1,
-                        "order": 14,
-                        "outPorts": [
-                            "out"
-                        ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
-                        },
-                        "position": {
-                            "x": 1540,
-                            "y": -140
-                        },
-                        "previous_function": "",
-                        "previous_name": "add_artifact_1",
-                        "required_params": {
-                            "source_data_identifier": true
-                        },
-                        "reviewer": "",
-                        "show_number": false,
-                        "size": {
-                            "height": 100,
-                            "width": 180
-                        },
-                        "state": "app_action_assets",
-                        "status": "",
-                        "title": "Generic",
-                        "type": "coa.Action",
-                        "warn": false,
-                        "z": 358
-                    },
-                    {
                         "attrs": {
                             ".connection": {
                                 "stroke": "#818D99",
@@ -2776,382 +2119,6 @@
                         },
                         "type": "link",
                         "z": 362
-                    },
-                    {
-                        ".scmName/text": "rba-master",
-                        "active": false,
-                        "active_keys": {},
-                        "active_values": {},
-                        "angle": 0,
-                        "attrs": {
-                            ".background": {
-                                "fill": "#000000",
-                                "stroke": "#5C6773"
-                            },
-                            ".color-band": {
-                                "fill": "#3C444D"
-                            },
-                            ".customFunction": {
-                                "text": "add_artifact_with_tags"
-                            },
-                            ".inPorts>.port-in": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".inPorts>.port-in>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".message": {
-                                "opacity": 0,
-                                "ref-x": 5,
-                                "ref-y": 105,
-                                "text": "Configuring now"
-                            },
-                            ".outPorts>.port-out": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".outPorts>.port-out>.port-body": {
-                                "port": {
-                                    "id": "out",
-                                    "type": "out"
-                                }
-                            },
-                            ".scmName": {
-                                "text": "rba-master"
-                            },
-                            ".title": {
-                                "text": "custom function"
-                            },
-                            ".title-info": {
-                                "text": ""
-                            },
-                            "g.branch image": {
-                                "opacity": 1
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 0
-                            },
-                            "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
-                            },
-                            "g.notes": {
-                                "display": "block"
-                            }
-                        },
-                        "block_code": "def cf_rba_master_add_artifact_with_tags_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('cf_rba_master_add_artifact_with_tags_1() called')\n    \n    container_property_0 = [\n        [\n            container.get(\"id\"),\n        ],\n    ]\n    formatted_data_0 = [\n        [\n            phantom.get_format_data(name=\"format_4\"),\n        ],\n    ]\n    literal_values_0 = [\n        [\n            \"Extracted IPv4 address\",\n            \"risk_rule\",\n            \"low\",\n            \"{\\\"threat_object\\\": [\\\"ip\\\"]}\",\n            \"True\",\n        ],\n    ]\n\n    parameters = []\n\n    for item0 in formatted_data_0:\n        for item1 in literal_values_0:\n            for item2 in container_property_0:\n                parameters.append({\n                    'cef': item0[0],\n                    'name': item1[0],\n                    'tags': None,\n                    'label': item1[1],\n                    'severity': item1[2],\n                    'container_id': item2[0],\n                    'field_mapping': item1[3],\n                    'run_automation': item1[4],\n                })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"rba-master/add_artifact_with_tags\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='rba-master/add_artifact_with_tags', parameters=parameters, name='cf_rba_master_add_artifact_with_tags_1')\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 1,
-                        "callsback": true,
-                        "cef-0": "format_4:formatted_data",
-                        "cfDisplayPath": "rba-master/add_artifact_with_tags",
-                        "cfInputs": {
-                            "cef": {
-                                "collectionType": "formatted_data",
-                                "dataPath": "format_4:formatted_data",
-                                "paramName": "item0[0]",
-                                "type": "item"
-                            },
-                            "container_id": {
-                                "collectionType": "container_property",
-                                "dataPath": "container:id",
-                                "paramName": "item2[0]",
-                                "type": "item"
-                            },
-                            "field_mapping": {
-                                "collectionType": "literal_values",
-                                "dataPath": "{\"threat_object\": [\"ip\"]}",
-                                "paramName": "item1[3]",
-                                "type": "item"
-                            },
-                            "label": {
-                                "collectionType": "literal_values",
-                                "dataPath": "risk_rule",
-                                "paramName": "item1[1]",
-                                "type": "item"
-                            },
-                            "name": {
-                                "collectionType": "literal_values",
-                                "dataPath": "Extracted IPv4 address",
-                                "paramName": "item1[0]",
-                                "type": "item"
-                            },
-                            "run_automation": {
-                                "collectionType": "literal_values",
-                                "dataPath": "True",
-                                "paramName": "item1[4]",
-                                "type": "item"
-                            },
-                            "severity": {
-                                "collectionType": "literal_values",
-                                "dataPath": "low",
-                                "paramName": "item1[2]",
-                                "type": "item"
-                            },
-                            "tags": {
-                                "dataPath": "",
-                                "type": "item"
-                            }
-                        },
-                        "color": "",
-                        "connected_to_start": true,
-                        "connection_name": "regex_extract_ipv4",
-                        "connection_type": "action",
-                        "container_id-3": "container:id",
-                        "currentVersion": true,
-                        "customCodeEndLineOffset": 7,
-                        "customCodeStartLine": 41,
-                        "customFunction": "rba-master/add_artifact_with_tags",
-                        "customFunctionId": null,
-                        "custom_callback": "",
-                        "custom_code": "",
-                        "custom_join": "",
-                        "custom_name": "",
-                        "delay": 0,
-                        "description": "",
-                        "draftMode": false,
-                        "existingCF": true,
-                        "field_mapping-7": "{\"threat_object\": [\"ip\"]}",
-                        "functionBlock": "custom function",
-                        "has_custom": false,
-                        "has_custom_block": false,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "4cba0c65-9cef-4599-878a-b0a71026775f",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "join_code": "",
-                        "join_optional": [],
-                        "join_start": 1,
-                        "label-4": "risk_rule",
-                        "line_end": 393,
-                        "line_start": 340,
-                        "message": "Configuring now",
-                        "name": "add_artifact_with_tags",
-                        "name-5": "Extracted IPv4 address",
-                        "notes": "",
-                        "number": 1,
-                        "order": 16,
-                        "outPorts": [
-                            "out"
-                        ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
-                        },
-                        "position": {
-                            "x": 1520,
-                            "y": -20
-                        },
-                        "previous_function": "",
-                        "previous_name": "cf_rba_master_add_artifact_with_tags_1",
-                        "run_automation-6": "True",
-                        "selectedCustomFunction": {
-                            "description": "Adds an artifact and updates that artifact with provided tags",
-                            "draftMode": false,
-                            "id": 24,
-                            "inputs": [
-                                {
-                                    "_pretty_custom_function": "add_artifact_with_tags",
-                                    "contains_type": [
-                                        "*"
-                                    ],
-                                    "custom_function": 24,
-                                    "description": "",
-                                    "id": 76,
-                                    "input_type": "item",
-                                    "name": "cef",
-                                    "placeholder": "artifact.cef"
-                                },
-                                {
-                                    "_pretty_custom_function": "add_artifact_with_tags",
-                                    "contains_type": [
-                                        "*"
-                                    ],
-                                    "custom_function": 24,
-                                    "description": "",
-                                    "id": 77,
-                                    "input_type": "item",
-                                    "name": "tags",
-                                    "placeholder": "artifact.tags"
-                                },
-                                {
-                                    "_pretty_custom_function": "add_artifact_with_tags",
-                                    "contains_type": [
-                                        "*"
-                                    ],
-                                    "custom_function": 24,
-                                    "description": "",
-                                    "id": 78,
-                                    "input_type": "item",
-                                    "name": "severity",
-                                    "placeholder": "\"informational\""
-                                },
-                                {
-                                    "_pretty_custom_function": "add_artifact_with_tags",
-                                    "contains_type": [
-                                        "phantom container id"
-                                    ],
-                                    "custom_function": 24,
-                                    "description": "",
-                                    "id": 79,
-                                    "input_type": "item",
-                                    "name": "container_id",
-                                    "placeholder": ""
-                                },
-                                {
-                                    "_pretty_custom_function": "add_artifact_with_tags",
-                                    "contains_type": [
-                                        "*"
-                                    ],
-                                    "custom_function": 24,
-                                    "description": "",
-                                    "id": 80,
-                                    "input_type": "item",
-                                    "name": "label",
-                                    "placeholder": ""
-                                },
-                                {
-                                    "_pretty_custom_function": "add_artifact_with_tags",
-                                    "contains_type": [
-                                        "*"
-                                    ],
-                                    "custom_function": 24,
-                                    "description": "",
-                                    "id": 81,
-                                    "input_type": "item",
-                                    "name": "name",
-                                    "placeholder": "artifact.name"
-                                },
-                                {
-                                    "_pretty_custom_function": "add_artifact_with_tags",
-                                    "contains_type": [
-                                        "*"
-                                    ],
-                                    "custom_function": 24,
-                                    "description": "Defaults to False",
-                                    "id": 82,
-                                    "input_type": "item",
-                                    "name": "run_automation",
-                                    "placeholder": "True or False"
-                                },
-                                {
-                                    "_pretty_custom_function": "add_artifact_with_tags",
-                                    "contains_type": [
-                                        "*"
-                                    ],
-                                    "custom_function": 24,
-                                    "description": "valid field_mapping json",
-                                    "id": 83,
-                                    "input_type": "item",
-                                    "name": "field_mapping",
-                                    "placeholder": "{\"my_cef_field\": [\"hash\"]}"
-                                }
-                            ],
-                            "name": "add_artifact_with_tags",
-                            "outputs": [
-                                {
-                                    "_pretty_custom_function": "add_artifact_with_tags",
-                                    "contains_type": [],
-                                    "custom_function": 24,
-                                    "data_path": "id",
-                                    "description": "",
-                                    "id": 45
-                                }
-                            ],
-                            "playbooks": {
-                                "draft_playbooks": [],
-                                "draft_version_id": null,
-                                "playbooks": [
-                                    {
-                                        "active": false,
-                                        "display_path": "rba-master/RBA Prep 2.0 - demo",
-                                        "draft_mode": false,
-                                        "id": 97,
-                                        "name": "RBA Prep 2.0 - demo",
-                                        "viewable": true
-                                    },
-                                    {
-                                        "active": true,
-                                        "display_path": "rba-master/RBA Prep 2.0",
-                                        "draft_mode": false,
-                                        "id": 103,
-                                        "name": "RBA Prep 2.0",
-                                        "viewable": true
-                                    }
-                                ]
-                            },
-                            "scmId": 4,
-                            "scmName": "rba-master"
-                        },
-                        "severity-2": "low",
-                        "show_number": false,
-                        "size": {
-                            "height": 100,
-                            "width": 180
-                        },
-                        "state": "repo",
-                        "status": "",
-                        "title": "custom function",
-                        "type": "coa.CustomFunctionBlock",
-                        "userGeneratedCode": "    # Write your custom code here...",
-                        "warn": false,
-                        "z": 363
                     },
                     {
                         "active": false,
@@ -3670,272 +2637,6 @@
                         "active_keys": {},
                         "active_values": {},
                         "angle": 0,
-                        "artifact_id-1": "cf_rba_master_decode_base64_1:custom_function_result.data.artifact_id",
-                        "attrs": {
-                            ".background": {
-                                "fill": "#000000",
-                                "stroke": "#5C6773"
-                            },
-                            ".color-band": {
-                                "fill": "#3C444D"
-                            },
-                            ".customFunction": {
-                                "text": "regex_extract_powershel..."
-                            },
-                            ".inPorts>.port-in": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".inPorts>.port-in>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".message": {
-                                "opacity": 0,
-                                "ref-x": 5,
-                                "ref-y": 105,
-                                "text": "Configuring now"
-                            },
-                            ".outPorts>.port-out": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".outPorts>.port-out>.port-body": {
-                                "port": {
-                                    "id": "out",
-                                    "type": "out"
-                                }
-                            },
-                            ".scmName": {
-                                "text": "rba-master"
-                            },
-                            ".title": {
-                                "text": "custom function"
-                            },
-                            ".title-info": {
-                                "text": ""
-                            },
-                            "g.branch image": {
-                                "opacity": 1
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 0
-                            },
-                            "g.notes": {
-                                "display": "block"
-                            }
-                        },
-                        "block_code": "def cf_rba_master_regex_extract_powershell_b64_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('cf_rba_master_regex_extract_powershell_b64_2() called')\n    \n    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_decode_base64_1:custom_function_result.data.artifact_id', 'cf_rba_master_decode_base64_1:custom_function_result.data.decoded_string'], action_results=results )\n\n    parameters = []\n\n    for item0 in custom_function_result_0:\n        parameters.append({\n            'artifact_id': item0[0],\n            'input_string': item0[1],\n        })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"rba-master/regex_extract_powershell_b64\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='rba-master/regex_extract_powershell_b64', parameters=parameters, name='cf_rba_master_regex_extract_powershell_b64_2', callback=cf_rba_master_decode_base64_2)\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 1,
-                        "callsback": true,
-                        "cfDisplayPath": "rba-master/regex_extract_powershell_b64",
-                        "cfInputs": {
-                            "artifact_id": {
-                                "collectionType": "custom_function_result",
-                                "dataPath": "cf_rba_master_decode_base64_1:custom_function_result.data.artifact_id",
-                                "paramName": "item0[0]",
-                                "type": "item"
-                            },
-                            "input_string": {
-                                "collectionType": "custom_function_result",
-                                "dataPath": "cf_rba_master_decode_base64_1:custom_function_result.data.decoded_string",
-                                "paramName": "item0[1]",
-                                "type": "item"
-                            }
-                        },
-                        "color": "",
-                        "connected_to_start": true,
-                        "connection_name": "decode_base64 1",
-                        "connection_type": "action",
-                        "currentVersion": true,
-                        "customCodeEndLineOffset": 7,
-                        "customCodeStartLine": 15,
-                        "customFunction": "rba-master/regex_extract_powershell_b64",
-                        "customFunctionId": null,
-                        "custom_callback": "",
-                        "custom_code": "",
-                        "custom_join": "",
-                        "custom_name": "",
-                        "delay": 0,
-                        "description": "",
-                        "draftMode": false,
-                        "existingCF": true,
-                        "functionBlock": "custom function",
-                        "has_custom": false,
-                        "has_custom_block": false,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "c8ed373d-a4c3-4955-bd3d-746ae108a018",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "input_string-0": "cf_rba_master_decode_base64_1:custom_function_result.data.decoded_string",
-                        "join_code": "",
-                        "join_optional": [],
-                        "join_start": 1,
-                        "line_end": 420,
-                        "line_start": 393,
-                        "message": "Configuring now",
-                        "name": "regex_extract_powershell_b64",
-                        "notes": "",
-                        "number": 2,
-                        "order": 17,
-                        "outPorts": [
-                            "out"
-                        ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
-                        },
-                        "position": {
-                            "x": 680,
-                            "y": 80
-                        },
-                        "previous_function": "",
-                        "previous_name": "cf_rba_master_regex_extract_powershell_b64_2",
-                        "selectedCustomFunction": {
-                            "description": "Detects -enc flag and extracts base64. Based on Unit42 research.",
-                            "draftMode": false,
-                            "id": 35,
-                            "inputs": [
-                                {
-                                    "_pretty_custom_function": "regex_extract_powershell_b64",
-                                    "contains_type": [
-                                        "*"
-                                    ],
-                                    "custom_function": 35,
-                                    "description": "A powershell cmdline that may contain encoding flag",
-                                    "id": 106,
-                                    "input_type": "item",
-                                    "name": "input_string",
-                                    "placeholder": "powershell.exe  -enc <base64>"
-                                },
-                                {
-                                    "_pretty_custom_function": "regex_extract_powershell_b64",
-                                    "contains_type": [
-                                        "phantom artifact id"
-                                    ],
-                                    "custom_function": 35,
-                                    "description": "Phantom Artifact ID",
-                                    "id": 107,
-                                    "input_type": "item",
-                                    "name": "artifact_id",
-                                    "placeholder": "123"
-                                }
-                            ],
-                            "name": "regex_extract_powershell_b64",
-                            "outputs": [
-                                {
-                                    "_pretty_custom_function": "regex_extract_powershell_b64",
-                                    "contains_type": [
-                                        "*"
-                                    ],
-                                    "custom_function": 35,
-                                    "data_path": "extracted_string",
-                                    "description": "Base 64 extracted from input_string. Empty if extraction failed.",
-                                    "id": 73
-                                },
-                                {
-                                    "_pretty_custom_function": "regex_extract_powershell_b64",
-                                    "contains_type": [
-                                        "phantom artifact id"
-                                    ],
-                                    "custom_function": 35,
-                                    "data_path": "artifact_id",
-                                    "description": "Phantom Artifact ID",
-                                    "id": 74
-                                }
-                            ],
-                            "playbooks": {
-                                "draft_playbooks": [],
-                                "draft_version_id": null,
-                                "playbooks": [
-                                    {
-                                        "active": true,
-                                        "display_path": "rba-master/RBA Investigate - process",
-                                        "draft_mode": false,
-                                        "id": 82,
-                                        "name": "RBA Investigate - process",
-                                        "viewable": true
-                                    }
-                                ]
-                            },
-                            "scmId": 4,
-                            "scmName": "rba-master"
-                        },
-                        "show_number": true,
-                        "size": {
-                            "height": 100,
-                            "width": 180
-                        },
-                        "state": "repo",
-                        "status": "",
-                        "title": "custom function",
-                        "type": "coa.CustomFunctionBlock",
-                        "userGeneratedCode": "    # Write your custom code here...",
-                        "warn": false,
-                        "z": 386
-                    },
-                    {
-                        ".scmName/text": "rba-master",
-                        "active": false,
-                        "active_keys": {},
-                        "active_values": {},
-                        "angle": 0,
                         "attrs": {
                             ".background": {
                                 "fill": "#000000",
@@ -4351,13 +3052,13 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 447,
-                        "line_start": 420,
+                        "line_end": 415,
+                        "line_start": 388,
                         "message": "Configuring now",
                         "name": "decode_base64",
                         "notes": "",
                         "number": 2,
-                        "order": 18,
+                        "order": 17,
                         "outPorts": [
                             "out"
                         ],
@@ -5608,7 +4309,7 @@
                                 "opacity": 1
                             }
                         },
-                        "block_code": "def format_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('format_4() called')\n    \n    template = \"\"\"{{'threat_object': '{0}', 'threat_object_type': 'ip'}}\"\"\"\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_4\")\n\n    add_artifact_1(container=container)\n    cf_rba_master_add_artifact_with_tags_1(container=container)\n\n    return",
+                        "block_code": "def format_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('format_4() called')\n    \n    template = \"\"\"{{'threat_object': '{0}', 'threat_object_type': 'ip'}}\"\"\"\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_4\")\n\n    cf_rba_master_add_artifact_with_tags_1(container=container)\n\n    return",
                         "callback_code": "",
                         "callback_start": 1,
                         "callsback": false,
@@ -5632,13 +4333,13 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 340,
-                        "line_start": 323,
+                        "line_end": 308,
+                        "line_start": 292,
                         "message": "Configuring now",
                         "name": "format",
                         "notes": "",
                         "number": 4,
-                        "order": 15,
+                        "order": 14,
                         "outPorts": [
                             "out-1"
                         ],
@@ -5718,7 +4419,649 @@
                         "title": "format",
                         "type": "coa.Format",
                         "warn": false,
-                        "z": 411
+                        "z": 415
+                    },
+                    {
+                        ".scmName/text": "rba-master",
+                        "active": false,
+                        "active_keys": {},
+                        "active_values": {},
+                        "angle": 0,
+                        "artifact_id-1": "cf_rba_master_decode_base64_1:custom_function_result.data.artifact_id",
+                        "attrs": {
+                            ".background": {
+                                "fill": "#000000",
+                                "stroke": "#5C6773"
+                            },
+                            ".color-band": {
+                                "fill": "#3C444D"
+                            },
+                            ".customFunction": {
+                                "text": "regex_extract_powershel..."
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "ref-x": 5,
+                                "ref-y": 105,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".scmName": {
+                                "text": "rba-master"
+                            },
+                            ".title": {
+                                "text": "custom function"
+                            },
+                            ".title-info": {
+                                "text": ""
+                            },
+                            "g.branch image": {
+                                "opacity": 1
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            }
+                        },
+                        "block_code": "def cf_rba_master_regex_extract_powershell_b64_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('cf_rba_master_regex_extract_powershell_b64_2() called')\n    \n    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_decode_base64_1:custom_function_result.data.artifact_id', 'cf_rba_master_decode_base64_1:custom_function_result.data.decoded_string'], action_results=results )\n\n    parameters = []\n\n    for item0 in custom_function_result_0:\n        parameters.append({\n            'artifact_id': item0[0],\n            'input_string': item0[1],\n        })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"rba-master/regex_extract_powershell_b64\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='rba-master/regex_extract_powershell_b64', parameters=parameters, name='cf_rba_master_regex_extract_powershell_b64_2', callback=cf_rba_master_decode_base64_2)\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": true,
+                        "cfDisplayPath": "rba-master/regex_extract_powershell_b64",
+                        "cfInputs": {
+                            "artifact_id": {
+                                "collectionType": "custom_function_result",
+                                "dataPath": "cf_rba_master_decode_base64_1:custom_function_result.data.artifact_id",
+                                "paramName": "item0[0]",
+                                "type": "item"
+                            },
+                            "input_string": {
+                                "collectionType": "custom_function_result",
+                                "dataPath": "cf_rba_master_decode_base64_1:custom_function_result.data.decoded_string",
+                                "paramName": "item0[1]",
+                                "type": "item"
+                            }
+                        },
+                        "color": "",
+                        "connected_to_start": true,
+                        "connection_name": "decode_base64 1",
+                        "connection_type": "action",
+                        "currentVersion": true,
+                        "customCodeEndLineOffset": 7,
+                        "customCodeStartLine": 15,
+                        "customFunction": "rba-master/regex_extract_powershell_b64",
+                        "customFunctionId": null,
+                        "custom_callback": "",
+                        "custom_code": "",
+                        "custom_join": "",
+                        "custom_name": "",
+                        "delay": 0,
+                        "description": "",
+                        "draftMode": false,
+                        "existingCF": true,
+                        "functionBlock": "custom function",
+                        "has_custom": false,
+                        "has_custom_block": false,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "c8ed373d-a4c3-4955-bd3d-746ae108a018",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "input_string-0": "cf_rba_master_decode_base64_1:custom_function_result.data.decoded_string",
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "line_end": 388,
+                        "line_start": 361,
+                        "message": "Configuring now",
+                        "name": "regex_extract_powershell_b64",
+                        "notes": "",
+                        "number": 2,
+                        "order": 16,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 680,
+                            "y": 80
+                        },
+                        "previous_function": "",
+                        "previous_name": "cf_rba_master_regex_extract_powershell_b64_2",
+                        "selectedCustomFunction": {
+                            "description": "Detects -enc flag and extracts base64. Based on Unit42 research.",
+                            "draftMode": false,
+                            "id": 35,
+                            "inputs": [
+                                {
+                                    "_pretty_custom_function": "regex_extract_powershell_b64",
+                                    "contains_type": [
+                                        "*"
+                                    ],
+                                    "custom_function": 35,
+                                    "description": "A powershell cmdline that may contain encoding flag",
+                                    "id": 106,
+                                    "input_type": "item",
+                                    "name": "input_string",
+                                    "placeholder": "powershell.exe  -enc <base64>"
+                                },
+                                {
+                                    "_pretty_custom_function": "regex_extract_powershell_b64",
+                                    "contains_type": [
+                                        "phantom artifact id"
+                                    ],
+                                    "custom_function": 35,
+                                    "description": "Phantom Artifact ID",
+                                    "id": 107,
+                                    "input_type": "item",
+                                    "name": "artifact_id",
+                                    "placeholder": "123"
+                                }
+                            ],
+                            "name": "regex_extract_powershell_b64",
+                            "outputs": [
+                                {
+                                    "_pretty_custom_function": "regex_extract_powershell_b64",
+                                    "contains_type": [
+                                        "*"
+                                    ],
+                                    "custom_function": 35,
+                                    "data_path": "extracted_string",
+                                    "description": "Base 64 extracted from input_string. Empty if extraction failed.",
+                                    "id": 73
+                                },
+                                {
+                                    "_pretty_custom_function": "regex_extract_powershell_b64",
+                                    "contains_type": [
+                                        "phantom artifact id"
+                                    ],
+                                    "custom_function": 35,
+                                    "data_path": "artifact_id",
+                                    "description": "Phantom Artifact ID",
+                                    "id": 74
+                                }
+                            ],
+                            "playbooks": {
+                                "draft_playbooks": [],
+                                "draft_version_id": null,
+                                "playbooks": [
+                                    {
+                                        "active": true,
+                                        "display_path": "rba-master/RBA Investigate - process",
+                                        "draft_mode": false,
+                                        "id": 82,
+                                        "name": "RBA Investigate - process",
+                                        "viewable": true
+                                    }
+                                ]
+                            },
+                            "scmId": 4,
+                            "scmName": "rba-master"
+                        },
+                        "show_number": true,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "repo",
+                        "status": "",
+                        "title": "custom function",
+                        "type": "coa.CustomFunctionBlock",
+                        "userGeneratedCode": "    # Write your custom code here...",
+                        "warn": false,
+                        "z": 417
+                    },
+                    {
+                        ".scmName/text": "rba-master",
+                        "active": false,
+                        "active_keys": {},
+                        "active_values": {},
+                        "angle": 0,
+                        "attrs": {
+                            ".background": {
+                                "fill": "#000000",
+                                "stroke": "#5C6773"
+                            },
+                            ".color-band": {
+                                "fill": "#3C444D"
+                            },
+                            ".customFunction": {
+                                "text": "add_artifact_with_tags"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "ref-x": 5,
+                                "ref-y": 105,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".scmName": {
+                                "text": "rba-master"
+                            },
+                            ".title": {
+                                "text": "custom function"
+                            },
+                            ".title-info": {
+                                "text": ""
+                            },
+                            "g.branch image": {
+                                "opacity": 1
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            }
+                        },
+                        "block_code": "def cf_rba_master_add_artifact_with_tags_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('cf_rba_master_add_artifact_with_tags_1() called')\n    \n    container_property_0 = [\n        [\n            container.get(\"id\"),\n        ],\n    ]\n    formatted_data_0 = [\n        [\n            phantom.get_format_data(name=\"format_4\"),\n        ],\n    ]\n    literal_values_0 = [\n        [\n            \"Extracted IPv4 address\",\n            \"risk_rule\",\n            \"low\",\n            \"{\\\"threat_object\\\": [\\\"ip\\\"]}\",\n            \"True\",\n        ],\n    ]\n\n    parameters = []\n\n    for item0 in formatted_data_0:\n        for item1 in literal_values_0:\n            for item2 in container_property_0:\n                parameters.append({\n                    'cef': item0[0],\n                    'name': item1[0],\n                    'tags': None,\n                    'label': item1[1],\n                    'severity': item1[2],\n                    'container_id': item2[0],\n                    'field_mapping': item1[3],\n                    'run_automation': item1[4],\n                })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"rba-master/add_artifact_with_tags\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='rba-master/add_artifact_with_tags', parameters=parameters, name='cf_rba_master_add_artifact_with_tags_1')\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": true,
+                        "cef-0": "format_4:formatted_data",
+                        "cfDisplayPath": "rba-master/add_artifact_with_tags",
+                        "cfInputs": {
+                            "cef": {
+                                "collectionType": "formatted_data",
+                                "dataPath": "format_4:formatted_data",
+                                "paramName": "item0[0]",
+                                "type": "item"
+                            },
+                            "container_id": {
+                                "collectionType": "container_property",
+                                "dataPath": "container:id",
+                                "paramName": "item2[0]",
+                                "type": "item"
+                            },
+                            "field_mapping": {
+                                "collectionType": "literal_values",
+                                "dataPath": "{\"threat_object\": [\"ip\"]}",
+                                "paramName": "item1[3]",
+                                "type": "item"
+                            },
+                            "label": {
+                                "collectionType": "literal_values",
+                                "dataPath": "risk_rule",
+                                "paramName": "item1[1]",
+                                "type": "item"
+                            },
+                            "name": {
+                                "collectionType": "literal_values",
+                                "dataPath": "Extracted IPv4 address",
+                                "paramName": "item1[0]",
+                                "type": "item"
+                            },
+                            "run_automation": {
+                                "collectionType": "literal_values",
+                                "dataPath": "True",
+                                "paramName": "item1[4]",
+                                "type": "item"
+                            },
+                            "severity": {
+                                "collectionType": "literal_values",
+                                "dataPath": "low",
+                                "paramName": "item1[2]",
+                                "type": "item"
+                            },
+                            "tags": {
+                                "dataPath": "",
+                                "type": "item"
+                            }
+                        },
+                        "color": "",
+                        "connected_to_start": true,
+                        "connection_name": "regex_extract_ipv4",
+                        "connection_type": "action",
+                        "container_id-3": "container:id",
+                        "currentVersion": true,
+                        "customCodeEndLineOffset": 7,
+                        "customCodeStartLine": 41,
+                        "customFunction": "rba-master/add_artifact_with_tags",
+                        "customFunctionId": null,
+                        "custom_callback": "",
+                        "custom_code": "",
+                        "custom_join": "",
+                        "custom_name": "",
+                        "delay": 0,
+                        "description": "",
+                        "draftMode": false,
+                        "existingCF": true,
+                        "field_mapping-7": "{\"threat_object\": [\"ip\"]}",
+                        "functionBlock": "custom function",
+                        "has_custom": false,
+                        "has_custom_block": false,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "4cba0c65-9cef-4599-878a-b0a71026775f",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "label-4": "risk_rule",
+                        "line_end": 361,
+                        "line_start": 308,
+                        "message": "Configuring now",
+                        "name": "add_artifact_with_tags",
+                        "name-5": "Extracted IPv4 address",
+                        "notes": "",
+                        "number": 1,
+                        "order": 15,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 1520,
+                            "y": -60
+                        },
+                        "previous_function": "",
+                        "previous_name": "cf_rba_master_add_artifact_with_tags_1",
+                        "run_automation-6": "True",
+                        "selectedCustomFunction": {
+                            "description": "Adds an artifact and updates that artifact with provided tags",
+                            "draftMode": false,
+                            "id": 24,
+                            "inputs": [
+                                {
+                                    "_pretty_custom_function": "add_artifact_with_tags",
+                                    "contains_type": [
+                                        "*"
+                                    ],
+                                    "custom_function": 24,
+                                    "description": "",
+                                    "id": 76,
+                                    "input_type": "item",
+                                    "name": "cef",
+                                    "placeholder": "artifact.cef"
+                                },
+                                {
+                                    "_pretty_custom_function": "add_artifact_with_tags",
+                                    "contains_type": [
+                                        "*"
+                                    ],
+                                    "custom_function": 24,
+                                    "description": "",
+                                    "id": 77,
+                                    "input_type": "item",
+                                    "name": "tags",
+                                    "placeholder": "artifact.tags"
+                                },
+                                {
+                                    "_pretty_custom_function": "add_artifact_with_tags",
+                                    "contains_type": [
+                                        "*"
+                                    ],
+                                    "custom_function": 24,
+                                    "description": "",
+                                    "id": 78,
+                                    "input_type": "item",
+                                    "name": "severity",
+                                    "placeholder": "\"informational\""
+                                },
+                                {
+                                    "_pretty_custom_function": "add_artifact_with_tags",
+                                    "contains_type": [
+                                        "phantom container id"
+                                    ],
+                                    "custom_function": 24,
+                                    "description": "",
+                                    "id": 79,
+                                    "input_type": "item",
+                                    "name": "container_id",
+                                    "placeholder": ""
+                                },
+                                {
+                                    "_pretty_custom_function": "add_artifact_with_tags",
+                                    "contains_type": [
+                                        "*"
+                                    ],
+                                    "custom_function": 24,
+                                    "description": "",
+                                    "id": 80,
+                                    "input_type": "item",
+                                    "name": "label",
+                                    "placeholder": ""
+                                },
+                                {
+                                    "_pretty_custom_function": "add_artifact_with_tags",
+                                    "contains_type": [
+                                        "*"
+                                    ],
+                                    "custom_function": 24,
+                                    "description": "",
+                                    "id": 81,
+                                    "input_type": "item",
+                                    "name": "name",
+                                    "placeholder": "artifact.name"
+                                },
+                                {
+                                    "_pretty_custom_function": "add_artifact_with_tags",
+                                    "contains_type": [
+                                        "*"
+                                    ],
+                                    "custom_function": 24,
+                                    "description": "Defaults to False",
+                                    "id": 82,
+                                    "input_type": "item",
+                                    "name": "run_automation",
+                                    "placeholder": "True or False"
+                                },
+                                {
+                                    "_pretty_custom_function": "add_artifact_with_tags",
+                                    "contains_type": [
+                                        "*"
+                                    ],
+                                    "custom_function": 24,
+                                    "description": "valid field_mapping json",
+                                    "id": 83,
+                                    "input_type": "item",
+                                    "name": "field_mapping",
+                                    "placeholder": "{\"my_cef_field\": [\"hash\"]}"
+                                }
+                            ],
+                            "name": "add_artifact_with_tags",
+                            "outputs": [
+                                {
+                                    "_pretty_custom_function": "add_artifact_with_tags",
+                                    "contains_type": [],
+                                    "custom_function": 24,
+                                    "data_path": "id",
+                                    "description": "",
+                                    "id": 45
+                                }
+                            ],
+                            "playbooks": {
+                                "draft_playbooks": [],
+                                "draft_version_id": null,
+                                "playbooks": [
+                                    {
+                                        "active": false,
+                                        "display_path": "rba-master/RBA Prep 2.0 - demo",
+                                        "draft_mode": false,
+                                        "id": 97,
+                                        "name": "RBA Prep 2.0 - demo",
+                                        "viewable": true
+                                    },
+                                    {
+                                        "active": true,
+                                        "display_path": "rba-master/RBA Prep 2.0",
+                                        "draft_mode": false,
+                                        "id": 103,
+                                        "name": "RBA Prep 2.0",
+                                        "viewable": true
+                                    }
+                                ]
+                            },
+                            "scmId": 4,
+                            "scmName": "rba-master"
+                        },
+                        "severity-2": "low",
+                        "show_number": false,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "repo",
+                        "status": "",
+                        "title": "custom function",
+                        "type": "coa.CustomFunctionBlock",
+                        "userGeneratedCode": "    # Write your custom code here...",
+                        "warn": false,
+                        "z": 418
                     }
                 ]
             },
@@ -5728,7 +5071,7 @@
         "schema": 4,
         "version": "4.9.35731"
     },
-    "create_time": "2020-10-02T19:39:18.277763+00:00",
+    "create_time": "2020-10-02T19:41:58.424611+00:00",
     "draft_mode": false,
     "labels": [
         "*"

@@ -289,37 +289,6 @@ def filter_4(action=None, success=None, container=None, results=None, handle=Non
 
     return
 
-def add_artifact_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('add_artifact_1() called')
-        
-    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
-    
-    # collect data for 'add_artifact_1' call
-    filtered_custom_function_results_data_1 = phantom.collect2(container=container, datapath=['filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4'])
-    formatted_data_1 = phantom.get_format_data(name='format_4')
-
-    parameters = []
-    phantom.debug(formatted_data_1)
-    phantom.debug(json.loads(formatted_data_1))
-    # build parameters list for 'add_artifact_1' call
-    for filtered_custom_function_results_item_1 in filtered_custom_function_results_data_1:
-        if filtered_custom_function_results_item_1[0]:
-            parameters.append({
-                'name': "Extracted IPv4 artifact",
-                'label': "risk_rule",
-                'cef_name': "",
-                'contains': "",
-                'cef_value': "",
-                'container_id': "",
-                'cef_dictionary': json.loads(formatted_data_1),
-                'run_automation': "true",
-                'source_data_identifier': filtered_custom_function_results_item_1[0],
-            })
-
-    phantom.act(action="add artifact", parameters=parameters, assets=['helper'], name="add_artifact_1")
-
-    return
-
 def format_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug('format_4() called')
     
@@ -332,7 +301,6 @@ def format_4(action=None, success=None, container=None, results=None, handle=Non
 
     phantom.format(container=container, template=template, parameters=parameters, name="format_4")
 
-    add_artifact_1(container=container)
     cf_rba_master_add_artifact_with_tags_1(container=container)
 
     return
