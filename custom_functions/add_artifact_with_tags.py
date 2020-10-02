@@ -37,7 +37,7 @@ def add_artifact_with_tags(cef=None, tags=None, severity=None, container_id=None
             container=container_id, raw_data={}, 
             cef_data=cef, 
             label=label,
-            field_mapping=field_mapping,
+            field_mapping=json.loads(field_mapping),
             name=name, 
             severity=severity,
             run_automation=run_automation)
