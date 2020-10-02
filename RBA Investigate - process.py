@@ -15,7 +15,7 @@ def on_start(container):
 def cf_community_regex_extract_ipv4_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug('cf_community_regex_extract_ipv4_1() called')
     
-    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_decode_base64_1:custom_function_result.data.decoded_string'], action_results=results )
+    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_decode_base64_2:custom_function_result.data.decoded_string'], action_results=results )
 
     parameters = []
 
@@ -35,7 +35,7 @@ def cf_community_regex_extract_ipv4_1(action=None, success=None, container=None,
     ################################################################################    
 
     # call custom function "community/regex_extract_ipv4", returns the custom_function_run_id
-    phantom.custom_function(custom_function='community/regex_extract_ipv4', parameters=parameters, name='cf_community_regex_extract_ipv4_1', callback=join_subnet_filter)
+    phantom.custom_function(custom_function='community/regex_extract_ipv4', parameters=parameters, name='cf_community_regex_extract_ipv4_1', callback=subnet_filter)
 
     return
 
@@ -45,7 +45,7 @@ def ip_reputation_1(action=None, success=None, container=None, results=None, han
     #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
     
     # collect data for 'ip_reputation_1' call
-    filtered_custom_function_results_data_1 = phantom.collect2(container=container, datapath=['filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_2:custom_function_result.data.*.ipv4'])
+    filtered_custom_function_results_data_1 = phantom.collect2(container=container, datapath=['filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4'])
 
     parameters = []
     
@@ -68,9 +68,9 @@ def subnet_filter(action=None, success=None, container=None, results=None, handl
         container=container,
         action_results=results,
         conditions=[
-            ["cf_community_regex_extract_ipv4_2:custom_function_result.data.*.ipv4", "not in", "10.0.0.0/8"],
-            ["cf_community_regex_extract_ipv4_2:custom_function_result.data.*.ipv4", "not in", "172.16.0.0/12"],
-            ["cf_community_regex_extract_ipv4_2:custom_function_result.data.*.ipv4", "not in", "192.168.0.0/16"],
+            ["cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4", "not in", "10.0.0.0/8"],
+            ["cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4", "not in", "172.16.0.0/12"],
+            ["cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4", "not in", "192.168.0.0/16"],
         ],
         logical_operator='and',
         name="subnet_filter:condition_1")
@@ -80,17 +80,6 @@ def subnet_filter(action=None, success=None, container=None, results=None, handl
         ip_reputation_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
         format_4(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
-    return
-
-def join_subnet_filter(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None):
-    phantom.debug('join_subnet_filter() called')
-
-    # check if all connected incoming playbooks, actions, or custom functions are done i.e. have succeeded or failed
-    if phantom.completed(custom_function_names=['cf_community_regex_extract_ipv4_1', 'cf_community_regex_extract_ipv4_2']):
-        
-        # call connected block "subnet_filter"
-        subnet_filter(container=container, handle=handle)
-    
     return
 
 def cf_rba_master_regex_extract_powershell_b64_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
@@ -160,7 +149,6 @@ def cf_rba_master_decode_base64_1_callback(action=None, success=None, container=
     phantom.debug('cf_rba_master_decode_base64_1_callback() called')
     
     filter_3(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
-    cf_community_regex_extract_ipv4_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
     cf_rba_master_regex_extract_powershell_b64_2(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
 
     return
@@ -339,7 +327,7 @@ def format_4(action=None, success=None, container=None, results=None, handle=Non
 
     # parameter list for template variable replacement
     parameters = [
-        "filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_2:custom_function_result.data.*.ipv4",
+        "filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4",
     ]
 
     phantom.format(container=container, template=template, parameters=parameters, name="format_4")
@@ -425,22 +413,22 @@ def cf_rba_master_regex_extract_powershell_b64_2(action=None, success=None, cont
     ################################################################################    
 
     # call custom function "rba-master/regex_extract_powershell_b64", returns the custom_function_run_id
-    phantom.custom_function(custom_function='rba-master/regex_extract_powershell_b64', parameters=parameters, name='cf_rba_master_regex_extract_powershell_b64_2', callback=cf_community_regex_extract_ipv4_2)
+    phantom.custom_function(custom_function='rba-master/regex_extract_powershell_b64', parameters=parameters, name='cf_rba_master_regex_extract_powershell_b64_2', callback=cf_rba_master_decode_base64_2)
 
     return
 
-def cf_community_regex_extract_ipv4_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('cf_community_regex_extract_ipv4_2() called')
+def cf_rba_master_decode_base64_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('cf_rba_master_decode_base64_2() called')
     
-    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_regex_extract_powershell_b64_2:custom_function_result.data.extracted_string'], action_results=results )
+    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_regex_extract_powershell_b64_2:custom_function_result.data.extracted_string', 'cf_rba_master_regex_extract_powershell_b64_2:custom_function_result.data.artifact_id'], action_results=results )
 
     parameters = []
 
-    custom_function_result_0_0 = [item[0] for item in custom_function_result_0]
-
-    parameters.append({
-        'input_string': custom_function_result_0_0,
-    })
+    for item0 in custom_function_result_0:
+        parameters.append({
+            'input_string': item0[0],
+            'artifact_id': item0[1],
+        })
     ################################################################################
     ## Custom Code Start
     ################################################################################
@@ -451,8 +439,8 @@ def cf_community_regex_extract_ipv4_2(action=None, success=None, container=None,
     ## Custom Code End
     ################################################################################    
 
-    # call custom function "community/regex_extract_ipv4", returns the custom_function_run_id
-    phantom.custom_function(custom_function='community/regex_extract_ipv4', parameters=parameters, name='cf_community_regex_extract_ipv4_2', callback=join_subnet_filter)
+    # call custom function "rba-master/decode_base64", returns the custom_function_run_id
+    phantom.custom_function(custom_function='rba-master/decode_base64', parameters=parameters, name='cf_rba_master_decode_base64_2', callback=cf_community_regex_extract_ipv4_1)
 
     return
 

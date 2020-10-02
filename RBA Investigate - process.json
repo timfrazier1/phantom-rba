@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "5ac27ec2dbd921eee02823ef75bd476d47dae341",
+            "hash": "bfbdb36b36e11ed14f44daff1db73658fd0dec8c",
             "joint": {
                 "cells": [
                     {
@@ -73,8 +73,8 @@
                         "join_code": "# read-only block view not available",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 472,
-                        "line_start": 459,
+                        "line_end": 460,
+                        "line_start": 447,
                         "name": "",
                         "notes": "",
                         "number": 0,
@@ -682,8 +682,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 132,
-                        "line_start": 123,
+                        "line_end": 121,
+                        "line_start": 112,
                         "message": "Configuring now",
                         "name": "pin",
                         "notes": "",
@@ -1042,8 +1042,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 235,
-                        "line_start": 219,
+                        "line_end": 223,
+                        "line_start": 207,
                         "message": "Configuring now",
                         "name": "format",
                         "notes": "",
@@ -1219,7 +1219,7 @@
                         },
                         "color": "",
                         "connected_to_start": true,
-                        "connection_name": "decode_base64",
+                        "connection_name": "decode_base64 1",
                         "connection_type": "action",
                         "currentVersion": true,
                         "customCodeEndLineOffset": 7,
@@ -1246,8 +1246,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 219,
-                        "line_start": 186,
+                        "line_end": 207,
+                        "line_start": 174,
                         "message": "Configuring now",
                         "name": "json_serializer",
                         "notes": "",
@@ -1507,8 +1507,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 269,
-                        "line_start": 235,
+                        "line_end": 257,
+                        "line_start": 223,
                         "message": "Configuring now",
                         "name": "update_artifact",
                         "notes": "",
@@ -1797,8 +1797,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 123,
-                        "line_start": 96,
+                        "line_end": 112,
+                        "line_start": 85,
                         "message": "Configuring now",
                         "name": "regex_extract_powershell_b64",
                         "notes": "",
@@ -2032,8 +2032,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 290,
-                        "line_end": 285,
-                        "line_start": 269,
+                        "line_end": 273,
+                        "line_start": 257,
                         "message": "Configuring now",
                         "name": "format",
                         "notes": "",
@@ -2596,7 +2596,7 @@
                         "callsback": true,
                         "color": "",
                         "connected_to_start": true,
-                        "connection_name": "regex_extract_ipv4 1, regex_extract_ipv4 2",
+                        "connection_name": "regex_extract_ipv4",
                         "connection_type": "action",
                         "custom_callback": "",
                         "custom_code": "def add_artifact_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('add_artifact_1() called')\n        \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'add_artifact_1' call\n    filtered_custom_function_results_data_1 = phantom.collect2(container=container, datapath=['filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4'])\n    formatted_data_1 = phantom.get_format_data(name='format_4')\n\n    parameters = []\n    phantom.debug(formatted_data_1)\n    phantom.debug(json.loads(formatted_data_1))\n    # build parameters list for 'add_artifact_1' call\n    for filtered_custom_function_results_item_1 in filtered_custom_function_results_data_1:\n        if filtered_custom_function_results_item_1[0]:\n            parameters.append({\n                'name': \"Extracted IPv4 artifact\",\n                'label': \"risk_rule\",\n                'cef_name': \"\",\n                'contains': \"\",\n                'cef_value': \"\",\n                'container_id': \"\",\n                'cef_dictionary': json.loads(formatted_data_1),\n                'run_automation': \"true\",\n                'source_data_identifier': filtered_custom_function_results_item_1[0],\n            })\n\n    phantom.act(action=\"add artifact\", parameters=parameters, assets=['helper'], name=\"add_artifact_1\")\n\n    return",
@@ -2615,8 +2615,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 335,
-                        "line_start": 304,
+                        "line_end": 323,
+                        "line_start": 292,
                         "message": "Configuring now",
                         "name": "add artifact",
                         "notes": "",
@@ -2901,7 +2901,7 @@
                         },
                         "color": "",
                         "connected_to_start": true,
-                        "connection_name": "regex_extract_ipv4 1, regex_extract_ipv4 2",
+                        "connection_name": "regex_extract_ipv4",
                         "connection_type": "action",
                         "container_id-3": "container:id",
                         "currentVersion": true,
@@ -2931,8 +2931,8 @@
                         "join_optional": [],
                         "join_start": 1,
                         "label-4": "risk_rule",
-                        "line_end": 405,
-                        "line_start": 352,
+                        "line_end": 393,
+                        "line_start": 340,
                         "message": "Configuring now",
                         "name": "add_artifact_with_tags",
                         "name-5": "Extracted IPv4 address",
@@ -3154,237 +3154,6 @@
                         "z": 363
                     },
                     {
-                        ".scmName/text": "community",
-                        "active": false,
-                        "active_keys": {},
-                        "active_values": {},
-                        "angle": 0,
-                        "attrs": {
-                            ".background": {
-                                "fill": "#000000",
-                                "stroke": "#5C6773"
-                            },
-                            ".color-band": {
-                                "fill": "#3C444D"
-                            },
-                            ".customFunction": {
-                                "text": "regex_extract_ipv4 1"
-                            },
-                            ".inPorts>.port-in": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".inPorts>.port-in>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".message": {
-                                "opacity": 0,
-                                "ref-x": 5,
-                                "ref-y": 105,
-                                "text": "Configuring now"
-                            },
-                            ".outPorts>.port-out": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".outPorts>.port-out>.port-body": {
-                                "port": {
-                                    "id": "out",
-                                    "type": "out"
-                                }
-                            },
-                            ".scmName": {
-                                "text": "community"
-                            },
-                            ".title": {
-                                "text": "custom function"
-                            },
-                            ".title-info": {
-                                "text": ""
-                            },
-                            "g.branch image": {
-                                "opacity": 1
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 0
-                            },
-                            "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
-                            },
-                            "g.notes": {
-                                "display": "block"
-                            }
-                        },
-                        "block_code": "def cf_community_regex_extract_ipv4_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('cf_community_regex_extract_ipv4_1() called')\n    \n    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_decode_base64_1:custom_function_result.data.decoded_string'], action_results=results )\n\n    parameters = []\n\n    custom_function_result_0_0 = [item[0] for item in custom_function_result_0]\n\n    parameters.append({\n        'input_string': custom_function_result_0_0,\n    })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"community/regex_extract_ipv4\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='community/regex_extract_ipv4', parameters=parameters, name='cf_community_regex_extract_ipv4_1', callback=join_subnet_filter)\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 42,
-                        "callsback": true,
-                        "cfDisplayPath": "community/regex_extract_ipv4",
-                        "cfInputs": {
-                            "input_string": {
-                                "collectionType": "custom_function_result",
-                                "dataPath": "cf_rba_master_decode_base64_1:custom_function_result.data.decoded_string",
-                                "paramName": "custom_function_result_0_0",
-                                "type": "list"
-                            }
-                        },
-                        "color": "",
-                        "connected_to_start": true,
-                        "connection_name": "decode_base64",
-                        "connection_type": "action",
-                        "currentVersion": true,
-                        "customCodeEndLineOffset": 7,
-                        "customCodeStartLine": 15,
-                        "customFunction": "community/regex_extract_ipv4",
-                        "customFunctionId": null,
-                        "custom_callback": "",
-                        "custom_code": "",
-                        "custom_join": "",
-                        "custom_name": "",
-                        "delay": 0,
-                        "description": "",
-                        "draftMode": false,
-                        "existingCF": true,
-                        "functionBlock": "custom function",
-                        "has_custom": false,
-                        "has_custom_block": false,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "3418f7a3-3ae3-47f0-b1c9-d684428fbb2a",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "input_string-0": "cf_rba_master_decode_base64_1:custom_function_result.data.decoded_string",
-                        "join_code": "",
-                        "join_optional": [],
-                        "join_start": 78,
-                        "line_end": 42,
-                        "line_start": 15,
-                        "message": "Configuring now",
-                        "name": "regex_extract_ipv4",
-                        "notes": "",
-                        "number": 1,
-                        "order": 2,
-                        "outPorts": [
-                            "out"
-                        ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
-                        },
-                        "position": {
-                            "x": 860,
-                            "y": 80
-                        },
-                        "previous_function": "",
-                        "previous_name": "cf_community_regex_extract_ipv4_1",
-                        "selectedCustomFunction": {
-                            "description": "Takes a single input and attempts to extract all IPv4 addresses from it using regex.",
-                            "draftMode": false,
-                            "id": 366,
-                            "inputs": [
-                                {
-                                    "_pretty_custom_function": "regex_extract_ipv4",
-                                    "contains_type": [
-                                        "*"
-                                    ],
-                                    "custom_function": 366,
-                                    "description": "An input string that may contain an arbitrary number of ipv4 addresses",
-                                    "id": 697,
-                                    "input_type": "list",
-                                    "name": "input_string",
-                                    "placeholder": "192.0.2.1"
-                                }
-                            ],
-                            "name": "regex_extract_ipv4",
-                            "outputs": [
-                                {
-                                    "_pretty_custom_function": "regex_extract_ipv4",
-                                    "contains_type": [
-                                        "ip"
-                                    ],
-                                    "custom_function": 366,
-                                    "data_path": "*.ipv4",
-                                    "description": "Extracted ipv4 addresses",
-                                    "id": 1178
-                                }
-                            ],
-                            "playbooks": {
-                                "draft_playbooks": [],
-                                "draft_version_id": null,
-                                "playbooks": []
-                            },
-                            "scmId": 1,
-                            "scmName": "community"
-                        },
-                        "show_number": true,
-                        "size": {
-                            "height": 100,
-                            "width": 180
-                        },
-                        "state": "repo",
-                        "status": "",
-                        "title": "custom function",
-                        "type": "coa.CustomFunctionBlock",
-                        "userGeneratedCode": "    # Write your custom code here...",
-                        "warn": false,
-                        "z": 365
-                    },
-                    {
                         "active": false,
                         "angle": 0,
                         "attrs": {
@@ -3455,8 +3224,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 304,
-                        "line_start": 285,
+                        "line_end": 292,
+                        "line_start": 273,
                         "name": "filter",
                         "notes": "",
                         "number": 4,
@@ -3601,7 +3370,7 @@
                         "callback_start": 1,
                         "callsback": false,
                         "connected_to_start": true,
-                        "connection_name": "decode_base64",
+                        "connection_name": "decode_base64 1",
                         "connection_type": "action",
                         "custom_callback": "",
                         "custom_code": "",
@@ -3619,8 +3388,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 186,
-                        "line_start": 168,
+                        "line_end": 174,
+                        "line_start": 156,
                         "name": "filter",
                         "notes": "",
                         "number": 3,
@@ -3733,45 +3502,6 @@
                         "endDirections": [
                             "left"
                         ],
-                        "id": "3ed061f3-45de-43a7-8aed-c88b1f528e6f",
-                        "router": {
-                            "name": "metro"
-                        },
-                        "source": {
-                            "id": "35f04387-bab7-4d55-a746-440f0aeaed3b",
-                            "selector": "> g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
-                        },
-                        "startDirections": [
-                            "right"
-                        ],
-                        "target": {
-                            "id": "3418f7a3-3ae3-47f0-b1c9-d684428fbb2a",
-                            "selector": "> g:nth-child(1) > g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
-                        },
-                        "type": "link",
-                        "z": 370
-                    },
-                    {
-                        "attrs": {
-                            ".connection": {
-                                "stroke": "#818D99",
-                                "stroke-width": 2
-                            },
-                            ".marker-target": {
-                                "d": "M 10 0 L 0 5 L 10 10 z",
-                                "fill": "#818D99",
-                                "stroke": "#818D99"
-                            }
-                        },
-                        "connector": {
-                            "args": {
-                                "radius": 5
-                            },
-                            "name": "rounded"
-                        },
-                        "endDirections": [
-                            "left"
-                        ],
                         "id": "65340910-f15a-437d-aa35-baae5d09f1fc",
                         "router": {
                             "name": "metro"
@@ -3789,312 +3519,6 @@
                         },
                         "type": "link",
                         "z": 371
-                    },
-                    {
-                        ".scmName/text": "rba-master",
-                        "active": false,
-                        "active_keys": {},
-                        "active_values": {},
-                        "angle": 0,
-                        "attrs": {
-                            ".background": {
-                                "fill": "#000000",
-                                "stroke": "#5C6773"
-                            },
-                            ".color-band": {
-                                "fill": "#3C444D"
-                            },
-                            ".customFunction": {
-                                "text": "decode_base64"
-                            },
-                            ".inPorts>.port-in": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".inPorts>.port-in>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".message": {
-                                "opacity": 0,
-                                "ref-x": 5,
-                                "ref-y": 105,
-                                "text": "Configuring now"
-                            },
-                            ".outPorts>.port-out": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".outPorts>.port-out>.port-body": {
-                                "port": {
-                                    "id": "out",
-                                    "type": "out"
-                                }
-                            },
-                            ".scmName": {
-                                "text": "rba-master"
-                            },
-                            ".title": {
-                                "text": "custom function"
-                            },
-                            ".title-info": {
-                                "text": ""
-                            },
-                            "g.branch image": {
-                                "opacity": 1
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 0
-                            },
-                            "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
-                            },
-                            "g.notes": {
-                                "display": "block"
-                            }
-                        },
-                        "block_code": "def cf_rba_master_decode_base64_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('cf_rba_master_decode_base64_1() called')\n    \n    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_regex_extract_powershell_b64_1:custom_function_result.data.artifact_id', 'cf_rba_master_regex_extract_powershell_b64_1:custom_function_result.data.extracted_string'], action_results=results )\n\n    parameters = []\n\n    for item0 in custom_function_result_0:\n        parameters.append({\n            'artifact_id': item0[0],\n            'input_string': item0[1],\n        })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"rba-master/decode_base64\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='rba-master/decode_base64', parameters=parameters, name='cf_rba_master_decode_base64_1', callback=cf_rba_master_decode_base64_1_callback)\n\n    return",
-                        "callback_code": "def cf_rba_master_decode_base64_1_callback(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None):\n    phantom.debug('cf_rba_master_decode_base64_1_callback() called')\n    \n    filter_3(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)\n    cf_community_regex_extract_ipv4_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)\n    cf_rba_master_regex_extract_powershell_b64_2(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)\n\n    return",
-                        "callback_start": 159,
-                        "callsback": true,
-                        "cfDisplayPath": "rba-master/decode_base64",
-                        "cfInputs": {
-                            "artifact_id": {
-                                "collectionType": "custom_function_result",
-                                "dataPath": "cf_rba_master_regex_extract_powershell_b64_1:custom_function_result.data.artifact_id",
-                                "paramName": "item0[0]",
-                                "type": "item"
-                            },
-                            "input_string": {
-                                "collectionType": "custom_function_result",
-                                "dataPath": "cf_rba_master_regex_extract_powershell_b64_1:custom_function_result.data.extracted_string",
-                                "paramName": "item0[1]",
-                                "type": "item"
-                            }
-                        },
-                        "color": "",
-                        "connected_to_start": true,
-                        "connection_name": "regex_extract_powershell_b64 1",
-                        "connection_type": "action",
-                        "currentVersion": true,
-                        "customCodeEndLineOffset": 7,
-                        "customCodeStartLine": 15,
-                        "customFunction": "rba-master/decode_base64",
-                        "customFunctionId": null,
-                        "custom_callback": "",
-                        "custom_code": "",
-                        "custom_join": "",
-                        "custom_name": "",
-                        "delay": 0,
-                        "description": "",
-                        "draftMode": false,
-                        "existingCF": true,
-                        "functionBlock": "custom function",
-                        "has_custom": false,
-                        "has_custom_block": false,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "35f04387-bab7-4d55-a746-440f0aeaed3b",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "join_code": "",
-                        "join_optional": [],
-                        "join_start": 1,
-                        "line_end": 168,
-                        "line_start": 132,
-                        "message": "Configuring now",
-                        "name": "decode_base64",
-                        "notes": "",
-                        "number": 1,
-                        "order": 7,
-                        "outPorts": [
-                            "out"
-                        ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
-                        },
-                        "position": {
-                            "x": 440,
-                            "y": 80
-                        },
-                        "previous_function": "",
-                        "previous_name": "cf_rba_master_decode_base64_1",
-                        "selectedCustomFunction": {
-                            "description": "Decodes provided base64 string",
-                            "draftMode": false,
-                            "id": 25,
-                            "inputs": [
-                                {
-                                    "_pretty_custom_function": "decode_base64",
-                                    "contains_type": [
-                                        "*"
-                                    ],
-                                    "custom_function": 25,
-                                    "description": "Base64 encoded text",
-                                    "id": 84,
-                                    "input_type": "item",
-                                    "name": "input_string",
-                                    "placeholder": "base64_text"
-                                },
-                                {
-                                    "_pretty_custom_function": "decode_base64",
-                                    "contains_type": [
-                                        "phantom artifact id"
-                                    ],
-                                    "custom_function": 25,
-                                    "description": "Phantom Artifact ID",
-                                    "id": 85,
-                                    "input_type": "item",
-                                    "name": "artifact_id",
-                                    "placeholder": "123"
-                                }
-                            ],
-                            "name": "decode_base64",
-                            "outputs": [
-                                {
-                                    "_pretty_custom_function": "decode_base64",
-                                    "contains_type": [
-                                        "*"
-                                    ],
-                                    "custom_function": 25,
-                                    "data_path": "decoded_string",
-                                    "description": "Base64 decoded string",
-                                    "id": 46
-                                },
-                                {
-                                    "_pretty_custom_function": "decode_base64",
-                                    "contains_type": [
-                                        "phantom artifact id"
-                                    ],
-                                    "custom_function": 25,
-                                    "data_path": "artifact_id",
-                                    "description": "Phantom Artifact ID",
-                                    "id": 47
-                                }
-                            ],
-                            "playbooks": {
-                                "draft_playbooks": [],
-                                "draft_version_id": null,
-                                "playbooks": [
-                                    {
-                                        "active": false,
-                                        "display_path": "rba-master/RBA Investigate - process",
-                                        "draft_mode": false,
-                                        "id": 95,
-                                        "name": "RBA Investigate - process",
-                                        "viewable": true
-                                    }
-                                ]
-                            },
-                            "scmId": 4,
-                            "scmName": "rba-master"
-                        },
-                        "show_number": false,
-                        "size": {
-                            "height": 100,
-                            "width": 180
-                        },
-                        "state": "repo",
-                        "status": "",
-                        "title": "custom function",
-                        "type": "coa.CustomFunctionBlock",
-                        "userGeneratedCode": "    # Write your custom code here...",
-                        "warn": false,
-                        "z": 374
-                    },
-                    {
-                        "attrs": {
-                            ".connection": {
-                                "stroke": "#818D99",
-                                "stroke-width": 2
-                            },
-                            ".marker-target": {
-                                "d": "M 10 0 L 0 5 L 10 10 z",
-                                "fill": "#818D99",
-                                "stroke": "#818D99"
-                            }
-                        },
-                        "connector": {
-                            "args": {
-                                "radius": 5
-                            },
-                            "name": "rounded"
-                        },
-                        "endDirections": [
-                            "left"
-                        ],
-                        "id": "bf462b1f-9fa0-481d-a375-af99695c9dca",
-                        "router": {
-                            "name": "metro"
-                        },
-                        "source": {
-                            "id": "c8ed373d-a4c3-4955-bd3d-746ae108a018",
-                            "selector": "> g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
-                        },
-                        "startDirections": [
-                            "right"
-                        ],
-                        "target": {
-                            "id": "337ca731-5d14-498b-946c-a791a4f6c2bb",
-                            "selector": ".port-body[type=\"input\"]"
-                        },
-                        "type": "link",
-                        "z": 375
                     },
                     {
                         "0": "S",
@@ -4306,7 +3730,7 @@
                                 "display": "block"
                             }
                         },
-                        "block_code": "def cf_rba_master_regex_extract_powershell_b64_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('cf_rba_master_regex_extract_powershell_b64_2() called')\n    \n    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_decode_base64_1:custom_function_result.data.artifact_id', 'cf_rba_master_decode_base64_1:custom_function_result.data.decoded_string'], action_results=results )\n\n    parameters = []\n\n    for item0 in custom_function_result_0:\n        parameters.append({\n            'artifact_id': item0[0],\n            'input_string': item0[1],\n        })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"rba-master/regex_extract_powershell_b64\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='rba-master/regex_extract_powershell_b64', parameters=parameters, name='cf_rba_master_regex_extract_powershell_b64_2', callback=cf_community_regex_extract_ipv4_2)\n\n    return",
+                        "block_code": "def cf_rba_master_regex_extract_powershell_b64_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('cf_rba_master_regex_extract_powershell_b64_2() called')\n    \n    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_decode_base64_1:custom_function_result.data.artifact_id', 'cf_rba_master_decode_base64_1:custom_function_result.data.decoded_string'], action_results=results )\n\n    parameters = []\n\n    for item0 in custom_function_result_0:\n        parameters.append({\n            'artifact_id': item0[0],\n            'input_string': item0[1],\n        })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"rba-master/regex_extract_powershell_b64\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='rba-master/regex_extract_powershell_b64', parameters=parameters, name='cf_rba_master_regex_extract_powershell_b64_2', callback=cf_rba_master_decode_base64_2)\n\n    return",
                         "callback_code": "",
                         "callback_start": 1,
                         "callsback": true,
@@ -4327,7 +3751,7 @@
                         },
                         "color": "",
                         "connected_to_start": true,
-                        "connection_name": "decode_base64",
+                        "connection_name": "decode_base64 1",
                         "connection_type": "action",
                         "currentVersion": true,
                         "customCodeEndLineOffset": 7,
@@ -4355,8 +3779,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 432,
-                        "line_start": 405,
+                        "line_end": 420,
+                        "line_start": 393,
                         "message": "Configuring now",
                         "name": "regex_extract_powershell_b64",
                         "notes": "",
@@ -4418,8 +3842,8 @@
                             }
                         },
                         "position": {
-                            "x": 720,
-                            "y": 200
+                            "x": 680,
+                            "y": 80
                         },
                         "previous_function": "",
                         "previous_name": "cf_rba_master_regex_extract_powershell_b64_2",
@@ -4507,47 +3931,7 @@
                         "z": 386
                     },
                     {
-                        "attrs": {
-                            ".connection": {
-                                "stroke": "#818D99",
-                                "stroke-width": 2
-                            },
-                            ".marker-target": {
-                                "d": "M 10 0 L 0 5 L 10 10 z",
-                                "fill": "#818D99",
-                                "stroke": "#818D99"
-                            }
-                        },
-                        "connector": {
-                            "args": {
-                                "radius": 5
-                            },
-                            "name": "rounded"
-                        },
-                        "endDirections": [
-                            "left"
-                        ],
-                        "id": "e4c3a8ef-4498-48bc-aabd-5734e4aa482b",
-                        "router": {
-                            "name": "metro"
-                        },
-                        "source": {
-                            "id": "337ca731-5d14-498b-946c-a791a4f6c2bb",
-                            "selector": "> g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
-                        },
-                        "startDirections": [
-                            "right"
-                        ],
-                        "target": {
-                            "id": "cd806a98-4038-44f1-a303-58012d77e33a",
-                            "port": "in",
-                            "selector": "> g:nth-child(1) > g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
-                        },
-                        "type": "link",
-                        "z": 398
-                    },
-                    {
-                        ".scmName/text": "community",
+                        ".scmName/text": "rba-master",
                         "active": false,
                         "active_keys": {},
                         "active_values": {},
@@ -4561,7 +3945,7 @@
                                 "fill": "#3C444D"
                             },
                             ".customFunction": {
-                                "text": "regex_extract_ipv4 2"
+                                "text": "decode_base64 1"
                             },
                             ".inPorts>.port-in": {
                                 "ref": ".background",
@@ -4590,7 +3974,314 @@
                                 }
                             },
                             ".scmName": {
-                                "text": "community"
+                                "text": "rba-master"
+                            },
+                            ".title": {
+                                "text": "custom function"
+                            },
+                            ".title-info": {
+                                "text": ""
+                            },
+                            "g.branch image": {
+                                "opacity": 1
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            }
+                        },
+                        "block_code": "def cf_rba_master_decode_base64_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('cf_rba_master_decode_base64_1() called')\n    \n    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_regex_extract_powershell_b64_1:custom_function_result.data.artifact_id', 'cf_rba_master_regex_extract_powershell_b64_1:custom_function_result.data.extracted_string'], action_results=results )\n\n    parameters = []\n\n    for item0 in custom_function_result_0:\n        parameters.append({\n            'artifact_id': item0[0],\n            'input_string': item0[1],\n        })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"rba-master/decode_base64\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='rba-master/decode_base64', parameters=parameters, name='cf_rba_master_decode_base64_1', callback=cf_rba_master_decode_base64_1_callback)\n\n    return",
+                        "callback_code": "def cf_rba_master_decode_base64_1_callback(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None):\n    phantom.debug('cf_rba_master_decode_base64_1_callback() called')\n    \n    filter_3(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)\n    cf_rba_master_regex_extract_powershell_b64_2(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)\n\n    return",
+                        "callback_start": 148,
+                        "callsback": true,
+                        "cfDisplayPath": "rba-master/decode_base64",
+                        "cfInputs": {
+                            "artifact_id": {
+                                "collectionType": "custom_function_result",
+                                "dataPath": "cf_rba_master_regex_extract_powershell_b64_1:custom_function_result.data.artifact_id",
+                                "paramName": "item0[0]",
+                                "type": "item"
+                            },
+                            "input_string": {
+                                "collectionType": "custom_function_result",
+                                "dataPath": "cf_rba_master_regex_extract_powershell_b64_1:custom_function_result.data.extracted_string",
+                                "paramName": "item0[1]",
+                                "type": "item"
+                            }
+                        },
+                        "color": "",
+                        "connected_to_start": true,
+                        "connection_name": "regex_extract_powershell_b64 1",
+                        "connection_type": "action",
+                        "currentVersion": true,
+                        "customCodeEndLineOffset": 7,
+                        "customCodeStartLine": 15,
+                        "customFunction": "rba-master/decode_base64",
+                        "customFunctionId": null,
+                        "custom_callback": "",
+                        "custom_code": "",
+                        "custom_join": "",
+                        "custom_name": "",
+                        "delay": 0,
+                        "description": "",
+                        "draftMode": false,
+                        "existingCF": true,
+                        "functionBlock": "custom function",
+                        "has_custom": false,
+                        "has_custom_block": false,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "35f04387-bab7-4d55-a746-440f0aeaed3b",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "line_end": 156,
+                        "line_start": 121,
+                        "message": "Configuring now",
+                        "name": "decode_base64",
+                        "notes": "",
+                        "number": 1,
+                        "order": 7,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 440,
+                            "y": 80
+                        },
+                        "previous_function": "",
+                        "previous_name": "cf_rba_master_decode_base64_1",
+                        "selectedCustomFunction": {
+                            "description": "Decodes provided base64 string",
+                            "draftMode": false,
+                            "id": 25,
+                            "inputs": [
+                                {
+                                    "_pretty_custom_function": "decode_base64",
+                                    "contains_type": [
+                                        "*"
+                                    ],
+                                    "custom_function": 25,
+                                    "description": "Base64 encoded text",
+                                    "id": 84,
+                                    "input_type": "item",
+                                    "name": "input_string",
+                                    "placeholder": "base64_text"
+                                },
+                                {
+                                    "_pretty_custom_function": "decode_base64",
+                                    "contains_type": [
+                                        "phantom artifact id"
+                                    ],
+                                    "custom_function": 25,
+                                    "description": "Phantom Artifact ID",
+                                    "id": 85,
+                                    "input_type": "item",
+                                    "name": "artifact_id",
+                                    "placeholder": "123"
+                                }
+                            ],
+                            "name": "decode_base64",
+                            "outputs": [
+                                {
+                                    "_pretty_custom_function": "decode_base64",
+                                    "contains_type": [
+                                        "*"
+                                    ],
+                                    "custom_function": 25,
+                                    "data_path": "decoded_string",
+                                    "description": "Base64 decoded string",
+                                    "id": 46
+                                },
+                                {
+                                    "_pretty_custom_function": "decode_base64",
+                                    "contains_type": [
+                                        "phantom artifact id"
+                                    ],
+                                    "custom_function": 25,
+                                    "data_path": "artifact_id",
+                                    "description": "Phantom Artifact ID",
+                                    "id": 47
+                                }
+                            ],
+                            "playbooks": {
+                                "draft_playbooks": [],
+                                "draft_version_id": null,
+                                "playbooks": [
+                                    {
+                                        "active": false,
+                                        "display_path": "rba-master/RBA Investigate - process",
+                                        "draft_mode": false,
+                                        "id": 95,
+                                        "name": "RBA Investigate - process",
+                                        "viewable": true
+                                    }
+                                ]
+                            },
+                            "scmId": 4,
+                            "scmName": "rba-master"
+                        },
+                        "show_number": true,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "repo",
+                        "status": "",
+                        "title": "custom function",
+                        "type": "coa.CustomFunctionBlock",
+                        "userGeneratedCode": "    # Write your custom code here...",
+                        "warn": false,
+                        "z": 403
+                    },
+                    {
+                        "attrs": {
+                            ".connection": {
+                                "stroke": "#818D99",
+                                "stroke-width": 2
+                            },
+                            ".marker-target": {
+                                "d": "M 10 0 L 0 5 L 10 10 z",
+                                "fill": "#818D99",
+                                "stroke": "#818D99"
+                            }
+                        },
+                        "connector": {
+                            "args": {
+                                "radius": 5
+                            },
+                            "name": "rounded"
+                        },
+                        "endDirections": [
+                            "left"
+                        ],
+                        "id": "ddd852f3-b987-4357-8065-0c1a169d70ae",
+                        "router": {
+                            "name": "metro"
+                        },
+                        "source": {
+                            "id": "c8ed373d-a4c3-4955-bd3d-746ae108a018",
+                            "selector": "> g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "startDirections": [
+                            "right"
+                        ],
+                        "target": {
+                            "id": "80dae4cd-2dd8-4be4-9798-3a53a1ffe61d",
+                            "selector": ".port-body[type=\"input\"]"
+                        },
+                        "type": "link",
+                        "z": 404
+                    },
+                    {
+                        ".scmName/text": "rba-master",
+                        "active": false,
+                        "active_keys": {},
+                        "active_values": {},
+                        "angle": 0,
+                        "artifact_id-1": "cf_rba_master_regex_extract_powershell_b64_2:custom_function_result.data.artifact_id",
+                        "attrs": {
+                            ".background": {
+                                "fill": "#000000",
+                                "stroke": "#5C6773"
+                            },
+                            ".color-band": {
+                                "fill": "#3C444D"
+                            },
+                            ".customFunction": {
+                                "text": "decode_base64 2"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "ref-x": 5,
+                                "ref-y": 105,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".scmName": {
+                                "text": "rba-master"
                             },
                             ".title": {
                                 "text": "custom function"
@@ -4611,17 +4302,23 @@
                                 "display": "block"
                             }
                         },
-                        "block_code": "def cf_community_regex_extract_ipv4_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('cf_community_regex_extract_ipv4_2() called')\n    \n    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_regex_extract_powershell_b64_2:custom_function_result.data.extracted_string'], action_results=results )\n\n    parameters = []\n\n    custom_function_result_0_0 = [item[0] for item in custom_function_result_0]\n\n    parameters.append({\n        'input_string': custom_function_result_0_0,\n    })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"community/regex_extract_ipv4\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='community/regex_extract_ipv4', parameters=parameters, name='cf_community_regex_extract_ipv4_2', callback=join_subnet_filter)\n\n    return",
+                        "block_code": "def cf_rba_master_decode_base64_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('cf_rba_master_decode_base64_2() called')\n    \n    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_regex_extract_powershell_b64_2:custom_function_result.data.extracted_string', 'cf_rba_master_regex_extract_powershell_b64_2:custom_function_result.data.artifact_id'], action_results=results )\n\n    parameters = []\n\n    for item0 in custom_function_result_0:\n        parameters.append({\n            'input_string': item0[0],\n            'artifact_id': item0[1],\n        })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"rba-master/decode_base64\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='rba-master/decode_base64', parameters=parameters, name='cf_rba_master_decode_base64_2', callback=cf_community_regex_extract_ipv4_1)\n\n    return",
                         "callback_code": "",
                         "callback_start": 1,
                         "callsback": true,
-                        "cfDisplayPath": "community/regex_extract_ipv4",
+                        "cfDisplayPath": "rba-master/decode_base64",
                         "cfInputs": {
+                            "artifact_id": {
+                                "collectionType": "custom_function_result",
+                                "dataPath": "cf_rba_master_regex_extract_powershell_b64_2:custom_function_result.data.artifact_id",
+                                "paramName": "item0[1]",
+                                "type": "item"
+                            },
                             "input_string": {
                                 "collectionType": "custom_function_result",
                                 "dataPath": "cf_rba_master_regex_extract_powershell_b64_2:custom_function_result.data.extracted_string",
-                                "paramName": "custom_function_result_0_0",
-                                "type": "list"
+                                "paramName": "item0[0]",
+                                "type": "item"
                             }
                         },
                         "color": "",
@@ -4631,7 +4328,7 @@
                         "currentVersion": true,
                         "customCodeEndLineOffset": 7,
                         "customCodeStartLine": 15,
-                        "customFunction": "community/regex_extract_ipv4",
+                        "customFunction": "rba-master/decode_base64",
                         "customFunctionId": null,
                         "custom_callback": "",
                         "custom_code": "",
@@ -4646,7 +4343,7 @@
                         "has_custom_block": false,
                         "has_custom_callback": false,
                         "has_custom_join": false,
-                        "id": "337ca731-5d14-498b-946c-a791a4f6c2bb",
+                        "id": "80dae4cd-2dd8-4be4-9798-3a53a1ffe61d",
                         "inPorts": [
                             "in"
                         ],
@@ -4654,10 +4351,10 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 459,
-                        "line_start": 432,
+                        "line_end": 447,
+                        "line_start": 420,
                         "message": "Configuring now",
-                        "name": "regex_extract_ipv4",
+                        "name": "decode_base64",
                         "notes": "",
                         "number": 2,
                         "order": 18,
@@ -4717,49 +4414,80 @@
                             }
                         },
                         "position": {
-                            "x": 960,
-                            "y": 200
+                            "x": 900,
+                            "y": 80
                         },
                         "previous_function": "",
-                        "previous_name": "cf_community_regex_extract_ipv4_2",
+                        "previous_name": "cf_rba_master_decode_base64_2",
                         "selectedCustomFunction": {
-                            "description": "Takes a single input and attempts to extract all IPv4 addresses from it using regex.",
+                            "description": "Decodes provided base64 string",
                             "draftMode": false,
-                            "id": 8,
+                            "id": 25,
                             "inputs": [
                                 {
-                                    "_pretty_custom_function": "regex_extract_ipv4",
+                                    "_pretty_custom_function": "decode_base64",
                                     "contains_type": [
                                         "*"
                                     ],
-                                    "custom_function": 8,
-                                    "description": "An input string that may contain an arbitrary number of ipv4 addresses",
-                                    "id": 38,
-                                    "input_type": "list",
+                                    "custom_function": 25,
+                                    "description": "Base64 encoded text",
+                                    "id": 84,
+                                    "input_type": "item",
                                     "name": "input_string",
-                                    "placeholder": "192.0.2.1"
+                                    "placeholder": "base64_text"
+                                },
+                                {
+                                    "_pretty_custom_function": "decode_base64",
+                                    "contains_type": [
+                                        "phantom artifact id"
+                                    ],
+                                    "custom_function": 25,
+                                    "description": "Phantom Artifact ID",
+                                    "id": 85,
+                                    "input_type": "item",
+                                    "name": "artifact_id",
+                                    "placeholder": "123"
                                 }
                             ],
-                            "name": "regex_extract_ipv4",
+                            "name": "decode_base64",
                             "outputs": [
                                 {
-                                    "_pretty_custom_function": "regex_extract_ipv4",
+                                    "_pretty_custom_function": "decode_base64",
                                     "contains_type": [
-                                        "ip"
+                                        "*"
                                     ],
-                                    "custom_function": 8,
-                                    "data_path": "*.ipv4",
-                                    "description": "Extracted ipv4 addresses",
-                                    "id": 12
+                                    "custom_function": 25,
+                                    "data_path": "decoded_string",
+                                    "description": "Base64 decoded string",
+                                    "id": 46
+                                },
+                                {
+                                    "_pretty_custom_function": "decode_base64",
+                                    "contains_type": [
+                                        "phantom artifact id"
+                                    ],
+                                    "custom_function": 25,
+                                    "data_path": "artifact_id",
+                                    "description": "Phantom Artifact ID",
+                                    "id": 47
                                 }
                             ],
                             "playbooks": {
                                 "draft_playbooks": [],
                                 "draft_version_id": null,
-                                "playbooks": []
+                                "playbooks": [
+                                    {
+                                        "active": false,
+                                        "display_path": "rba-master/RBA Investigate - process",
+                                        "draft_mode": false,
+                                        "id": 90,
+                                        "name": "RBA Investigate - process",
+                                        "viewable": true
+                                    }
+                                ]
                             },
-                            "scmId": 1,
-                            "scmName": "community"
+                            "scmId": 4,
+                            "scmName": "rba-master"
                         },
                         "show_number": true,
                         "size": {
@@ -4772,7 +4500,277 @@
                         "type": "coa.CustomFunctionBlock",
                         "userGeneratedCode": "    # Write your custom code here...",
                         "warn": false,
-                        "z": 399
+                        "z": 406
+                    },
+                    {
+                        "attrs": {
+                            ".connection": {
+                                "stroke": "#818D99",
+                                "stroke-width": 2
+                            },
+                            ".marker-target": {
+                                "d": "M 10 0 L 0 5 L 10 10 z",
+                                "fill": "#818D99",
+                                "stroke": "#818D99"
+                            }
+                        },
+                        "connector": {
+                            "args": {
+                                "radius": 5
+                            },
+                            "name": "rounded"
+                        },
+                        "endDirections": [
+                            "left"
+                        ],
+                        "id": "8de3ba41-9104-4e08-ab73-4b4cd4ad2c6c",
+                        "router": {
+                            "name": "metro"
+                        },
+                        "source": {
+                            "id": "80dae4cd-2dd8-4be4-9798-3a53a1ffe61d",
+                            "selector": "> g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "startDirections": [
+                            "right"
+                        ],
+                        "target": {
+                            "id": "3418f7a3-3ae3-47f0-b1c9-d684428fbb2a",
+                            "selector": "> g:nth-child(1) > g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "type": "link",
+                        "z": 407
+                    },
+                    {
+                        ".scmName/text": "community",
+                        "active": false,
+                        "active_keys": {},
+                        "active_values": {},
+                        "angle": 0,
+                        "attrs": {
+                            ".background": {
+                                "fill": "#000000",
+                                "stroke": "#5C6773"
+                            },
+                            ".color-band": {
+                                "fill": "#3C444D"
+                            },
+                            ".customFunction": {
+                                "text": "regex_extract_ipv4"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "ref-x": 5,
+                                "ref-y": 105,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".scmName": {
+                                "text": "community"
+                            },
+                            ".title": {
+                                "text": "custom function"
+                            },
+                            ".title-info": {
+                                "text": ""
+                            },
+                            "g.branch image": {
+                                "opacity": 1
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            }
+                        },
+                        "block_code": "def cf_community_regex_extract_ipv4_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('cf_community_regex_extract_ipv4_1() called')\n    \n    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_decode_base64_2:custom_function_result.data.decoded_string'], action_results=results )\n\n    parameters = []\n\n    custom_function_result_0_0 = [item[0] for item in custom_function_result_0]\n\n    parameters.append({\n        'input_string': custom_function_result_0_0,\n    })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"community/regex_extract_ipv4\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='community/regex_extract_ipv4', parameters=parameters, name='cf_community_regex_extract_ipv4_1', callback=subnet_filter)\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 42,
+                        "callsback": true,
+                        "cfDisplayPath": "community/regex_extract_ipv4",
+                        "cfInputs": {
+                            "input_string": {
+                                "collectionType": "custom_function_result",
+                                "dataPath": "cf_rba_master_decode_base64_2:custom_function_result.data.decoded_string",
+                                "paramName": "custom_function_result_0_0",
+                                "type": "list"
+                            }
+                        },
+                        "color": "",
+                        "connected_to_start": true,
+                        "connection_name": "decode_base64 2",
+                        "connection_type": "action",
+                        "currentVersion": true,
+                        "customCodeEndLineOffset": 7,
+                        "customCodeStartLine": 15,
+                        "customFunction": "community/regex_extract_ipv4",
+                        "customFunctionId": null,
+                        "custom_callback": "",
+                        "custom_code": "",
+                        "custom_join": "",
+                        "custom_name": "",
+                        "delay": 0,
+                        "description": "",
+                        "draftMode": false,
+                        "existingCF": true,
+                        "functionBlock": "custom function",
+                        "has_custom": false,
+                        "has_custom_block": false,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "3418f7a3-3ae3-47f0-b1c9-d684428fbb2a",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "input_string-0": "cf_rba_master_decode_base64_2:custom_function_result.data.decoded_string",
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 42,
+                        "line_end": 42,
+                        "line_start": 15,
+                        "message": "Configuring now",
+                        "name": "regex_extract_ipv4",
+                        "notes": "",
+                        "number": 1,
+                        "order": 2,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 900,
+                            "y": 220
+                        },
+                        "previous_function": "",
+                        "previous_name": "cf_community_regex_extract_ipv4_1",
+                        "selectedCustomFunction": {
+                            "description": "Takes a single input and attempts to extract all IPv4 addresses from it using regex.",
+                            "draftMode": false,
+                            "id": 366,
+                            "inputs": [
+                                {
+                                    "_pretty_custom_function": "regex_extract_ipv4",
+                                    "contains_type": [
+                                        "*"
+                                    ],
+                                    "custom_function": 366,
+                                    "description": "An input string that may contain an arbitrary number of ipv4 addresses",
+                                    "id": 697,
+                                    "input_type": "list",
+                                    "name": "input_string",
+                                    "placeholder": "192.0.2.1"
+                                }
+                            ],
+                            "name": "regex_extract_ipv4",
+                            "outputs": [
+                                {
+                                    "_pretty_custom_function": "regex_extract_ipv4",
+                                    "contains_type": [
+                                        "ip"
+                                    ],
+                                    "custom_function": 366,
+                                    "data_path": "*.ipv4",
+                                    "description": "Extracted ipv4 addresses",
+                                    "id": 1178
+                                }
+                            ],
+                            "playbooks": {
+                                "draft_playbooks": [],
+                                "draft_version_id": null,
+                                "playbooks": []
+                            },
+                            "scmId": 1,
+                            "scmName": "community"
+                        },
+                        "show_number": false,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "repo",
+                        "status": "",
+                        "title": "custom function",
+                        "type": "coa.CustomFunctionBlock",
+                        "userGeneratedCode": "    # Write your custom code here...",
+                        "warn": false,
+                        "z": 408
                     },
                     {
                         "active": false,
@@ -4822,12 +4820,12 @@
                                 "opacity": 1
                             }
                         },
-                        "block_code": "def subnet_filter(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('subnet_filter() called')\n\n    # collect filtered artifact ids for 'if' condition 1\n    matched_artifacts_1, matched_results_1 = phantom.condition(\n        container=container,\n        action_results=results,\n        conditions=[\n            [\"cf_community_regex_extract_ipv4_2:custom_function_result.data.*.ipv4\", \"not in\", \"10.0.0.0/8\"],\n            [\"cf_community_regex_extract_ipv4_2:custom_function_result.data.*.ipv4\", \"not in\", \"172.16.0.0/12\"],\n            [\"cf_community_regex_extract_ipv4_2:custom_function_result.data.*.ipv4\", \"not in\", \"192.168.0.0/16\"],\n        ],\n        logical_operator='and',\n        name=\"subnet_filter:condition_1\")\n\n    # call connected blocks if filtered artifacts or results\n    if matched_artifacts_1 or matched_results_1:\n        ip_reputation_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)\n        format_4(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)\n\n    return",
+                        "block_code": "def subnet_filter(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('subnet_filter() called')\n\n    # collect filtered artifact ids for 'if' condition 1\n    matched_artifacts_1, matched_results_1 = phantom.condition(\n        container=container,\n        action_results=results,\n        conditions=[\n            [\"cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4\", \"not in\", \"10.0.0.0/8\"],\n            [\"cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4\", \"not in\", \"172.16.0.0/12\"],\n            [\"cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4\", \"not in\", \"192.168.0.0/16\"],\n        ],\n        logical_operator='and',\n        name=\"subnet_filter:condition_1\")\n\n    # call connected blocks if filtered artifacts or results\n    if matched_artifacts_1 or matched_results_1:\n        ip_reputation_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)\n        format_4(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)\n\n    return",
                         "callback_code": "",
                         "callback_start": 1,
                         "callsback": false,
                         "connected_to_start": true,
-                        "connection_name": "regex_extract_ipv4 1, regex_extract_ipv4 2",
+                        "connection_name": "regex_extract_ipv4",
                         "connection_type": "action",
                         "custom_callback": "",
                         "custom_code": "",
@@ -4842,10 +4840,10 @@
                         "inPorts": [
                             "in"
                         ],
-                        "join_code": "def join_subnet_filter(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None):\n    phantom.debug('join_subnet_filter() called')\n\n    # check if all connected incoming playbooks, actions, or custom functions are done i.e. have succeeded or failed\n    if phantom.completed(custom_function_names=['cf_community_regex_extract_ipv4_1', 'cf_community_regex_extract_ipv4_2']):\n        \n        # call connected block \"subnet_filter\"\n        subnet_filter(container=container, handle=handle)\n    \n    return",
+                        "join_code": "",
                         "join_optional": [],
                         "join_start": 85,
-                        "line_end": 96,
+                        "line_end": 85,
                         "line_start": 63,
                         "name": "filter",
                         "notes": "",
@@ -4860,19 +4858,19 @@
                                     {
                                         "comparison": "not in",
                                         "data_type": "",
-                                        "param": "cf_community_regex_extract_ipv4_2:custom_function_result.data.*.ipv4",
+                                        "param": "cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4",
                                         "value": "10.0.0.0/8"
                                     },
                                     {
                                         "comparison": "not in",
                                         "data_type": "",
-                                        "param": "cf_community_regex_extract_ipv4_2:custom_function_result.data.*.ipv4",
+                                        "param": "cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4",
                                         "value": "172.16.0.0/12"
                                     },
                                     {
                                         "comparison": "not in",
                                         "data_type": "",
-                                        "param": "cf_community_regex_extract_ipv4_2:custom_function_result.data.*.ipv4",
+                                        "param": "cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4",
                                         "value": "192.168.0.0/16"
                                     }
                                 ],
@@ -4934,8 +4932,8 @@
                             }
                         },
                         "position": {
-                            "x": 1100,
-                            "y": 80
+                            "x": 1140,
+                            "y": 220
                         },
                         "previous_function": "",
                         "previous_name": "subnet_filter",
@@ -4947,8 +4945,8 @@
                         "state": "filter",
                         "status": "",
                         "type": "coa.Filter",
-                        "warn": false,
-                        "z": 400
+                        "warn": "",
+                        "z": 409
                     },
                     {
                         "action": "ip reputation",
@@ -4956,7 +4954,7 @@
                         "active": false,
                         "active_keys": {},
                         "active_values": {
-                            "ip": "filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_2:custom_function_result.data.*.ipv4"
+                            "ip": "filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4"
                         },
                         "angle": 0,
                         "app": "",
@@ -4984,7 +4982,7 @@
                                 "config_type": "asset",
                                 "count": 0,
                                 "fields": {
-                                    "ip": "filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_2:custom_function_result.data.*.ipv4"
+                                    "ip": "filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4"
                                 },
                                 "has_app": true,
                                 "id": 7,
@@ -5441,13 +5439,13 @@
                                 "opacity": 1
                             }
                         },
-                        "block_code": "def ip_reputation_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('ip_reputation_1() called')\n        \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'ip_reputation_1' call\n    filtered_custom_function_results_data_1 = phantom.collect2(container=container, datapath=['filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_2:custom_function_result.data.*.ipv4'])\n\n    parameters = []\n    \n    # build parameters list for 'ip_reputation_1' call\n    for filtered_custom_function_results_item_1 in filtered_custom_function_results_data_1:\n        if filtered_custom_function_results_item_1[0]:\n            parameters.append({\n                'ip': filtered_custom_function_results_item_1[0],\n            })\n\n    phantom.act(action=\"ip reputation\", parameters=parameters, assets=['virustotal'], name=\"ip_reputation_1\")\n\n    return",
+                        "block_code": "def ip_reputation_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('ip_reputation_1() called')\n        \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'ip_reputation_1' call\n    filtered_custom_function_results_data_1 = phantom.collect2(container=container, datapath=['filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4'])\n\n    parameters = []\n    \n    # build parameters list for 'ip_reputation_1' call\n    for filtered_custom_function_results_item_1 in filtered_custom_function_results_data_1:\n        if filtered_custom_function_results_item_1[0]:\n            parameters.append({\n                'ip': filtered_custom_function_results_item_1[0],\n            })\n\n    phantom.act(action=\"ip reputation\", parameters=parameters, assets=['virustotal'], name=\"ip_reputation_1\")\n\n    return",
                         "callback_code": "",
                         "callback_start": 1,
                         "callsback": true,
                         "color": "",
                         "connected_to_start": true,
-                        "connection_name": "regex_extract_ipv4 1, regex_extract_ipv4 2",
+                        "connection_name": "regex_extract_ipv4",
                         "connection_type": "action",
                         "custom_callback": "",
                         "custom_code": "",
@@ -5547,8 +5545,8 @@
                         "status": "",
                         "title": "Investigate",
                         "type": "coa.Action",
-                        "warn": false,
-                        "z": 401
+                        "warn": "",
+                        "z": 410
                     },
                     {
                         "active": false,
@@ -5610,12 +5608,12 @@
                                 "opacity": 1
                             }
                         },
-                        "block_code": "def format_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('format_4() called')\n    \n    template = \"\"\"{{'threat_object': '{0}', 'threat_object_type': 'ip'}}\"\"\"\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_2:custom_function_result.data.*.ipv4\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_4\")\n\n    add_artifact_1(container=container)\n    cf_rba_master_add_artifact_with_tags_1(container=container)\n\n    return",
+                        "block_code": "def format_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('format_4() called')\n    \n    template = \"\"\"{{'threat_object': '{0}', 'threat_object_type': 'ip'}}\"\"\"\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_4\")\n\n    add_artifact_1(container=container)\n    cf_rba_master_add_artifact_with_tags_1(container=container)\n\n    return",
                         "callback_code": "",
                         "callback_start": 1,
                         "callsback": false,
                         "connected_to_start": true,
-                        "connection_name": "regex_extract_ipv4 1, regex_extract_ipv4 2",
+                        "connection_name": "regex_extract_ipv4",
                         "connection_type": "action",
                         "custom_callback": "",
                         "custom_code": "",
@@ -5634,8 +5632,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 352,
-                        "line_start": 335,
+                        "line_end": 340,
+                        "line_start": 323,
                         "message": "Configuring now",
                         "name": "format",
                         "notes": "",
@@ -5648,7 +5646,7 @@
                             {
                                 "position": 0,
                                 "type": "",
-                                "value": "filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_2:custom_function_result.data.*.ipv4"
+                                "value": "filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4"
                             }
                         ],
                         "ports": {
@@ -5720,7 +5718,7 @@
                         "title": "format",
                         "type": "coa.Format",
                         "warn": false,
-                        "z": 402
+                        "z": 411
                     }
                 ]
             },
@@ -5730,7 +5728,7 @@
         "schema": 4,
         "version": "4.9.35731"
     },
-    "create_time": "2020-10-02T19:36:53.491354+00:00",
+    "create_time": "2020-10-02T19:39:18.277763+00:00",
     "draft_mode": false,
     "labels": [
         "*"
