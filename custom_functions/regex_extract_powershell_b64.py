@@ -23,10 +23,12 @@ def regex_extract_powershell_b64(input_string=None, artifact_id=None, **kwargs):
             captured_string = re.search(pattern,str(input_string)).group(1)
             outputs['extracted_string'] = captured_string
             outputs['artifact_id'] = artifact_id
+            phantom.debug("Found encoded command string")
         elif re.search(nested_pattern, str(input_string), re.IGNORECASE):
             captured_string = re.search(nested_pattern, str(input_string), re.IGNORECASE).group(1)
             outputs['extracted_string'] = captured_string
             outputs['artifact_id'] = artifact_id
+            phantom.debug("Found frombase64 command" + str(captured_string))
         else:
             phantom.debug("No base64 encoding detected")
             

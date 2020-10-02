@@ -1,5 +1,5 @@
 {
-    "create_time": "2020-10-02T18:49:55.569967+00:00",
+    "create_time": "2020-10-02T19:36:08.996641+00:00",
     "custom_function_id": "d3d8cfb430ef273856654569f58484cfb407b81e",
     "description": "Detects -enc flag and extracts base64. Based on Unit42 research.",
     "draft_mode": false,
