@@ -17,9 +17,14 @@ def regex_extract_powershell_b64(input_string=None, artifact_id=None, **kwargs):
     from base64 import b64decode
     outputs = {}
     pattern = '\-[eE^]{1,2}[NnCcOoDdEeMmAa^]+\s+([^\s]+)'
+    nested_pattern = "frombase64string\('(\S+)'\)"
     if input_string:
         if re.search(pattern,str(input_string)):
             captured_string = re.search(pattern,str(input_string)).group(1)
+            outputs['extracted_string'] = captured_string
+            outputs['artifact_id'] = artifact_id
+        elif re.search(nested_pattern, str(input_string), re.IGNORECASE):
+            captured_string = re.search(nested_pattern, str(input_string), re.IGNORECASE).group(1)
             outputs['extracted_string'] = captured_string
             outputs['artifact_id'] = artifact_id
         else:

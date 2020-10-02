@@ -1,6 +1,6 @@
 {
-    "create_time": "2020-07-10T21:29:50.809323+00:00",
-    "custom_function_id": "89d8a6717db59a2127503672af35e13b1d4a2110",
+    "create_time": "2020-10-02T18:49:55.569967+00:00",
+    "custom_function_id": "d3d8cfb430ef273856654569f58484cfb407b81e",
     "description": "Detects -enc flag and extracts base64. Based on Unit42 research.",
     "draft_mode": false,
     "inputs": [
@@ -39,5 +39,5 @@
             "description": "Phantom Artifact ID"
         }
     ],
-    "platform_version": "4.9.33071"
+    "platform_version": "4.9.35731"
 }
