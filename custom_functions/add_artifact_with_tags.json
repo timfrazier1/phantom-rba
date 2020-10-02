@@ -1,6 +1,6 @@
 {
-    "create_time": "2020-08-24T18:44:49.933141+00:00",
-    "custom_function_id": "29d5744e54580363e0e14c3ffb817702f3f7e4bf",
+    "create_time": "2020-10-02T19:47:40.218599+00:00",
+    "custom_function_id": "4845cb8b4afbabbd7d2fbf5f5ccf23aab457d1d5",
     "description": "Adds an artifact and updates that artifact with provided tags",
     "draft_mode": false,
     "inputs": [
@@ -84,5 +84,5 @@
             "description": ""
         }
     ],
-    "platform_version": "4.9.34514"
+    "platform_version": "4.9.35731"
 }

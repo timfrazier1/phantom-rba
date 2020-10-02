@@ -24,6 +24,11 @@ def add_artifact_with_tags(cef=None, tags=None, severity=None, container_id=None
         run_automation = False
     elif run_automation.lower() == 'true':
         run_automation = True
+    
+    try:
+        json.dumps(cef)
+    except:
+        json.loads(cef)
 
     success, message, artifact_id = phantom.add_artifact(
             container=container_id, raw_data={}, 
