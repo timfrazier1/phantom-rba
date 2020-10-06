@@ -129,8 +129,8 @@ def set_container_med(action=None, success=None, container=None, results=None, h
 
     return
 
-def playbook_rba_master_RBA_Investigate_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
-    phantom.debug('playbook_rba_master_RBA_Investigate_1() called')
+def playbook_rba_master_rba_master_RBA_Investigate_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('playbook_rba_master_rba_master_RBA_Investigate_1() called')
     
     # call playbook "rba-master/RBA Investigate", returns the playbook_run_id
     playbook_run_id = phantom.playbook(playbook="rba-master/RBA Investigate", container=container)
@@ -229,14 +229,17 @@ def cf_rba_master_parse_risk_results_1(action=None, success=None, container=None
     phantom.debug('cf_rba_master_parse_risk_results_1() called')
     
     action_results_data_0 = phantom.collect2(container=container, datapath=['fetch_risk_rules:action_result.data', 'fetch_risk_rules:action_result.parameter.context.artifact_id'], action_results=results )
+    filtered_artifacts_data_0 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.cef.event_id'])
 
     parameters = []
 
     action_results_data_0_0 = [item[0] for item in action_results_data_0]
 
-    parameters.append({
-        'search_json': action_results_data_0_0,
-    })
+    for item0 in filtered_artifacts_data_0:
+        parameters.append({
+            'search_json': action_results_data_0_0,
+            'event_id': item0[0],
+        })
     ################################################################################
     ## Custom Code Start
     ################################################################################
@@ -255,7 +258,7 @@ def cf_rba_master_parse_risk_results_1(action=None, success=None, container=None
 def cf_rba_master_add_artifact_with_tags_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug('cf_rba_master_add_artifact_with_tags_1() called')
     
-    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_parse_risk_results_1:custom_function_result.data.*.artifact.cef', 'cf_rba_master_parse_risk_results_1:custom_function_result.data.*.artifact.tags', 'cf_rba_master_parse_risk_results_1:custom_function_result.data.*.artifact.name', 'cf_rba_master_parse_risk_results_1:custom_function_result.data.*.artifact.field_mapping'], action_results=results )
+    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_parse_risk_results_1:custom_function_result.data.*.artifact.cef', 'cf_rba_master_parse_risk_results_1:custom_function_result.data.*.artifact.name', 'cf_rba_master_parse_risk_results_1:custom_function_result.data.*.artifact.tags', 'cf_rba_master_parse_risk_results_1:custom_function_result.data.*.artifact.field_mapping'], action_results=results )
     container_property_0 = [
         [
             container.get("id"),
@@ -263,8 +266,8 @@ def cf_rba_master_add_artifact_with_tags_1(action=None, success=None, container=
     ]
     literal_values_0 = [
         [
-            "informational",
             "risk_rule",
+            "informational",
             "True",
         ],
     ]
@@ -276,13 +279,13 @@ def cf_rba_master_add_artifact_with_tags_1(action=None, success=None, container=
             for item2 in container_property_0:
                 parameters.append({
                     'cef': item0[0],
-                    'tags': item0[1],
-                    'severity': item1[0],
+                    'name': item0[1],
+                    'tags': item0[2],
+                    'label': item1[0],
+                    'severity': item1[1],
                     'container_id': item2[0],
-                    'label': item1[1],
-                    'name': item0[2],
-                    'run_automation': item1[2],
                     'field_mapping': item0[3],
+                    'run_automation': item1[2],
                 })
     ################################################################################
     ## Custom Code Start
@@ -311,7 +314,7 @@ def decision_6(action=None, success=None, container=None, results=None, handle=N
 
     # call connected blocks if condition 1 matched
     if matched:
-        playbook_rba_master_RBA_Investigate_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
+        playbook_rba_master_rba_master_RBA_Investigate_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
         return
 
     # call connected blocks for 'else' condition 2
