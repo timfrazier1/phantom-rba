@@ -30,6 +30,7 @@ def filter_1(action=None, success=None, container=None, results=None, handle=Non
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
         ip_reputation_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+        geolocate_ip_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
@@ -50,7 +51,7 @@ def ip_reputation_1(action=None, success=None, container=None, results=None, han
                 'context': {'artifact_id': filtered_artifacts_item_1[1]},
             })
 
-    phantom.act(action="ip reputation", parameters=parameters, assets=['virustotal'], callback=filter_2, name="ip_reputation_1")
+    phantom.act(action="ip reputation", parameters=parameters, assets=['virustotal'], callback=join_filter_2, name="ip_reputation_1")
 
     return
 
@@ -71,6 +72,17 @@ def filter_2(action=None, success=None, container=None, results=None, handle=Non
         format_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
         filter_3(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
+    return
+
+def join_filter_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None):
+    phantom.debug('join_filter_2() called')
+
+    # check if all connected incoming playbooks, actions, or custom functions are done i.e. have succeeded or failed
+    if phantom.completed(action_names=['ip_reputation_1', 'geolocate_ip_1']):
+        
+        # call connected block "filter_2"
+        filter_2(container=container, handle=handle)
+    
     return
 
 def pin_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
@@ -110,12 +122,12 @@ def cf_rba_master_update_artifact_1(action=None, success=None, container=None, r
 
     parameters = []
 
-    for item0 in filtered_artifacts_data_0:
-        for item1 in literal_values_0:
+    for item0 in literal_values_0:
+        for item1 in filtered_artifacts_data_0:
             parameters.append({
-                'artifact_id': item0[0],
-                'data': item1[0],
+                'data': item0[0],
                 'overwrite': None,
+                'artifact_id': item1[0],
             })
     ################################################################################
     ## Custom Code Start
@@ -147,6 +159,27 @@ def filter_3(action=None, success=None, container=None, results=None, handle=Non
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
         cf_rba_master_update_artifact_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+
+    return
+
+def geolocate_ip_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('geolocate_ip_1() called')
+
+    # collect data for 'geolocate_ip_1' call
+    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.cef.threat_object', 'filtered-data:filter_1:condition_1:artifact:*.id'])
+
+    parameters = []
+    
+    # build parameters list for 'geolocate_ip_1' call
+    for filtered_artifacts_item_1 in filtered_artifacts_data_1:
+        if filtered_artifacts_item_1[0]:
+            parameters.append({
+                'ip': filtered_artifacts_item_1[0],
+                # context (artifact id) is added to associate results with the artifact
+                'context': {'artifact_id': filtered_artifacts_item_1[1]},
+            })
+
+    phantom.act(action="geolocate ip", parameters=parameters, assets=['maxmind'], callback=join_filter_2, name="geolocate_ip_1")
 
     return
 
