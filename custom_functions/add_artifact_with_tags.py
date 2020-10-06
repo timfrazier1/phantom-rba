@@ -32,6 +32,13 @@ def add_artifact_with_tags(cef=None, tags=None, severity=None, container_id=None
         phantom.debug("Was not able to load JSON from string, so just passing: ")
         # cef = json.dumps(cef)
         phantom.debug(cef)
+        
+    try:
+        phantom.debug("Field Mapping passed in: " + field_mapping)
+        field_mapping = json.loads(field_mapping)
+    except:
+        phantom.debug("Unable to laod JSON from field mapping, so just passing: ")
+        phantom.debug(field_mapping)
 
     success, message, artifact_id = phantom.add_artifact(
             container=container_id, 
