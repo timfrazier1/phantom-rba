@@ -412,7 +412,15 @@ def cf_rba_master_decode_base64_2(action=None, success=None, container=None, res
     ################################################################################    
 
     # call custom function "rba-master/decode_base64", returns the custom_function_run_id
-    phantom.custom_function(custom_function='rba-master/decode_base64', parameters=parameters, name='cf_rba_master_decode_base64_2', callback=cf_community_regex_extract_ipv4_1)
+    phantom.custom_function(custom_function='rba-master/decode_base64', parameters=parameters, name='cf_rba_master_decode_base64_2', callback=cf_rba_master_decode_base64_2_callback)
+
+    return
+
+def cf_rba_master_decode_base64_2_callback(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None):
+    phantom.debug('cf_rba_master_decode_base64_2_callback() called')
+    
+    cf_community_regex_extract_ipv4_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
+    join_format_5(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
 
     return
 
@@ -465,11 +473,14 @@ def filter_5(action=None, success=None, container=None, results=None, handle=Non
 def format_5(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug('format_5() called')
     
-    template = """Decoded command: {0}"""
+    template = """Decoded command via Phantom Playbook: {0}
+
+Decoded additional string via Phantom playbook: {1}"""
 
     # parameter list for template variable replacement
     parameters = [
         "cf_rba_master_decode_base64_1:custom_function_result.data.decoded_string",
+        "cf_rba_master_decode_base64_2:custom_function_result.data.decoded_string",
     ]
 
     phantom.format(container=container, template=template, parameters=parameters, name="format_5")
@@ -482,7 +493,7 @@ def join_format_5(action=None, success=None, container=None, results=None, handl
     phantom.debug('join_format_5() called')
 
     # check if all connected incoming playbooks, actions, or custom functions are done i.e. have succeeded or failed
-    if phantom.completed(custom_function_names=['cf_rba_master_decode_base64_1']):
+    if phantom.completed(custom_function_names=['cf_rba_master_decode_base64_1', 'cf_rba_master_decode_base64_2']):
         
         # call connected block "format_5"
         format_5(container=container, handle=handle)

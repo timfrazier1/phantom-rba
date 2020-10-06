@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "ede2d0c0ba13c30ed8464e88a0eb9b47901c3d2f",
+            "hash": "dd1e15cb6998800f63c79bb2cdfe07ee4dda85d9",
             "joint": {
                 "cells": [
                     {
@@ -73,8 +73,8 @@
                         "join_code": "# read-only block view not available",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 505,
-                        "line_start": 492,
+                        "line_end": 516,
+                        "line_start": 503,
                         "name": "",
                         "notes": "",
                         "number": 0,
@@ -1231,7 +1231,7 @@
                             }
                         },
                         "position": {
-                            "x": 1040,
+                            "x": 880,
                             "y": 340
                         },
                         "previous_function": "",
@@ -2305,9 +2305,9 @@
                                 "display": "block"
                             }
                         },
-                        "block_code": "def cf_rba_master_decode_base64_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('cf_rba_master_decode_base64_2() called')\n    \n    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_regex_extract_powershell_b64_2:custom_function_result.data.artifact_id', 'cf_rba_master_regex_extract_powershell_b64_2:custom_function_result.data.extracted_string'], action_results=results )\n\n    parameters = []\n\n    for item0 in custom_function_result_0:\n        parameters.append({\n            'artifact_id': item0[0],\n            'input_string': item0[1],\n        })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"rba-master/decode_base64\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='rba-master/decode_base64', parameters=parameters, name='cf_rba_master_decode_base64_2', callback=cf_community_regex_extract_ipv4_1)\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 1,
+                        "block_code": "def cf_rba_master_decode_base64_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('cf_rba_master_decode_base64_2() called')\n    \n    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_regex_extract_powershell_b64_2:custom_function_result.data.artifact_id', 'cf_rba_master_regex_extract_powershell_b64_2:custom_function_result.data.extracted_string'], action_results=results )\n\n    parameters = []\n\n    for item0 in custom_function_result_0:\n        parameters.append({\n            'artifact_id': item0[0],\n            'input_string': item0[1],\n        })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"rba-master/decode_base64\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='rba-master/decode_base64', parameters=parameters, name='cf_rba_master_decode_base64_2', callback=cf_rba_master_decode_base64_2_callback)\n\n    return",
+                        "callback_code": "def cf_rba_master_decode_base64_2_callback(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None):\n    phantom.debug('cf_rba_master_decode_base64_2_callback() called')\n    \n    cf_community_regex_extract_ipv4_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)\n    join_format_5(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)\n\n    return",
+                        "callback_start": 419,
                         "callsback": true,
                         "cfDisplayPath": "rba-master/decode_base64",
                         "cfInputs": {
@@ -2354,7 +2354,7 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 419,
+                        "line_end": 427,
                         "line_start": 392,
                         "message": "Configuring now",
                         "name": "decode_base64",
@@ -4795,172 +4795,6 @@
                         "attrs": {
                             ".background": {
                                 "fill": "#000000",
-                                "stroke": "#5C6773"
-                            },
-                            ".color-band": {
-                                "fill": "#3C444D"
-                            },
-                            ".format": {
-                                "text": "format 5"
-                            },
-                            ".inPorts>.port-in": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".inPorts>.port-in>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".message": {
-                                "opacity": 0,
-                                "text": "Configuring now"
-                            },
-                            ".outPorts>.port-out-1": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".outPorts>.port-out-1>.port-body": {
-                                "port": {
-                                    "id": "out-1",
-                                    "type": "out"
-                                }
-                            },
-                            ".title": {
-                                "text": "format"
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 0
-                            },
-                            "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
-                            },
-                            "g.notes": {
-                                "display": "block"
-                            }
-                        },
-                        "block_code": "def format_5(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('format_5() called')\n    \n    template = \"\"\"Decoded command: {0}\"\"\"\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"cf_rba_master_decode_base64_1:custom_function_result.data.decoded_string\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_5\")\n\n    update_event_1(container=container)\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 1,
-                        "callsback": false,
-                        "connected_to_start": true,
-                        "connection_name": "decode_base64 1",
-                        "connection_type": "action",
-                        "custom_callback": "",
-                        "custom_code": "",
-                        "custom_join": "",
-                        "custom_name": "",
-                        "description": "",
-                        "format": "format",
-                        "has_custom": false,
-                        "has_custom_block": false,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "0ef98128-c1c7-4f08-b6a7-6c6811b3c2d9",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "join_code": "def join_format_5(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None):\n    phantom.debug('join_format_5() called')\n\n    # check if all connected incoming playbooks, actions, or custom functions are done i.e. have succeeded or failed\n    if phantom.completed(custom_function_names=['cf_rba_master_decode_base64_1']):\n        \n        # call connected block \"format_5\"\n        format_5(container=container, handle=handle)\n    \n    return",
-                        "join_optional": [],
-                        "join_start": 481,
-                        "line_end": 492,
-                        "line_start": 465,
-                        "message": "Configuring now",
-                        "name": "format",
-                        "notes": "",
-                        "number": 5,
-                        "order": 20,
-                        "outPorts": [
-                            "out-1"
-                        ],
-                        "parameters": [
-                            {
-                                "position": 0,
-                                "type": "",
-                                "value": "cf_rba_master_decode_base64_1:custom_function_result.data.decoded_string"
-                            }
-                        ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
-                        },
-                        "position": {
-                            "x": 680,
-                            "y": 480
-                        },
-                        "previous_function": "",
-                        "previous_name": "format_5",
-                        "show_number": true,
-                        "size": {
-                            "height": 100,
-                            "width": 180
-                        },
-                        "state": "format",
-                        "status": "",
-                        "template": "Decoded command: {0}",
-                        "title": "format",
-                        "type": "coa.Format",
-                        "warn": false,
-                        "z": 438
-                    },
-                    {
-                        "active": false,
-                        "angle": 0,
-                        "attrs": {
-                            ".background": {
-                                "fill": "#000000",
                                 "stroke": "#5C6773",
                                 "transform": "rotate(45 30 70)"
                             },
@@ -5451,8 +5285,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 1,
-                        "line_end": 465,
-                        "line_start": 448,
+                        "line_end": 473,
+                        "line_start": 456,
                         "name": "filter",
                         "notes": "",
                         "number": 5,
@@ -5545,6 +5379,216 @@
                         "z": 444
                     },
                     {
+                        "attrs": {
+                            ".connection": {
+                                "stroke": "#818D99",
+                                "stroke-width": 2
+                            },
+                            ".marker-target": {
+                                "d": "M 10 0 L 0 5 L 10 10 z",
+                                "fill": "#818D99",
+                                "stroke": "#818D99"
+                            }
+                        },
+                        "connector": {
+                            "args": {
+                                "radius": 5
+                            },
+                            "name": "rounded"
+                        },
+                        "endDirections": [
+                            "left"
+                        ],
+                        "id": "a3d79b14-4b22-43af-919a-cc7152b6bfa9",
+                        "router": {
+                            "name": "metro"
+                        },
+                        "source": {
+                            "id": "80dae4cd-2dd8-4be4-9798-3a53a1ffe61d",
+                            "selector": "> g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "startDirections": [
+                            "right"
+                        ],
+                        "target": {
+                            "id": "0ef98128-c1c7-4f08-b6a7-6c6811b3c2d9",
+                            "selector": "> g:nth-child(1) > g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+                        },
+                        "type": "link",
+                        "z": 453
+                    },
+                    {
+                        "active": false,
+                        "angle": 0,
+                        "attrs": {
+                            ".background": {
+                                "fill": "#000000",
+                                "stroke": "#5C6773"
+                            },
+                            ".color-band": {
+                                "fill": "#3C444D"
+                            },
+                            ".format": {
+                                "text": "format 5"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out-1": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out-1>.port-body": {
+                                "port": {
+                                    "id": "out-1",
+                                    "type": "out"
+                                }
+                            },
+                            ".title": {
+                                "text": "format"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            }
+                        },
+                        "block_code": "def format_5(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('format_5() called')\n    \n    template = \"\"\"Decoded command via Phantom Playbook: {0}\n\nDecoded additional string via Phantom playbook: {1}\"\"\"\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"cf_rba_master_decode_base64_1:custom_function_result.data.decoded_string\",\n        \"cf_rba_master_decode_base64_2:custom_function_result.data.decoded_string\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_5\")\n\n    update_event_1(container=container)\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": false,
+                        "connected_to_start": true,
+                        "connection_name": "decode_base64 1, decode_base64 2",
+                        "connection_type": "action",
+                        "custom_callback": "",
+                        "custom_code": "",
+                        "custom_join": "",
+                        "custom_name": "",
+                        "description": "",
+                        "format": "format",
+                        "has_custom": false,
+                        "has_custom_block": false,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "0ef98128-c1c7-4f08-b6a7-6c6811b3c2d9",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "def join_format_5(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None):\n    phantom.debug('join_format_5() called')\n\n    # check if all connected incoming playbooks, actions, or custom functions are done i.e. have succeeded or failed\n    if phantom.completed(custom_function_names=['cf_rba_master_decode_base64_1', 'cf_rba_master_decode_base64_2']):\n        \n        # call connected block \"format_5\"\n        format_5(container=container, handle=handle)\n    \n    return",
+                        "join_optional": [],
+                        "join_start": 492,
+                        "line_end": 503,
+                        "line_start": 473,
+                        "message": "Configuring now",
+                        "name": "format",
+                        "notes": "",
+                        "number": 5,
+                        "order": 20,
+                        "outPorts": [
+                            "out-1"
+                        ],
+                        "parameters": [
+                            {
+                                "position": 0,
+                                "type": "",
+                                "value": "cf_rba_master_decode_base64_1:custom_function_result.data.decoded_string"
+                            },
+                            {
+                                "position": 1,
+                                "type": "",
+                                "value": "cf_rba_master_decode_base64_2:custom_function_result.data.decoded_string"
+                            }
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
+                        },
+                        "position": {
+                            "x": 1220,
+                            "y": 620
+                        },
+                        "previous_function": "",
+                        "previous_name": "format_5",
+                        "show_number": true,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "format",
+                        "status": "",
+                        "template": "Decoded command via Phantom Playbook: {0}\n\nDecoded additional string via Phantom playbook: {1}",
+                        "title": "format",
+                        "type": "coa.Format",
+                        "warn": false,
+                        "z": 455
+                    },
+                    {
                         "action": "update event",
                         "action_type": "generic",
                         "active": false,
@@ -5555,7 +5599,8 @@
                             "integer_status": "",
                             "owner": "",
                             "status": "in progress",
-                            "urgency": ""
+                            "urgency": "",
+                            "wait_for_confirmation": ""
                         },
                         "angle": 0,
                         "app": "Splunk",
@@ -5833,7 +5878,7 @@
                         "callsback": true,
                         "color": "",
                         "connected_to_start": true,
-                        "connection_name": "decode_base64 1",
+                        "connection_name": "decode_base64 1, decode_base64 2",
                         "connection_type": "action",
                         "custom_callback": "",
                         "custom_code": "",
@@ -5852,8 +5897,8 @@
                         "join_code": "",
                         "join_optional": [],
                         "join_start": 447,
-                        "line_end": 448,
-                        "line_start": 419,
+                        "line_end": 456,
+                        "line_start": 427,
                         "message": "Configuring now",
                         "name": "update event",
                         "notes": "",
@@ -5915,8 +5960,8 @@
                             }
                         },
                         "position": {
-                            "x": 940,
-                            "y": 480
+                            "x": 1500,
+                            "y": 620
                         },
                         "previous_function": "",
                         "previous_name": "update_event_1",
@@ -5934,7 +5979,7 @@
                         "title": "Generic",
                         "type": "coa.Action",
                         "warn": "",
-                        "z": 445
+                        "z": 456
                     }
                 ]
             },
@@ -5944,7 +5989,7 @@
         "schema": 4,
         "version": "4.9.35731"
     },
-    "create_time": "2020-10-06T19:57:35.822871+00:00",
+    "create_time": "2020-10-06T20:01:38.961048+00:00",
     "draft_mode": false,
     "labels": [
         "*"
