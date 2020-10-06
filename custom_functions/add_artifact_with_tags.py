@@ -30,7 +30,7 @@ def add_artifact_with_tags(cef=None, tags=None, severity=None, container_id=None
         cef = json.loads(cef)
     except:
         phantom.debug("Was not able to dump JSON")
-        cef = json.dumps(cef)
+        # cef = json.dumps(cef)
         phantom.debug(cef)
 
     success, message, artifact_id = phantom.add_artifact(
