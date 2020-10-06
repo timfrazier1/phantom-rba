@@ -10,6 +10,9 @@ def on_start(container):
     # call 'cf_rba_master_regex_extract_powershell_b64_1' block
     cf_rba_master_regex_extract_powershell_b64_1(container=container)
 
+    # call 'filter_5' block
+    filter_5(container=container)
+
     return
 
 def cf_community_regex_extract_ipv4_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
@@ -150,6 +153,7 @@ def cf_rba_master_decode_base64_1_callback(action=None, success=None, container=
     
     filter_3(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
     cf_rba_master_regex_extract_powershell_b64_2(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
+    join_format_5(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
 
     return
 
@@ -388,14 +392,14 @@ def cf_rba_master_regex_extract_powershell_b64_2(action=None, success=None, cont
 def cf_rba_master_decode_base64_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug('cf_rba_master_decode_base64_2() called')
     
-    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_regex_extract_powershell_b64_2:custom_function_result.data.extracted_string', 'cf_rba_master_regex_extract_powershell_b64_2:custom_function_result.data.artifact_id'], action_results=results )
+    custom_function_result_0 = phantom.collect2(container=container, datapath=['cf_rba_master_regex_extract_powershell_b64_2:custom_function_result.data.artifact_id', 'cf_rba_master_regex_extract_powershell_b64_2:custom_function_result.data.extracted_string'], action_results=results )
 
     parameters = []
 
     for item0 in custom_function_result_0:
         parameters.append({
-            'input_string': item0[0],
-            'artifact_id': item0[1],
+            'artifact_id': item0[0],
+            'input_string': item0[1],
         })
     ################################################################################
     ## Custom Code Start
@@ -410,6 +414,79 @@ def cf_rba_master_decode_base64_2(action=None, success=None, container=None, res
     # call custom function "rba-master/decode_base64", returns the custom_function_run_id
     phantom.custom_function(custom_function='rba-master/decode_base64', parameters=parameters, name='cf_rba_master_decode_base64_2', callback=cf_community_regex_extract_ipv4_1)
 
+    return
+
+def update_event_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('update_event_1() called')
+        
+    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+    
+    # collect data for 'update_event_1' call
+    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:filter_5:condition_1:artifact:*.cef.event_id', 'filtered-data:filter_5:condition_1:artifact:*.id'])
+    formatted_data_1 = phantom.get_format_data(name='format_5')
+
+    parameters = []
+    
+    # build parameters list for 'update_event_1' call
+    for filtered_artifacts_item_1 in filtered_artifacts_data_1:
+        if filtered_artifacts_item_1[0]:
+            parameters.append({
+                'event_ids': filtered_artifacts_item_1[0],
+                'owner': "",
+                'status': "in progress",
+                'integer_status': "",
+                'urgency': "",
+                'comment': formatted_data_1,
+                # context (artifact id) is added to associate results with the artifact
+                'context': {'artifact_id': filtered_artifacts_item_1[1]},
+            })
+
+    phantom.act(action="update event", parameters=parameters, assets=['splunk_es'], name="update_event_1")
+
+    return
+
+def filter_5(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('filter_5() called')
+
+    # collect filtered artifact ids for 'if' condition 1
+    matched_artifacts_1, matched_results_1 = phantom.condition(
+        container=container,
+        conditions=[
+            ["artifact:*.cef.event_id", "!=", ""],
+        ],
+        name="filter_5:condition_1")
+
+    # call connected blocks if filtered artifacts or results
+    if matched_artifacts_1 or matched_results_1:
+        join_format_5(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+
+    return
+
+def format_5(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('format_5() called')
+    
+    template = """Decoded command: {0}"""
+
+    # parameter list for template variable replacement
+    parameters = [
+        "filtered-data:filter_4:condition_1:cf_rba_master_regex_extract_powershell_b64_1:custom_function_result.data.extracted_string",
+    ]
+
+    phantom.format(container=container, template=template, parameters=parameters, name="format_5")
+
+    update_event_1(container=container)
+
+    return
+
+def join_format_5(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None):
+    phantom.debug('join_format_5() called')
+
+    # check if all connected incoming playbooks, actions, or custom functions are done i.e. have succeeded or failed
+    if phantom.completed(custom_function_names=['cf_rba_master_decode_base64_1']):
+        
+        # call connected block "format_5"
+        format_5(container=container, handle=handle)
+    
     return
 
 def on_finish(container, summary):
