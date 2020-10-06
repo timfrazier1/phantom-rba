@@ -29,15 +29,16 @@ def add_artifact_with_tags(cef=None, tags=None, severity=None, container_id=None
         phantom.debug("CEF passed in: " + cef)
         cef = json.loads(cef)
     except:
-        phantom.debug("Was not able to dump JSON")
+        phantom.debug("Was not able to load JSON from string, so just passing: ")
         # cef = json.dumps(cef)
         phantom.debug(cef)
 
     success, message, artifact_id = phantom.add_artifact(
-            container=container_id, raw_data={}, 
+            container=container_id, 
+            raw_data={}, 
             cef_data=cef, 
             label=label,
-            field_mapping=json.loads(field_mapping),
+            field_mapping=field_mapping,
             name=name, 
             severity=severity,
             run_automation=run_automation)
