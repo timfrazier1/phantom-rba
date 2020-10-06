@@ -1,6 +1,6 @@
 {
-    "create_time": "2020-08-24T18:44:23.158495+00:00",
-    "custom_function_id": "41624997df5e5e884f8b6c94c7fb0530dd84ee90",
+    "create_time": "2020-10-06T19:49:33.459490+00:00",
+    "custom_function_id": "0a31603f8160748823eddda78f4db826d8955135",
     "description": "",
     "draft_mode": false,
     "inputs": [
@@ -12,6 +12,15 @@
             "input_type": "list",
             "name": "search_json",
             "placeholder": "search_results.data"
+        },
+        {
+            "contains_type": [
+                "splunk notable event id"
+            ],
+            "description": "The ID of the associated notable event.",
+            "input_type": "item",
+            "name": "event_id",
+            "placeholder": "notable_id"
         }
     ],
     "outputs": [
@@ -42,5 +51,5 @@
             "description": ""
         }
     ],
-    "platform_version": "4.9.34514"
+    "platform_version": "4.9.35731"
 }

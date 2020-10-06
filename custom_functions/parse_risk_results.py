@@ -1,7 +1,8 @@
-def parse_risk_results(search_json=None, **kwargs):
+def parse_risk_results(search_json=None, event_id=None, **kwargs):
     """
     Args:
         search_json (CEF type: *)
+        event_id (CEF type: splunk notable event id): The ID of the associated notable event.
     
     Returns a JSON-serializable object that implements the configured data paths:
         *.artifact.cef (CEF type: *)
@@ -96,6 +97,10 @@ def parse_risk_results(search_json=None, **kwargs):
             for match in re.findall('(^|\|)(\w+)\s+',artifact_json['rule_attack_tactic_technique']):
                 tags.append(match[1])
             tags=list(set(tags))
+        
+        #Adding the notable ID to each artifact straight from the input
+        artifact_json["event_id"] = event_id
+        field_mapping["event_id"] = [ "splunk notable event id" ]
 
         # build output - source must exist
         if 'source' in artifact_json.keys():
