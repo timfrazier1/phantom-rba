@@ -7,9 +7,6 @@ from datetime import datetime, timedelta
 def on_start(container):
     phantom.debug('on_start() called')
     
-    # call 'cf_rba_master_regex_extract_powershell_b64_1' block
-    cf_rba_master_regex_extract_powershell_b64_1(container=container)
-
     # call 'filter_5' block
     filter_5(container=container)
 
@@ -88,14 +85,14 @@ def subnet_filter(action=None, success=None, container=None, results=None, handl
 def cf_rba_master_regex_extract_powershell_b64_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug('cf_rba_master_regex_extract_powershell_b64_1() called')
     
-    container_data_0 = phantom.collect2(container=container, datapath=['artifact:*.cef.cmdline', 'artifact:*.id'])
+    filtered_artifacts_data_0 = phantom.collect2(container=container, datapath=['filtered-data:filter_5:condition_1:artifact:*.id', 'filtered-data:filter_5:condition_1:artifact:*.cef.cmdline'])
 
     parameters = []
 
-    for item0 in container_data_0:
+    for item0 in filtered_artifacts_data_0:
         parameters.append({
-            'artifact_id': item0[1],
-            'input_string': item0[0],
+            'artifact_id': item0[0],
+            'input_string': item0[1],
         })
     ################################################################################
     ## Custom Code Start
@@ -467,6 +464,7 @@ def filter_5(action=None, success=None, container=None, results=None, handle=Non
     # call connected blocks if filtered artifacts or results
     if matched_artifacts_1 or matched_results_1:
         join_format_5(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
+        cf_rba_master_regex_extract_powershell_b64_1(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function, filtered_artifacts=matched_artifacts_1, filtered_results=matched_results_1)
 
     return
 
