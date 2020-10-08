@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "e02446dd28b3d177484046018ecc644ab93c7800",
+            "hash": "7109230aabdd4e2ff9c4bb235824a9506847c7d2",
             "joint": {
                 "cells": [
                     {
@@ -5904,7 +5904,7 @@
                                 "opacity": 1
                             }
                         },
-                        "block_code": "def format_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('format_4() called')\n    \n    template = \"\"\"{{\\\"threat_object\\\": \\\"{0}\\\", \\\"threat_object_type\\\": \\\"ip\\\", \\\"event_id\\\": {1}}}\"\"\"\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4\",\n        \"filtered-data:filter_5:condition_1:artifact:*.cef.event_id\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_4\")\n\n    cf_rba_master_add_artifact_with_tags_1(container=container)\n\n    return",
+                        "block_code": "def format_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('format_4() called')\n    \n    template = \"\"\"{{\\\"threat_object\\\": \\\"{0}\\\", \\\"threat_object_type\\\": \\\"ip\\\", \\\"event_id\\\": \\\"{1}\\\"}}\"\"\"\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4\",\n        \"filtered-data:filter_5:condition_1:artifact:*.cef.event_id\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_4\")\n\n    cf_rba_master_add_artifact_with_tags_1(container=container)\n\n    return",
                         "callback_code": "",
                         "callback_start": 1,
                         "callsback": false,
@@ -6015,7 +6015,7 @@
                         },
                         "state": "format",
                         "status": "",
-                        "template": "{{\"threat_object\": \"{0}\", \"threat_object_type\": \"ip\", \"event_id\": {1}}}",
+                        "template": "{{\"threat_object\": \"{0}\", \"threat_object_type\": \"ip\", \"event_id\": \"{1}\"}}",
                         "title": "format",
                         "type": "coa.Format",
                         "warn": false,
@@ -6029,7 +6029,7 @@
         "schema": 4,
         "version": "4.9.35731"
     },
-    "create_time": "2020-10-08T02:00:59.367170+00:00",
+    "create_time": "2020-10-08T02:10:59.559945+00:00",
     "draft_mode": false,
     "labels": [
         "*"

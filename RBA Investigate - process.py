@@ -293,7 +293,7 @@ def filter_4(action=None, success=None, container=None, results=None, handle=Non
 def format_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug('format_4() called')
     
-    template = """{{\"threat_object\": \"{0}\", \"threat_object_type\": \"ip\", \"event_id\": {1}}}"""
+    template = """{{\"threat_object\": \"{0}\", \"threat_object_type\": \"ip\", \"event_id\": \"{1}\"}}"""
 
     # parameter list for template variable replacement
     parameters = [
