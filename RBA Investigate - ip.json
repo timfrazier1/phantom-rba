@@ -7,7 +7,7 @@
             "clean": true,
             "code_block": "",
             "description": "",
-            "hash": "fd4a28138f41de0727b30db22898f15d2168330b",
+            "hash": "a0cc9d64aa8e771d9e91c678669ac72947935174",
             "joint": {
                 "cells": [
                     {
@@ -1262,284 +1262,6 @@
                         "type": "coa.Filter",
                         "warn": false,
                         "z": 81
-                    },
-                    {
-                        ".scmName/text": "rba-master",
-                        "active": false,
-                        "active_keys": {},
-                        "active_values": {},
-                        "angle": 0,
-                        "attrs": {
-                            ".background": {
-                                "fill": "#000000",
-                                "stroke": "#5C6773"
-                            },
-                            ".color-band": {
-                                "fill": "#3C444D"
-                            },
-                            ".customFunction": {
-                                "text": "update_artifact"
-                            },
-                            ".inPorts>.port-in": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".inPorts>.port-in>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".message": {
-                                "opacity": 0,
-                                "ref-x": 5,
-                                "ref-y": 105,
-                                "text": "Configuring now"
-                            },
-                            ".outPorts>.port-out": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".outPorts>.port-out>.port-body": {
-                                "port": {
-                                    "id": "out",
-                                    "type": "out"
-                                }
-                            },
-                            ".scmName": {
-                                "text": "rba-master"
-                            },
-                            ".title": {
-                                "text": "custom function"
-                            },
-                            ".title-info": {
-                                "text": ""
-                            },
-                            "g.branch image": {
-                                "opacity": 1
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 0
-                            },
-                            "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
-                            },
-                            "g.notes": {
-                                "display": "block"
-                            }
-                        },
-                        "block_code": "def cf_rba_master_update_artifact_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('cf_rba_master_update_artifact_1() called')\n    \n    filtered_artifacts_data_0 = phantom.collect2(container=container, datapath=['filtered-data:filter_3:condition_1:artifact:*.id'])\n    literal_values_0 = [\n        [\n            \"{ \\\"cef\\\": {\\\"automation_flag\\\": \\\"true\\\"}}\",\n        ],\n    ]\n\n    parameters = []\n\n    for item0 in literal_values_0:\n        for item1 in filtered_artifacts_data_0:\n            parameters.append({\n                'data': item0[0],\n                'overwrite': None,\n                'artifact_id': item1[0],\n            })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"rba-master/update_artifact\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='rba-master/update_artifact', parameters=parameters, name='cf_rba_master_update_artifact_1')\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 1,
-                        "callsback": true,
-                        "cfDisplayPath": "rba-master/update_artifact",
-                        "cfInputs": {
-                            "artifact_id": {
-                                "collectionType": "filtered_artifacts_data",
-                                "dataPath": "filtered-data:filter_3:condition_1:artifact:*.id",
-                                "paramName": "item1[0]",
-                                "type": "item"
-                            },
-                            "data": {
-                                "collectionType": "literal_values",
-                                "dataPath": "{ \"cef\": {\"automation_flag\": \"true\"}}",
-                                "paramName": "item0[0]",
-                                "type": "item"
-                            },
-                            "overwrite": {
-                                "dataPath": "",
-                                "type": "item"
-                            }
-                        },
-                        "color": "",
-                        "connected_to_start": true,
-                        "connection_name": "ip reputation, geolocate ip",
-                        "connection_type": "action",
-                        "currentVersion": true,
-                        "customCodeEndLineOffset": 7,
-                        "customCodeStartLine": 22,
-                        "customFunction": "rba-master/update_artifact",
-                        "customFunctionId": null,
-                        "custom_callback": "",
-                        "custom_code": "",
-                        "custom_join": "",
-                        "custom_name": "",
-                        "delay": 0,
-                        "description": "",
-                        "draftMode": false,
-                        "existingCF": true,
-                        "functionBlock": "custom function",
-                        "has_custom": false,
-                        "has_custom_block": false,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "34f7d6ed-78d0-4467-8e41-e6f130d83836",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "join_code": "",
-                        "join_optional": [],
-                        "join_start": 1,
-                        "line_end": 155,
-                        "line_start": 121,
-                        "message": "Configuring now",
-                        "name": "update_artifact",
-                        "notes": "",
-                        "number": 1,
-                        "order": 7,
-                        "outPorts": [
-                            "out"
-                        ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
-                        },
-                        "position": {
-                            "x": 1040,
-                            "y": 240
-                        },
-                        "previous_function": "",
-                        "previous_name": "cf_rba_master_update_artifact_1",
-                        "selectedCustomFunction": {
-                            "description": "Update artifact with a valid json dictionary. See Phantom Artifact REST API for valid dictionary.",
-                            "draftMode": false,
-                            "id": 32,
-                            "inputs": [
-                                {
-                                    "_pretty_custom_function": "update_artifact",
-                                    "contains_type": [
-                                        "*"
-                                    ],
-                                    "custom_function": 32,
-                                    "description": "ID of artifact to update",
-                                    "id": 98,
-                                    "input_type": "item",
-                                    "name": "artifact_id",
-                                    "placeholder": "artifact:id"
-                                },
-                                {
-                                    "_pretty_custom_function": "update_artifact",
-                                    "contains_type": [
-                                        "*"
-                                    ],
-                                    "custom_function": 32,
-                                    "description": "JSON formatted data. See artifact REST api",
-                                    "id": 99,
-                                    "input_type": "item",
-                                    "name": "data",
-                                    "placeholder": "{\"cef\": {JSON} }"
-                                },
-                                {
-                                    "_pretty_custom_function": "update_artifact",
-                                    "contains_type": [
-                                        "*"
-                                    ],
-                                    "custom_function": 32,
-                                    "description": "Optional: Leave blank for False",
-                                    "id": 100,
-                                    "input_type": "item",
-                                    "name": "overwrite",
-                                    "placeholder": "True or blank"
-                                }
-                            ],
-                            "name": "update_artifact",
-                            "outputs": [],
-                            "playbooks": {
-                                "draft_playbooks": [],
-                                "draft_version_id": null,
-                                "playbooks": [
-                                    {
-                                        "active": false,
-                                        "display_path": "rba-master/RBA Investigate - file_hash",
-                                        "draft_mode": false,
-                                        "id": 93,
-                                        "name": "RBA Investigate - file_hash",
-                                        "viewable": true
-                                    },
-                                    {
-                                        "active": false,
-                                        "display_path": "rba-master/RBA Investigate - process",
-                                        "draft_mode": false,
-                                        "id": 102,
-                                        "name": "RBA Investigate - process",
-                                        "viewable": true
-                                    },
-                                    {
-                                        "active": false,
-                                        "display_path": "rba-master/RBA Investigate - domain",
-                                        "draft_mode": false,
-                                        "id": 104,
-                                        "name": "RBA Investigate - domain",
-                                        "viewable": true
-                                    }
-                                ]
-                            },
-                            "scmId": 4,
-                            "scmName": "rba-master"
-                        },
-                        "show_number": false,
-                        "size": {
-                            "height": 100,
-                            "width": 180
-                        },
-                        "state": "repo",
-                        "status": "",
-                        "title": "custom function",
-                        "type": "coa.CustomFunctionBlock",
-                        "userGeneratedCode": "    # Write your custom code here...",
-                        "warn": false,
-                        "z": 84
                     },
                     {
                         "active": false,
@@ -2951,180 +2673,43 @@
                         "z": 101
                     },
                     {
-                        "active": false,
-                        "angle": 0,
                         "attrs": {
-                            ".background": {
-                                "fill": "#000000",
-                                "stroke": "#5C6773"
+                            ".connection": {
+                                "stroke": "#818D99",
+                                "stroke-width": 2
                             },
-                            ".color-band": {
-                                "fill": "#3C444D"
-                            },
-                            ".format": {
-                                "text": "format 2"
-                            },
-                            ".inPorts>.port-in": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".inPorts>.port-in>.port-body": {
-                                "port": {
-                                    "id": "in",
-                                    "type": "in"
-                                }
-                            },
-                            ".message": {
-                                "opacity": 0,
-                                "text": "Configuring now"
-                            },
-                            ".outPorts>.port-out-1": {
-                                "ref": ".background",
-                                "ref-x": 0.5
-                            },
-                            ".outPorts>.port-out-1>.port-body": {
-                                "port": {
-                                    "id": "out-1",
-                                    "type": "out"
-                                }
-                            },
-                            ".title": {
-                                "text": "format"
-                            },
-                            "g.delete": {
-                                "display": "none"
-                            },
-                            "g.error": {
-                                "opacity": 0
-                            },
-                            "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
-                            },
-                            "g.notes": {
-                                "display": "block"
+                            ".marker-target": {
+                                "d": "M 10 0 L 0 5 L 10 10 z",
+                                "fill": "#818D99",
+                                "stroke": "#818D99"
                             }
                         },
-                        "block_code": "def format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('format_2() called')\n    \n    template = \"\"\"%%\nIP address: {0}\n\nVT Detected Communicating Samples: {1}\n\nGeolocated Country: {2}\n\n%%\"\"\"\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"ip_reputation_1:action_result.parameter.ip\",\n        \"ip_reputation_1:action_result.data.*.detected_communicating_samples.*.positives\",\n        \"geolocate_ip_1:action_result.data.*.country_name\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_2\")\n\n    update_event_1(container=container)\n\n    return",
-                        "callback_code": "",
-                        "callback_start": 1,
-                        "callsback": false,
-                        "connected_to_start": true,
-                        "connection_name": "ip reputation, geolocate ip",
-                        "connection_type": "action",
-                        "custom_callback": "",
-                        "custom_code": "",
-                        "custom_join": "",
-                        "custom_name": "",
-                        "description": "",
-                        "format": "format",
-                        "has_custom": false,
-                        "has_custom_block": false,
-                        "has_custom_callback": false,
-                        "has_custom_join": false,
-                        "id": "827ee816-b0e6-4186-a403-54f3bbbaa417",
-                        "inPorts": [
-                            "in"
-                        ],
-                        "join_code": "def join_format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None):\n    phantom.debug('join_format_2() called')\n\n    # check if all connected incoming playbooks, actions, or custom functions are done i.e. have succeeded or failed\n    if phantom.completed(action_names=['ip_reputation_1', 'geolocate_ip_1']):\n        \n        # call connected block \"format_2\"\n        format_2(container=container, handle=handle)\n    \n    return",
-                        "join_optional": [],
-                        "join_start": 257,
-                        "line_end": 268,
-                        "line_start": 232,
-                        "message": "Configuring now",
-                        "name": "format",
-                        "notes": "",
-                        "number": 2,
-                        "order": 11,
-                        "outPorts": [
-                            "out-1"
-                        ],
-                        "parameters": [
-                            {
-                                "position": 0,
-                                "type": "",
-                                "value": "ip_reputation_1:action_result.parameter.ip"
+                        "connector": {
+                            "args": {
+                                "radius": 5
                             },
-                            {
-                                "position": 1,
-                                "type": "",
-                                "value": "ip_reputation_1:action_result.data.*.detected_communicating_samples.*.positives"
-                            },
-                            {
-                                "position": 2,
-                                "type": "",
-                                "value": "geolocate_ip_1:action_result.data.*.country_name"
-                            }
+                            "name": "rounded"
+                        },
+                        "endDirections": [
+                            "left"
                         ],
-                        "ports": {
-                            "groups": {
-                                "in": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "left"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "left"
-                                    }
-                                },
-                                "out": {
-                                    "attrs": {
-                                        ".port-body": {
-                                            "fill": "#fff",
-                                            "magnet": true,
-                                            "r": 10,
-                                            "stroke": "#000"
-                                        },
-                                        ".port-label": {
-                                            "fill": "#000"
-                                        }
-                                    },
-                                    "label": {
-                                        "position": {
-                                            "args": {
-                                                "y": 10
-                                            },
-                                            "name": "right"
-                                        }
-                                    },
-                                    "position": {
-                                        "name": "right"
-                                    }
-                                }
-                            }
+                        "id": "66b15c22-ae2a-4c6f-87ec-028bffc57b36",
+                        "router": {
+                            "name": "metro"
                         },
-                        "position": {
-                            "x": 820,
-                            "y": 440
+                        "source": {
+                            "id": "261f8e4c-f656-4d1a-aad6-df8ba7aa279c",
+                            "selector": "> g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
                         },
-                        "previous_function": "",
-                        "previous_name": "format_2",
-                        "show_number": true,
-                        "size": {
-                            "height": 100,
-                            "width": 180
+                        "startDirections": [
+                            "right"
+                        ],
+                        "target": {
+                            "id": "e407b43e-f3f5-4ae3-9b45-547eb4b1940c",
+                            "selector": "> g:nth-child(1) > g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
                         },
-                        "state": "format",
-                        "status": "",
-                        "template": "%%\nIP address: {0}\n\nVT Detected Communicating Samples: {1}\n\nGeolocated Country: {2}\n\n%%",
-                        "title": "format",
-                        "type": "coa.Format",
-                        "warn": false,
-                        "z": 102
+                        "type": "link",
+                        "z": 104
                     },
                     {
                         "action": "update event",
@@ -3408,6 +2993,10 @@
                             ".title": {
                                 "text": "Generic"
                             },
+                            "g.code image": {
+                                "opacity": 1,
+                                "xlink:href": "/inc/coa/img/block_icon_code_dark_on.svg"
+                            },
                             "g.delete": {
                                 "display": "none"
                             },
@@ -3415,7 +3004,7 @@
                                 "opacity": 0
                             },
                             "g.error image": {
-                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
+                                "xlink:href": "/inc/coa/img/block_icon_error.svg"
                             },
                             "g.icon image": {
                                 "xlink:href": "/inc/coa/img/block_icon_generic.svg"
@@ -3433,13 +3022,13 @@
                         "connection_name": "ip reputation, geolocate ip",
                         "connection_type": "action",
                         "custom_callback": "",
-                        "custom_code": "",
+                        "custom_code": "def update_event_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('update_event_1() called')\n        \n    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))\n    \n    # collect data for 'update_event_1' call\n    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.cef.event_id', 'filtered-data:filter_1:condition_1:artifact:*.id'])\n    formatted_data_1 = phantom.get_format_data(name='format_2')\n\n    parameters = []\n    \n    # build parameters list for 'update_event_1' call\n    #for filtered_artifacts_item_1 in filtered_artifacts_data_1:\n    if filtered_artifacts_data_1[0][0]:\n        parameters.append({\n                'event_ids': filtered_artifacts_data_1[0][0],\n                'owner': \"\",\n                'status': \"in progress\",\n                'integer_status': \"\",\n                'urgency': \"\",\n                'comment': formatted_data_1,\n                'wait_for_confirmation': \"\",\n                # context (artifact id) is added to associate results with the artifact\n                'context': {'artifact_id': filtered_artifacts_data_1[0][1]},\n            })\n\n    phantom.act(action=\"update event\", parameters=parameters, assets=['splunk_es'], name=\"update_event_1\", parent_action=action)\n\n    return",
                         "custom_join": "",
                         "custom_name": "",
                         "delay": 0,
                         "description": "",
                         "has_custom": false,
-                        "has_custom_block": false,
+                        "has_custom_block": true,
                         "has_custom_callback": false,
                         "has_custom_join": false,
                         "id": "261f8e4c-f656-4d1a-aad6-df8ba7aa279c",
@@ -3530,47 +3119,467 @@
                         "status": "",
                         "title": "Generic",
                         "type": "coa.Action",
-                        "warn": "",
-                        "z": 103
+                        "warn": false,
+                        "z": 106
                     },
                     {
+                        "active": false,
+                        "angle": 0,
                         "attrs": {
-                            ".connection": {
-                                "stroke": "#818D99",
-                                "stroke-width": 2
+                            ".background": {
+                                "fill": "#000000",
+                                "stroke": "#5C6773"
                             },
-                            ".marker-target": {
-                                "d": "M 10 0 L 0 5 L 10 10 z",
-                                "fill": "#818D99",
-                                "stroke": "#818D99"
+                            ".color-band": {
+                                "fill": "#3C444D"
+                            },
+                            ".format": {
+                                "text": "format 2"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out-1": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out-1>.port-body": {
+                                "port": {
+                                    "id": "out-1",
+                                    "type": "out"
+                                }
+                            },
+                            ".title": {
+                                "text": "format"
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
                             }
                         },
-                        "connector": {
-                            "args": {
-                                "radius": 5
+                        "block_code": "def format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('format_2() called')\n    \n    template = \"\"\"%%\nArtifact Name: {3}\nIP address: {0}\nVT Detected Communicating Samples: {1}\nGeolocated Country: {2}\n\n%%\"\"\"\n\n    # parameter list for template variable replacement\n    parameters = [\n        \"ip_reputation_1:action_result.parameter.ip\",\n        \"ip_reputation_1:action_result.data.*.detected_communicating_samples.*.positives\",\n        \"geolocate_ip_1:action_result.data.*.country_name\",\n        \"filtered-data:filter_1:condition_1:artifact:*.name\",\n    ]\n\n    phantom.format(container=container, template=template, parameters=parameters, name=\"format_2\")\n\n    update_event_1(container=container)\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": false,
+                        "connected_to_start": true,
+                        "connection_name": "ip reputation, geolocate ip",
+                        "connection_type": "action",
+                        "custom_callback": "",
+                        "custom_code": "",
+                        "custom_join": "",
+                        "custom_name": "",
+                        "description": "",
+                        "format": "format",
+                        "has_custom": false,
+                        "has_custom_block": false,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "827ee816-b0e6-4186-a403-54f3bbbaa417",
+                        "inPorts": [
+                            "in"
+                        ],
+                        "join_code": "def join_format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None):\n    phantom.debug('join_format_2() called')\n\n    # check if all connected incoming playbooks, actions, or custom functions are done i.e. have succeeded or failed\n    if phantom.completed(action_names=['ip_reputation_1', 'geolocate_ip_1']):\n        \n        # call connected block \"format_2\"\n        format_2(container=container, handle=handle)\n    \n    return",
+                        "join_optional": [],
+                        "join_start": 257,
+                        "line_end": 268,
+                        "line_start": 232,
+                        "message": "Configuring now",
+                        "name": "format",
+                        "notes": "",
+                        "number": 2,
+                        "order": 11,
+                        "outPorts": [
+                            "out-1"
+                        ],
+                        "parameters": [
+                            {
+                                "position": 0,
+                                "type": "",
+                                "value": "ip_reputation_1:action_result.parameter.ip"
                             },
-                            "name": "rounded"
-                        },
-                        "endDirections": [
-                            "left"
+                            {
+                                "position": 1,
+                                "type": "",
+                                "value": "ip_reputation_1:action_result.data.*.detected_communicating_samples.*.positives"
+                            },
+                            {
+                                "position": 2,
+                                "type": "",
+                                "value": "geolocate_ip_1:action_result.data.*.country_name"
+                            },
+                            {
+                                "position": 3,
+                                "type": "",
+                                "value": "filtered-data:filter_1:condition_1:artifact:*.name"
+                            }
                         ],
-                        "id": "66b15c22-ae2a-4c6f-87ec-028bffc57b36",
-                        "router": {
-                            "name": "metro"
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
                         },
-                        "source": {
-                            "id": "261f8e4c-f656-4d1a-aad6-df8ba7aa279c",
-                            "selector": "> g:nth-child(1) > g:nth-child(2) > g:nth-child(1) > circle:nth-child(1)"
+                        "position": {
+                            "x": 820,
+                            "y": 440
                         },
-                        "startDirections": [
-                            "right"
+                        "previous_function": "",
+                        "previous_name": "format_2",
+                        "show_number": true,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "format",
+                        "status": "",
+                        "template": "%%\nArtifact Name: {3}\nIP address: {0}\nVT Detected Communicating Samples: {1}\nGeolocated Country: {2}\n\n%%",
+                        "title": "format",
+                        "type": "coa.Format",
+                        "warn": false,
+                        "z": 107
+                    },
+                    {
+                        ".scmName/text": "rba-master",
+                        "active": false,
+                        "active_keys": {},
+                        "active_values": {},
+                        "angle": 0,
+                        "attrs": {
+                            ".background": {
+                                "fill": "#000000",
+                                "stroke": "#5C6773"
+                            },
+                            ".color-band": {
+                                "fill": "#3C444D"
+                            },
+                            ".customFunction": {
+                                "text": "update_artifact"
+                            },
+                            ".inPorts>.port-in": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".inPorts>.port-in>.port-body": {
+                                "port": {
+                                    "id": "in",
+                                    "type": "in"
+                                }
+                            },
+                            ".message": {
+                                "opacity": 0,
+                                "ref-x": 5,
+                                "ref-y": 105,
+                                "text": "Configuring now"
+                            },
+                            ".outPorts>.port-out": {
+                                "ref": ".background",
+                                "ref-x": 0.5
+                            },
+                            ".outPorts>.port-out>.port-body": {
+                                "port": {
+                                    "id": "out",
+                                    "type": "out"
+                                }
+                            },
+                            ".scmName": {
+                                "text": "rba-master"
+                            },
+                            ".title": {
+                                "text": "custom function"
+                            },
+                            ".title-info": {
+                                "text": ""
+                            },
+                            "g.branch image": {
+                                "opacity": 1
+                            },
+                            "g.delete": {
+                                "display": "none"
+                            },
+                            "g.error": {
+                                "opacity": 0
+                            },
+                            "g.error image": {
+                                "xlink:href": "/inc/coa/img/block_icon_warn.svg"
+                            },
+                            "g.notes": {
+                                "display": "block"
+                            }
+                        },
+                        "block_code": "def cf_rba_master_update_artifact_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):\n    phantom.debug('cf_rba_master_update_artifact_1() called')\n    \n    filtered_artifacts_data_0 = phantom.collect2(container=container, datapath=['filtered-data:filter_3:condition_1:artifact:*.id'])\n    literal_values_0 = [\n        [\n            \"{ \\\"cef\\\": {\\\"automation_flag\\\": \\\"true\\\"}}\",\n        ],\n    ]\n\n    parameters = []\n\n    for item0 in literal_values_0:\n        for item1 in filtered_artifacts_data_0:\n            parameters.append({\n                'data': item0[0],\n                'overwrite': None,\n                'artifact_id': item1[0],\n            })\n    ################################################################################\n    ## Custom Code Start\n    ################################################################################\n\n    # Write your custom code here...\n\n    ################################################################################\n    ## Custom Code End\n    ################################################################################    \n\n    # call custom function \"rba-master/update_artifact\", returns the custom_function_run_id\n    phantom.custom_function(custom_function='rba-master/update_artifact', parameters=parameters, name='cf_rba_master_update_artifact_1')\n\n    return",
+                        "callback_code": "",
+                        "callback_start": 1,
+                        "callsback": true,
+                        "cfDisplayPath": "rba-master/update_artifact",
+                        "cfInputs": {
+                            "artifact_id": {
+                                "collectionType": "filtered_artifacts_data",
+                                "dataPath": "filtered-data:filter_3:condition_1:artifact:*.id",
+                                "paramName": "item1[0]",
+                                "type": "item"
+                            },
+                            "data": {
+                                "collectionType": "literal_values",
+                                "dataPath": "{ \"cef\": {\"automation_flag\": \"true\"}}",
+                                "paramName": "item0[0]",
+                                "type": "item"
+                            },
+                            "overwrite": {
+                                "dataPath": "",
+                                "type": "item"
+                            }
+                        },
+                        "color": "",
+                        "connected_to_start": true,
+                        "connection_name": "ip reputation, geolocate ip",
+                        "connection_type": "action",
+                        "currentVersion": true,
+                        "customCodeEndLineOffset": 7,
+                        "customCodeStartLine": 22,
+                        "customFunction": "rba-master/update_artifact",
+                        "customFunctionId": null,
+                        "custom_callback": "",
+                        "custom_code": "",
+                        "custom_join": "",
+                        "custom_name": "",
+                        "delay": 0,
+                        "description": "",
+                        "draftMode": false,
+                        "existingCF": true,
+                        "functionBlock": "custom function",
+                        "has_custom": false,
+                        "has_custom_block": false,
+                        "has_custom_callback": false,
+                        "has_custom_join": false,
+                        "id": "34f7d6ed-78d0-4467-8e41-e6f130d83836",
+                        "inPorts": [
+                            "in"
                         ],
-                        "target": {
-                            "id": "e407b43e-f3f5-4ae3-9b45-547eb4b1940c",
-                            "selector": "> g:nth-child(1) > g:nth-child(1) > g:nth-child(1) > circle:nth-child(1)"
+                        "join_code": "",
+                        "join_optional": [],
+                        "join_start": 1,
+                        "line_end": 155,
+                        "line_start": 121,
+                        "message": "Configuring now",
+                        "name": "update_artifact",
+                        "notes": "",
+                        "number": 1,
+                        "order": 7,
+                        "outPorts": [
+                            "out"
+                        ],
+                        "ports": {
+                            "groups": {
+                                "in": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "left"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "left"
+                                    }
+                                },
+                                "out": {
+                                    "attrs": {
+                                        ".port-body": {
+                                            "fill": "#fff",
+                                            "magnet": true,
+                                            "r": 10,
+                                            "stroke": "#000"
+                                        },
+                                        ".port-label": {
+                                            "fill": "#000"
+                                        }
+                                    },
+                                    "label": {
+                                        "position": {
+                                            "args": {
+                                                "y": 10
+                                            },
+                                            "name": "right"
+                                        }
+                                    },
+                                    "position": {
+                                        "name": "right"
+                                    }
+                                }
+                            }
                         },
-                        "type": "link",
-                        "z": 104
+                        "position": {
+                            "x": 1040,
+                            "y": 240
+                        },
+                        "previous_function": "",
+                        "previous_name": "cf_rba_master_update_artifact_1",
+                        "selectedCustomFunction": {
+                            "description": "Update artifact with a valid json dictionary. See Phantom Artifact REST API for valid dictionary.",
+                            "draftMode": false,
+                            "id": 32,
+                            "inputs": [
+                                {
+                                    "_pretty_custom_function": "update_artifact",
+                                    "contains_type": [
+                                        "*"
+                                    ],
+                                    "custom_function": 32,
+                                    "description": "ID of artifact to update",
+                                    "id": 98,
+                                    "input_type": "item",
+                                    "name": "artifact_id",
+                                    "placeholder": "artifact:id"
+                                },
+                                {
+                                    "_pretty_custom_function": "update_artifact",
+                                    "contains_type": [
+                                        "*"
+                                    ],
+                                    "custom_function": 32,
+                                    "description": "JSON formatted data. See artifact REST api",
+                                    "id": 99,
+                                    "input_type": "item",
+                                    "name": "data",
+                                    "placeholder": "{\"cef\": {JSON} }"
+                                },
+                                {
+                                    "_pretty_custom_function": "update_artifact",
+                                    "contains_type": [
+                                        "*"
+                                    ],
+                                    "custom_function": 32,
+                                    "description": "Optional: Leave blank for False",
+                                    "id": 100,
+                                    "input_type": "item",
+                                    "name": "overwrite",
+                                    "placeholder": "True or blank"
+                                }
+                            ],
+                            "name": "update_artifact",
+                            "outputs": [],
+                            "playbooks": {
+                                "draft_playbooks": [],
+                                "draft_version_id": null,
+                                "playbooks": [
+                                    {
+                                        "active": false,
+                                        "display_path": "rba-master/RBA Investigate - file_hash",
+                                        "draft_mode": false,
+                                        "id": 93,
+                                        "name": "RBA Investigate - file_hash",
+                                        "viewable": true
+                                    },
+                                    {
+                                        "active": false,
+                                        "display_path": "rba-master/RBA Investigate - process",
+                                        "draft_mode": false,
+                                        "id": 102,
+                                        "name": "RBA Investigate - process",
+                                        "viewable": true
+                                    },
+                                    {
+                                        "active": false,
+                                        "display_path": "rba-master/RBA Investigate - domain",
+                                        "draft_mode": false,
+                                        "id": 104,
+                                        "name": "RBA Investigate - domain",
+                                        "viewable": true
+                                    }
+                                ]
+                            },
+                            "scmId": 4,
+                            "scmName": "rba-master"
+                        },
+                        "show_number": false,
+                        "size": {
+                            "height": 100,
+                            "width": 180
+                        },
+                        "state": "repo",
+                        "status": "",
+                        "title": "custom function",
+                        "type": "coa.CustomFunctionBlock",
+                        "userGeneratedCode": "    # Write your custom code here...",
+                        "warn": false,
+                        "z": 108
                     }
                 ]
             },
@@ -3580,7 +3589,7 @@
         "schema": 4,
         "version": "4.9.35731"
     },
-    "create_time": "2020-10-08T01:55:10.562242+00:00",
+    "create_time": "2020-10-08T02:07:27.499969+00:00",
     "draft_mode": false,
     "labels": [
         "*"

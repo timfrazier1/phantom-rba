@@ -211,10 +211,10 @@ def update_event_1(action=None, success=None, container=None, results=None, hand
     parameters = []
     
     # build parameters list for 'update_event_1' call
-    for filtered_artifacts_item_1 in filtered_artifacts_data_1:
-        if filtered_artifacts_item_1[0]:
-            parameters.append({
-                'event_ids': filtered_artifacts_item_1[0],
+    #for filtered_artifacts_item_1 in filtered_artifacts_data_1:
+    if filtered_artifacts_data_1[0][0]:
+        parameters.append({
+                'event_ids': filtered_artifacts_data_1[0][0],
                 'owner': "",
                 'status': "in progress",
                 'integer_status': "",
@@ -222,7 +222,7 @@ def update_event_1(action=None, success=None, container=None, results=None, hand
                 'comment': formatted_data_1,
                 'wait_for_confirmation': "",
                 # context (artifact id) is added to associate results with the artifact
-                'context': {'artifact_id': filtered_artifacts_item_1[1]},
+                'context': {'artifact_id': filtered_artifacts_data_1[0][1]},
             })
 
     phantom.act(action="update event", parameters=parameters, assets=['splunk_es'], name="update_event_1", parent_action=action)
@@ -233,10 +233,9 @@ def format_2(action=None, success=None, container=None, results=None, handle=Non
     phantom.debug('format_2() called')
     
     template = """%%
+Artifact Name: {3}
 IP address: {0}
-
 VT Detected Communicating Samples: {1}
-
 Geolocated Country: {2}
 
 %%"""
@@ -246,6 +245,7 @@ Geolocated Country: {2}
         "ip_reputation_1:action_result.parameter.ip",
         "ip_reputation_1:action_result.data.*.detected_communicating_samples.*.positives",
         "geolocate_ip_1:action_result.data.*.country_name",
+        "filtered-data:filter_1:condition_1:artifact:*.name",
     ]
 
     phantom.format(container=container, template=template, parameters=parameters, name="format_2")
