@@ -51,7 +51,15 @@ def ip_reputation_1(action=None, success=None, container=None, results=None, han
                 'context': {'artifact_id': filtered_artifacts_item_1[1]},
             })
 
-    phantom.act(action="ip reputation", parameters=parameters, assets=['virustotal'], callback=join_filter_2, name="ip_reputation_1")
+    phantom.act(action="ip reputation", parameters=parameters, assets=['virustotal'], callback=ip_reputation_1_callback, name="ip_reputation_1")
+
+    return
+
+def ip_reputation_1_callback(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None):
+    phantom.debug('ip_reputation_1_callback() called')
+    
+    join_filter_2(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
+    join_format_2(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
 
     return
 
@@ -179,8 +187,82 @@ def geolocate_ip_1(action=None, success=None, container=None, results=None, hand
                 'context': {'artifact_id': filtered_artifacts_item_1[1]},
             })
 
-    phantom.act(action="geolocate ip", parameters=parameters, assets=['maxmind'], callback=join_filter_2, name="geolocate_ip_1")
+    phantom.act(action="geolocate ip", parameters=parameters, assets=['maxmind'], callback=geolocate_ip_1_callback, name="geolocate_ip_1")
 
+    return
+
+def geolocate_ip_1_callback(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None):
+    phantom.debug('geolocate_ip_1_callback() called')
+    
+    join_filter_2(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
+    join_format_2(action=action, success=success, container=container, results=results, handle=handle, custom_function=custom_function)
+
+    return
+
+def update_event_1(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('update_event_1() called')
+        
+    #phantom.debug('Action: {0} {1}'.format(action['name'], ('SUCCEEDED' if success else 'FAILED')))
+    
+    # collect data for 'update_event_1' call
+    filtered_artifacts_data_1 = phantom.collect2(container=container, datapath=['filtered-data:filter_1:condition_1:artifact:*.cef.event_id', 'filtered-data:filter_1:condition_1:artifact:*.id'])
+    formatted_data_1 = phantom.get_format_data(name='format_2')
+
+    parameters = []
+    
+    # build parameters list for 'update_event_1' call
+    for filtered_artifacts_item_1 in filtered_artifacts_data_1:
+        if filtered_artifacts_item_1[0]:
+            parameters.append({
+                'event_ids': filtered_artifacts_item_1[0],
+                'owner': "",
+                'status': "in progress",
+                'integer_status': "",
+                'urgency': "",
+                'comment': formatted_data_1,
+                'wait_for_confirmation': "",
+                # context (artifact id) is added to associate results with the artifact
+                'context': {'artifact_id': filtered_artifacts_item_1[1]},
+            })
+
+    phantom.act(action="update event", parameters=parameters, assets=['splunk_es'], name="update_event_1", parent_action=action)
+
+    return
+
+def format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
+    phantom.debug('format_2() called')
+    
+    template = """%%
+IP address: {0}
+
+VT Detected Communicating Samples: {1}
+
+Geolocated Country: {2}
+
+%%"""
+
+    # parameter list for template variable replacement
+    parameters = [
+        "ip_reputation_1:action_result.parameter.ip",
+        "ip_reputation_1:action_result.data.*.detected_communicating_samples.*.positives",
+        "geolocate_ip_1:action_result.data.*.country_name",
+    ]
+
+    phantom.format(container=container, template=template, parameters=parameters, name="format_2")
+
+    update_event_1(container=container)
+
+    return
+
+def join_format_2(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None):
+    phantom.debug('join_format_2() called')
+
+    # check if all connected incoming playbooks, actions, or custom functions are done i.e. have succeeded or failed
+    if phantom.completed(action_names=['ip_reputation_1', 'geolocate_ip_1']):
+        
+        # call connected block "format_2"
+        format_2(container=container, handle=handle)
+    
     return
 
 def on_finish(container, summary):
