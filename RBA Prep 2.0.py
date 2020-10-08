@@ -348,8 +348,8 @@ def format_2(action=None, success=None, container=None, results=None, handle=Non
 
     # parameter list for template variable replacement
     parameters = [
-        "filtered-data:filter_1:condition_1:artifact:*.cef.search_name",
         "container:name",
+        "filtered-data:filter_1:condition_1:artifact:*.cef.risk_object",
     ]
 
     phantom.format(container=container, template=template, parameters=parameters, name="format_2")
