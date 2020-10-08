@@ -293,11 +293,12 @@ def filter_4(action=None, success=None, container=None, results=None, handle=Non
 def format_4(action=None, success=None, container=None, results=None, handle=None, filtered_artifacts=None, filtered_results=None, custom_function=None, **kwargs):
     phantom.debug('format_4() called')
     
-    template = """{{\"threat_object\": \"{0}\", \"threat_object_type\": \"ip\"}}"""
+    template = """{{\"threat_object\": \"{0}\", \"threat_object_type\": \"ip\", \"event_id\": {1}}}"""
 
     # parameter list for template variable replacement
     parameters = [
         "filtered-data:subnet_filter:condition_1:cf_community_regex_extract_ipv4_1:custom_function_result.data.*.ipv4",
+        "filtered-data:filter_5:condition_1:artifact:*.cef.event_id",
     ]
 
     phantom.format(container=container, template=template, parameters=parameters, name="format_4")
@@ -436,12 +437,13 @@ def update_event_1(action=None, success=None, container=None, results=None, hand
     for filtered_artifacts_item_1 in filtered_artifacts_data_1:
         if filtered_artifacts_item_1[0]:
             parameters.append({
-                'event_ids': filtered_artifacts_item_1[0],
                 'owner': "",
                 'status': "in progress",
-                'integer_status': "",
-                'urgency': "",
                 'comment': formatted_data_1,
+                'urgency': "",
+                'event_ids': filtered_artifacts_item_1[0],
+                'integer_status': "",
+                'wait_for_confirmation': "",
                 # context (artifact id) is added to associate results with the artifact
                 'context': {'artifact_id': filtered_artifacts_item_1[1]},
             })
